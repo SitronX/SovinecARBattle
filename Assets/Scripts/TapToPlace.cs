@@ -13,6 +13,7 @@ public class TapToPlace : MonoBehaviour
     public Slider sl;
     public GameObject balista;
     public GameObject musketa;
+    public GameObject ctenar;
     public Dropdown dd;
     public GameObject prefab;
     private GameObject instance;
@@ -53,12 +54,13 @@ public class TapToPlace : MonoBehaviour
         {
             raycastM.Raycast(touchPos1, hits, TrackableType.PlaneWithinPolygon);
             var hitpose = hits[0].pose;
-
+            Vector3 pos = hitpose.position;
+            pos.y = pos.y - 0.6f;
             if(instance==null)
             {
                 Vector3 rotation = FindObjectOfType<Camera>().transform.forward;
                 rotation.y += 180;
-                instance = Instantiate(prefab, hitpose.position, Quaternion.Euler(rotation));
+                instance = Instantiate(prefab, pos, Quaternion.Euler(rotation));
             }
             else
             {
@@ -96,9 +98,14 @@ public class TapToPlace : MonoBehaviour
             prefab = balista;
             Destroy(instance);
         }
-        else
+        else if(dd.captionText.text=="Mušketa")
         {
             prefab = musketa;
+            Destroy(instance);
+        }
+        else if(dd.captionText.text=="Čtenář")
+        {
+            prefab = ctenar;
             Destroy(instance);
         }
     }

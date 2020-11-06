@@ -21,6 +21,7 @@ public class ImageTracking : MonoBehaviour
             
 
             GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            newPrefab.SetActive(false);
             newPrefab.name = prefab.name;
             spawnedPrefabs.Add(prefab.name, newPrefab);
         }
@@ -52,14 +53,21 @@ public class ImageTracking : MonoBehaviour
     }
     private void UpdateImage(ARTrackedImage trackedImage)
     {
+        try
+        {
+            GetComponent<AudioSource>().Play();
+
+        }
+        catch { }
+
         string name = trackedImage.referenceImage.name;
         Vector3 position = trackedImage.transform.position;
         Vector3 rotation = FindObjectOfType<Camera>().transform.forward;
-        rotation.y += 180;
+        //rotation.y += 180;
 
         GameObject prefab = spawnedPrefabs[name];
         prefab.transform.position = position;
-        prefab.transform.rotation = Quaternion.Euler(rotation);
+        prefab.transform.rotation = trackedImage.transform.rotation;
         prefab.SetActive(true);
         /*foreach(GameObject go in spawnedPrefabs.Values)
         {
