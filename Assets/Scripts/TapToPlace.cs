@@ -12,8 +12,14 @@ public class TapToPlace : MonoBehaviour
     // Start is called before the first frame update
     public Slider sl;
     public GameObject balista;
+
     public GameObject musketa;
+
     public GameObject ctenar;
+
+    public GameObject modelHradu;
+    public GameObject scrollerBackground;
+
     public Dropdown dd;
     public GameObject prefab;
     private GameObject instance;
@@ -93,7 +99,9 @@ public class TapToPlace : MonoBehaviour
     }
     public void DropDownChange()
     {
-        if(dd.captionText.text=="Balista")
+        scrollerBackground.SetActive(false);
+
+        if (dd.captionText.text=="Balista")
         {
             prefab = balista;
             Destroy(instance);
@@ -107,6 +115,12 @@ public class TapToPlace : MonoBehaviour
         {
             prefab = ctenar;
             Destroy(instance);
+        }
+        else if(dd.captionText.text=="Model Historie")
+        {
+            prefab = modelHradu;
+            Destroy(instance);
+            scrollerBackground.SetActive(true);
         }
     }
     public void SliderChange()

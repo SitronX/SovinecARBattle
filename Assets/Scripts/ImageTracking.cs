@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 [RequireComponent(typeof(ARTrackedImageManager))]
 public class ImageTracking : MonoBehaviour
@@ -12,14 +13,18 @@ public class ImageTracking : MonoBehaviour
     public Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
     private ARTrackedImageManager trackedImageManager;
 
+
+
     private void Awake()
     {
         trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
 
-        foreach(GameObject prefab in placeablePrefabs)
+
+
+        foreach (GameObject prefab in placeablePrefabs)
         {
             
-
+            
             GameObject newPrefab = Instantiate(prefab, Vector3.zero, Quaternion.identity);
             newPrefab.SetActive(false);
             newPrefab.name = prefab.name;
@@ -53,22 +58,24 @@ public class ImageTracking : MonoBehaviour
     }
     private void UpdateImage(ARTrackedImage trackedImage)
     {
-        try
-        {
-            GetComponent<AudioSource>().Play();
-
-        }
-        catch { }
-
+        
         string name = trackedImage.referenceImage.name;
-        Vector3 position = trackedImage.transform.position;
-        Vector3 rotation = FindObjectOfType<Camera>().transform.forward;
-        //rotation.y += 180;
+
+        /*if(!spawnedPrefabs[name].activeSelf)
+        {
+            GameObject prefab = spawnedPrefabs[name];
+            prefab.transform.position = trackedImage.transform.position;
+            prefab.transform.rotation = trackedImage.transform.rotation;
+            prefab.SetActive(true);
+
+        }*/
+
 
         GameObject prefab = spawnedPrefabs[name];
-        prefab.transform.position = position;
-        prefab.transform.rotation = trackedImage.transform.rotation;
+        prefab.transform.position = Vector3.Lerp(prefab.transform.position, trackedImage.transform.position, 0.02f);
+        prefab.transform.rotation = Quaternion.Lerp(prefab.transform.rotation, trackedImage.transform.rotation, 0.02f);
         prefab.SetActive(true);
+
         /*foreach(GameObject go in spawnedPrefabs.Values)
         {
             if(go.name!=name)
