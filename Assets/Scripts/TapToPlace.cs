@@ -121,6 +121,7 @@ public class TapToPlace : MonoBehaviour
             prefab = modelHradu;
             Destroy(instance);
             scrollerBackground.SetActive(true);
+
         }
     }
     public void SliderChange()

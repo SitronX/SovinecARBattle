@@ -16,7 +16,7 @@ public class Subtitle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.transform.LookAt(cam.transform);
+        txt.transform.rotation = Quaternion.LookRotation(txt.transform.position-cam.transform.position);
     }
 
     public void SubtitleTimes()
