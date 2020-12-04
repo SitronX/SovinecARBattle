@@ -24,6 +24,7 @@ public class ScrollerButtonClick : MonoBehaviour
         if (model == null) return;
 
         model.GetComponent<Anim1643>().MainAnimStart();
+        model.GetComponent<Subtitle>().SubtitleTimes();
 
     }
 }

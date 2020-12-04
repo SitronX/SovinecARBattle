@@ -14,26 +14,28 @@ public class Anim1643 : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public void MainAnimStart()
     {
+        StopAllCoroutines();
         gameObject.GetComponent<Animator>().SetTrigger("1643trigger");
 
 
         //Defending ARMY-------------------------------------------------------------------------
 
+        StartCoroutine(SoldierAttack(DefendingArmy[0], 0));
         StartCoroutine(SoldierDie(DefendingArmy[0], 25));
 
+        StartCoroutine(SoldierAttack(DefendingArmy[2], 0));
         StartCoroutine(SoldierDie(DefendingArmy[2], 29));
 
+        StartCoroutine(SoldierAttack(DefendingArmy[3], 0));
         StartCoroutine(SoldierDie(DefendingArmy[3], 37));
 
+        StartCoroutine(SoldierAttack(DefendingArmy[4], 0));
         StartCoroutine(SoldierDie(DefendingArmy[4], 23));
 
+        
 
         StartCoroutine(SoldierIdle(DefendingArmy[5], 0));
         StartCoroutine(SoldierAttack(DefendingArmy[5], 20));
@@ -73,28 +75,11 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //ATTACKING ARMY----------------------------------------------------------------------------
 
         StartCoroutine(CannonShot(cannonCrew, 9));
 
+        StartCoroutine(SoldierWalk(AttackingArmy[0], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[0], 20));
         StartCoroutine(SoldierWalk(AttackingArmy[0], 26));
         StartCoroutine(SoldierAttack(AttackingArmy[0], 28));
@@ -103,11 +88,11 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[1], 0));
         StartCoroutine(SoldierDie(AttackingArmy[1], 7));
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[2], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[2], 21));
         StartCoroutine(SoldierWalk(AttackingArmy[2], 25));
         StartCoroutine(SoldierAttack(AttackingArmy[2], 35));
@@ -115,20 +100,23 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[3], 0));
         StartCoroutine(SoldierDie(AttackingArmy[3], 4));
 
+        StartCoroutine(SoldierWalk(AttackingArmy[4], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[4], 19));
         StartCoroutine(SoldierAttack(AttackingArmy[4], 25));
         StartCoroutine(SoldierDie(AttackingArmy[4], 33));
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[5], 0));
         StartCoroutine(SoldierDie(AttackingArmy[5], 7));
 
+        StartCoroutine(SoldierWalk(AttackingArmy[6], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[6], 17));
         StartCoroutine(SoldierDie(AttackingArmy[6], 25));
 
+        StartCoroutine(SoldierWalk(AttackingArmy[7], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[7], 16));
         StartCoroutine(SoldierAttack(AttackingArmy[7], 20));
         StartCoroutine(SoldierDie(AttackingArmy[7], 22));
@@ -139,7 +127,7 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[8], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[8], 18));
         StartCoroutine(SoldierAttack(AttackingArmy[8], 23));
         StartCoroutine(SoldierWalk(AttackingArmy[8], 30));
@@ -150,7 +138,7 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[9], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[9], 12));
         StartCoroutine(SoldierAttack(AttackingArmy[9], 20));
         StartCoroutine(SoldierWalk(AttackingArmy[9], 23));
@@ -160,27 +148,11 @@ public class Anim1643 : MonoBehaviour
 
 
 
-
+        StartCoroutine(SoldierWalk(AttackingArmy[10], 0));
         StartCoroutine(SoldierClimb(AttackingArmy[10], 15));
         StartCoroutine(SoldierWalk(AttackingArmy[10], 23));
         StartCoroutine(SoldierAttack(AttackingArmy[10], 26));
         StartCoroutine(SoldierDie(AttackingArmy[10], 33));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -218,6 +190,9 @@ public class Anim1643 : MonoBehaviour
     }
     IEnumerator CannonShot(GameObject obj, int seconds)
     {
+        obj.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Walk");
+
+
         yield return new WaitForSeconds(seconds);
 
         obj.transform.GetChild(0).gameObject.transform.GetChild(0).GetComponent<Animator>().SetTrigger("Attack");
