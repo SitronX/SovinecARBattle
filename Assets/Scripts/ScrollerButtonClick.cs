@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class ScrollerButtonClick : MonoBehaviour
 {
     // Start is called before the first frame update
     public UnityEngine.UI.Button button;
+
+    public Subtitle subtitleToEnable;
+    public Animator animationToPlay;
 
     void Start()
     {
@@ -24,7 +28,19 @@ public class ScrollerButtonClick : MonoBehaviour
         if (model == null) return;
 
         model.GetComponent<Anim1643>().MainAnimStart();
-        model.GetComponent<Subtitle>().SubtitleTimes();
+        try
+        {
+            subtitleToEnable.SubtitleTimes();
+        }
+        catch { Console.WriteLine("Nebyly nalezeny titulky"); }
+        try
+        {
+            animationToPlay.SetTrigger("Start");
+        }
+        catch
+        {
+            Console.WriteLine("Nebyl nalezen animator");
+        }
 
     }
 }

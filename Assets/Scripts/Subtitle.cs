@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,11 +7,18 @@ using UnityEngine;
 public class Subtitle : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshPro txt;
-    public Camera cam;
+     TextMeshPro txt;
+     Camera cam;
+    private Animator anim;
+
+    public List<string> subtitles;
+    public List<int> timing;
     void Start()
     {
         cam = GameObject.Find("AR Camera").GetComponent<Camera>();
+        txt = GetComponent<TextMeshPro>();
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -21,18 +29,26 @@ public class Subtitle : MonoBehaviour
 
     public void SubtitleTimes()
     {
-        StartCoroutine(ChangeText("1643", 0));
-        StartCoroutine(ChangeFontSize(12, 5));
-        StartCoroutine(ChangeText("16.9.1643-7.10.1643 došlo k bitvì se švédskými vojsky", 5));
-        StartCoroutine(ChangeText("Obrana hradu nevydržela nápor útoèících vojsk a hrad byl dobyt", 11));
-        StartCoroutine(ChangeText("Až do roku 1650 švédská vojska tento hrad držela", 17));
+        StopAllCoroutines();
 
+        for(int i=0;i<subtitles.Count;i++)
+        {
+            StartCoroutine(ChangeText(subtitles[i],timing[i]));
+
+        }
+
+
+        
 
     }
 
     IEnumerator ChangeText(string text,int time)
     {
         yield return new WaitForSeconds(time);
+
+        anim.SetTrigger("Fade");
+        yield return new WaitForSeconds(1);
+
         txt.text = text;
     }
     IEnumerator ChangeFontSize(int size, int time)
