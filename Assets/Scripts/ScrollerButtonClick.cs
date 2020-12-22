@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class ScrollerButtonClick : MonoBehaviour
@@ -10,6 +11,8 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public Subtitle subtitleToEnable;
     public Animator animationToPlay;
+
+    public GameObject objectToStart;        //Script with method named method "StartMethod" for added script logic
 
     void Start()
     {
@@ -24,10 +27,8 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public void OnMyButtonClick()
     {
-        GameObject model = GameObject.Find("Model1");
-        if (model == null) return;
+        
 
-        model.GetComponent<Anim1643>().MainAnimStart();
         try
         {
             subtitleToEnable.SubtitleTimes();
@@ -41,6 +42,18 @@ public class ScrollerButtonClick : MonoBehaviour
         {
             Console.WriteLine("Nebyl nalezen animator");
         }
+
+        
+        try
+        {
+            objectToStart.GetComponent<Zari>().StartMethod();
+        }
+        catch
+        { 
+            Console.WriteLine("Objekt neobsahuje funkci StartMethod");
+        }
+
+        
 
     }
 }
