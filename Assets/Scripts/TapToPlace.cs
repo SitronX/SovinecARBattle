@@ -26,6 +26,7 @@ public class TapToPlace : MonoBehaviour
     private ARRaycastManager raycastM;
     private Vector2 touchPos;
 
+
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private void Awake()

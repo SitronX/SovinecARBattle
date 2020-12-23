@@ -3,20 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScrollerButtonClick : MonoBehaviour
 {
     // Start is called before the first frame update
-    public UnityEngine.UI.Button button;
+    
 
-    public Subtitle subtitleToEnable;
-    public Animator animationToPlay;
-
-    public GameObject objectToStart;        //Script with method named method "StartMethod" for added script logic
+   
+    public string dayName;
+    public string objectToStartName;
 
     void Start()
     {
-        button.onClick.AddListener(OnMyButtonClick);
+        this.GetComponent<Button>().onClick.AddListener(OnMyButtonClick);
     }
 
     // Update is called once per frame
@@ -27,16 +27,21 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public void OnMyButtonClick()
     {
-        
+        GameObject obj= GameObject.Find(dayName);
+
+        if (obj == null) return;
 
         try
         {
-            subtitleToEnable.SubtitleTimes();
+            obj.transform.Find("Subtitle").GetComponent<Subtitle>().SubtitleTimes();
         }
-        catch { Console.WriteLine("Nebyly nalezeny titulky"); }
+        catch
+        {
+            Console.WriteLine("Nebyly nalezeny titulky");
+        }    
         try
         {
-            animationToPlay.SetTrigger("Start");
+            obj.GetComponent<Animator>().SetTrigger("Start");
         }
         catch
         {
@@ -46,7 +51,7 @@ public class ScrollerButtonClick : MonoBehaviour
         
         try
         {
-            objectToStart.GetComponent<Zari>().StartMethod();
+             GameObject.Find(objectToStartName).GetComponent<Zari>().StartMethod();
         }
         catch
         { 
