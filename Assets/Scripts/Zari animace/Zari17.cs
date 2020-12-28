@@ -24,7 +24,7 @@ public class Zari17 : Zari
     }
     IEnumerator AnimStart()
     {
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(27);
         animator.SetTrigger("Tower");
 
 
