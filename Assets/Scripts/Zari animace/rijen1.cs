@@ -35,7 +35,7 @@ public class rijen1 : Zari
 
     IEnumerator FinishDay()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(19);
 
         foreach (Transform i in castle.transform)
         {

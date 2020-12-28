@@ -13,6 +13,7 @@ public class ScrollerButtonClick : MonoBehaviour
    
     public string dayName;
     public string objectToStartName;
+    public string subtitleToStartName;
 
     void Start()
     {
@@ -27,13 +28,13 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public void OnMyButtonClick()
     {
-        GameObject obj= GameObject.Find(dayName);
+        
 
-        if (obj == null) return;
+        
 
         try
         {
-            obj.transform.Find("Subtitle").GetComponent<Subtitle>().SubtitleTimes();
+            GameObject.Find(subtitleToStartName).GetComponent<Subtitle>().SubtitleTimes();
         }
         catch
         {
@@ -41,7 +42,7 @@ public class ScrollerButtonClick : MonoBehaviour
         }    
         try
         {
-            obj.GetComponent<Animator>().SetTrigger("Start");
+            GameObject.Find(dayName).GetComponent<Animator>().SetTrigger("Start");
         }
         catch
         {
