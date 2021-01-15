@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
@@ -66,12 +67,19 @@ public class TapToPlace : MonoBehaviour
             if(instance==null)
             {
                 Vector3 rotation = FindObjectOfType<Camera>().transform.forward;
-                rotation.y += 180;
+                //rotation.y += 180;                                                //Tohleto odkomentovat. Zatim zde jen kvuli tomu ze se posere teren pri rotaci
                 instance = Instantiate(prefab, pos, Quaternion.Euler(rotation));
+                ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       //Tyto radky smazat
+                foreach(var i in tmp.trackables)                                                                //Tyto radky smazat
+                {                                                                                               //Tyto radky smazat
+                    i.gameObject.SetActive(false);
+                }
+                tmp.enabled = false;
+
             }
             else
             {
-                instance.transform.position = hitpose.position;
+                //instance.transform.position = hitpose.position;       //Odkomentovat
             }
                 
         }
@@ -79,10 +87,10 @@ public class TapToPlace : MonoBehaviour
         {
             if(instance!=null)
             {
-                Vector3 rotation = instance.transform.rotation.eulerAngles;
-                rotation.y += 5;
-
-                instance.transform.rotation = Quaternion.Euler(rotation);
+                //Vector3 rotation = instance.transform.rotation.eulerAngles;         //odkomentovat
+                //rotation.y += 5;                                                    //odkomentovat
+                                                                                      //odkomentovat
+                //instance.transform.rotation = Quaternion.Euler(rotation);           //odkomentovat
             }
             
             
@@ -116,12 +124,16 @@ public class TapToPlace : MonoBehaviour
         {
             prefab = ctenar;
             Destroy(instance);
+
+            
         }
         else if(dd.captionText.text=="Model Historie")
         {
             prefab = modelHradu;
             Destroy(instance);
             scrollerBackground.SetActive(true);
+            
+
 
         }
     }
