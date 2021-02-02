@@ -27,6 +27,8 @@ public class TapToPlace : MonoBehaviour
     private ARRaycastManager raycastM;
     private Vector2 touchPos;
 
+    public bool planesEnabled = true;
+
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -63,34 +65,26 @@ public class TapToPlace : MonoBehaviour
             raycastM.Raycast(touchPos1, hits, TrackableType.PlaneWithinPolygon);
             var hitpose = hits[0].pose;
             Vector3 pos = hitpose.position;
-            pos.y = pos.y - 0.6f;
             if(instance==null)
-            {
-                Vector3 rotation = FindObjectOfType<Camera>().transform.forward;
-                //rotation.y += 180;                                                //Tohleto odkomentovat. Zatim zde jen kvuli tomu ze se posere teren pri rotaci
-                instance = Instantiate(prefab, pos, Quaternion.Euler(rotation));
-                ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       //Tyto radky smazat
-                foreach(var i in tmp.trackables)                                                                //Tyto radky smazat
-                {                                                                                               //Tyto radky smazat
-                    i.gameObject.SetActive(false);
-                }
-                tmp.enabled = false;
+            {                                            
+                instance = Instantiate(prefab, pos, hitpose.rotation);
 
             }
             else
             {
-                //instance.transform.position = hitpose.position;       //Odkomentovat
+                instance.transform.position = hitpose.position;       
             }
                 
         }
         else
         {
+                                   //Odkomentovat k otaceni
             if(instance!=null)
             {
-                //Vector3 rotation = instance.transform.rotation.eulerAngles;         //odkomentovat
-                //rotation.y += 5;                                                    //odkomentovat
-                                                                                      //odkomentovat
-                //instance.transform.rotation = Quaternion.Euler(rotation);           //odkomentovat
+                Vector3 rotation = instance.transform.rotation.eulerAngles;         
+                rotation.y += 5;                                                    
+                                                                                    
+                instance.transform.rotation = Quaternion.Euler(rotation);           
             }
             
             
@@ -142,6 +136,34 @@ public class TapToPlace : MonoBehaviour
         float val = sl.value / 100 * 0.05f;
         
         GetComponent<ImageTracking>().spawnedPrefabs["fire"].transform.localScale = new Vector3(val+0.01f, val, val);
+    }
+
+    public void ChangePlanes()
+    {
+        if(planesEnabled)
+        {
+            planesEnabled = false;
+
+            ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       
+            foreach (var i in tmp.trackables)                                                               
+            {                                                                                               
+                i.gameObject.SetActive(false);
+            }
+            tmp.enabled = false;
+            
+        }
+        else
+        {
+            planesEnabled = true;
+
+            ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
+            tmp.enabled = true;
+            foreach (var i in tmp.trackables)
+            {
+                i.gameObject.SetActive(true);
+            }
+            
+        }
     }
 
 }
