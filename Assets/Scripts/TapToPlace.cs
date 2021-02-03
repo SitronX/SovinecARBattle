@@ -81,10 +81,7 @@ public class TapToPlace : MonoBehaviour
                                    //Odkomentovat k otaceni
             if(instance!=null)
             {
-                Vector3 rotation = instance.transform.rotation.eulerAngles;         
-                rotation.y += 5;                                                    
-                                                                                    
-                instance.transform.rotation = Quaternion.Euler(rotation);           
+                instance.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
             }
             
             

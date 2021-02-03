@@ -13,6 +13,8 @@ public class Subtitle : MonoBehaviour
 
     public List<string> subtitles;
     public List<int> timing;
+
+    public static List<Subtitle> allSubtitles = new List<Subtitle>();
     void Start()
     {
         cam = GameObject.Find("AR Camera").GetComponent<Camera>();
@@ -21,6 +23,8 @@ public class Subtitle : MonoBehaviour
         canvasSubtitle = tmp.GetComponent<TextMeshProUGUI>();
         anim = tmp.GetComponent<Animator>();
 
+        allSubtitles.Add(this);
+
     }
 
     // Update is called once per frame
@@ -28,7 +32,10 @@ public class Subtitle : MonoBehaviour
 
     public void SubtitleTimes()
     {
-        StopAllCoroutines();
+        foreach(Subtitle i in allSubtitles)
+        {
+            i.StopAllCoroutines();
+        }
 
         for(int i=0;i<subtitles.Count;i++)
         {

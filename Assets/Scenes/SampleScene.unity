@@ -3645,16 +3645,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280666488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3623, y: 1.4188, z: 1}
+  m_LocalScale: {x: 1.3622999, y: 1.4188, z: 1}
   m_Children: []
   m_Father: {fileID: 244481731}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3, y: 387.7}
+  m_AnchoredPosition: {x: -2.999883, y: 387.69894}
   m_SizeDelta: {x: 1255.108, y: 425.948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1280666490
@@ -5657,7 +5657,7 @@ MonoBehaviour:
   balista: {fileID: 1202121741619991946, guid: 58496d35c93f9774f9872e0b5c666f22, type: 3}
   musketa: {fileID: 225305128411707750, guid: 55989e3afd124f8439a53d6768536355, type: 3}
   ctenar: {fileID: 1380549336898556127, guid: fa8094b9e3d626544b6e789047ae1eea, type: 3}
-  modelHradu: {fileID: 6840654167894181334, guid: 5c729853bf467cf438b8a31f208f470e,
+  modelHradu: {fileID: 5316881529240440720, guid: 5c729853bf467cf438b8a31f208f470e,
     type: 3}
   scrollerBackground: {fileID: 1495061970}
   dd: {fileID: 1213021113}
