@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zari17 : Zari
+public class Zari17 : MonoBehaviour,Zari
 {
     // Start is called before the first frame update
-    public Animator animator;
+    public Animator attackingAnimator;
+    public Animator defendingAnimator;
+    public Animator defaultAnimator;
     void Start()
     {
         
@@ -17,16 +19,14 @@ public class Zari17 : Zari
         
     }
 
-    override
+    
     public void StartMethod()
     {
-        StartCoroutine(AnimStart());
+        attackingAnimator.SetTrigger("17zari");
+        defendingAnimator.SetTrigger("17zari");
+        defaultAnimator.SetTrigger("17zari");
     }
-    IEnumerator AnimStart()
-    {
-        yield return new WaitForSeconds(27);
-        animator.SetTrigger("Tower");
 
-
-    }
+ 
+   
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class rijen1 : Zari
+public class rijen1 : MonoBehaviour,Zari
 {
     // Start is called before the first frame update
     public Material transMat;
@@ -12,7 +12,7 @@ public class rijen1 : Zari
 
     private GameObject castle;
 
-    override
+    
     public void StartMethod()
     {
         animator.SetTrigger("Start");
