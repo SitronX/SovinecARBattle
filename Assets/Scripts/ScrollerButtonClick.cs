@@ -12,47 +12,18 @@ public class ScrollerButtonClick : MonoBehaviour
 
    
     public string dayName;
-    public string objectToStartName;
-    public string subtitleToStartName;
 
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(OnMyButtonClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnMyButtonClick()
     {
-        
-
-        
-
+   
         try
         {
-            GameObject.Find(subtitleToStartName).GetComponent<Subtitle>().SubtitleTimes();
-        }
-        catch
-        {
-            Console.WriteLine("Nebyly nalezeny titulky");
-        }    
-        try
-        {
-            GameObject.Find(dayName).GetComponent<Animator>().SetTrigger("Start");
-        }
-        catch
-        {
-            Console.WriteLine("Nebyl nalezen animator");
-        }
-
-        
-        try
-        {
-             GameObject.Find(objectToStartName).GetComponent<Zari>().StartMethod();
+             GameObject.Find(dayName).GetComponent<AnimDay>().StartMethod();
         }
         catch
         { 

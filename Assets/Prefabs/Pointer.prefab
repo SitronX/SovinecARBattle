@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 7025512609683070550}
   m_Layer: 0
   m_Name: Pointer
-  m_TagString: Untagged
+  m_TagString: Pointer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1304,6 +1304,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7025512609683070551}
     m_Modifications:
+    - target: {fileID: 6143099533137317512, guid: 07588db7d0272d44097389835442dd22,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6143099533137317513, guid: 07588db7d0272d44097389835442dd22,
         type: 3}
       propertyPath: m_Pivot.x
