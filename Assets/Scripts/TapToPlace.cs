@@ -67,7 +67,7 @@ public class TapToPlace : MonoBehaviour
             Vector3 pos = hitpose.position;
             if(instance==null)
             {                                            
-                instance = Instantiate(prefab, pos, hitpose.rotation);
+                instance = Instantiate(prefab, pos, hitpose.rotation);              //Change it back to hitpose.rotation
 
             }
             else

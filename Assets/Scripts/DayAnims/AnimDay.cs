@@ -13,6 +13,10 @@ public class AnimDay : MonoBehaviour
 
     public List<Animator> animatorArrowToLaunch = new List<Animator>();
     public List<int> animatorArrowTimes = new List<int>();
+
+    public List<Animator> animatorToLaunch = new List<Animator>();
+    public List<int> animatorTimes = new List<int>();
+    public List<string> animatorTriggers = new List<string>();
     public void StartMethod()
     {
         try
@@ -37,11 +41,23 @@ public class AnimDay : MonoBehaviour
         {
             try
             {
-                StartCoroutine(StartAnimation(i, animatorArrowTimes[animatorArrowToLaunch.IndexOf(i)]));
+                StartCoroutine(StartAnimation(i, animatorArrowTimes[animatorArrowToLaunch.IndexOf(i)],"Start"));
             }
             catch
             {
                 Debug.LogError("Nekompatibilni animator");
+            }
+        }
+
+        foreach(Animator i in animatorToLaunch)
+        {
+            try
+            {
+                StartCoroutine(StartAnimation(i, animatorTimes[animatorToLaunch.IndexOf(i)], animatorTriggers[animatorToLaunch.IndexOf(i)]));
+            }
+            catch
+            {
+                Debug.LogError("Špatný animator, nebo jméno triggeru");
             }
         }
 
@@ -57,11 +73,11 @@ public class AnimDay : MonoBehaviour
         
     }
 
-    IEnumerator StartAnimation(Animator arrowAnim,int time)
+    IEnumerator StartAnimation(Animator arrowAnim,int time,string command)
     {
         yield return new WaitForSeconds(time);
 
-        arrowAnim.SetTrigger("Start");
+        arrowAnim.SetTrigger(command);
     }
 
 }
