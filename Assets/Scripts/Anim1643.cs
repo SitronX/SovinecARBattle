@@ -154,7 +154,7 @@ public class Anim1643 : MonoBehaviour
         StartCoroutine(SoldierAttack(AttackingArmy[10], 26));
         StartCoroutine(SoldierDie(AttackingArmy[10], 33));
 
-
+        
 
     }
 

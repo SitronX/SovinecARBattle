@@ -31,10 +31,12 @@ public class TapToPlace : MonoBehaviour
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    private ARAnchorManager anchors;
 
     private void Awake()
     {
-        raycastM = GetComponent<ARRaycastManager>(); 
+        raycastM = GetComponent<ARRaycastManager>();
+        anchors = this.GetComponent<ARAnchorManager>();
     }
     int TryGetTouchPosition(out Vector2 touchPos)
     {
@@ -67,12 +69,15 @@ public class TapToPlace : MonoBehaviour
             Vector3 pos = hitpose.position;
             if(instance==null)
             {                                            
-                instance = Instantiate(prefab, pos, hitpose.rotation);              //Change it back to hitpose.rotation
+                instance = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(0,0,0)));      //hitpose.rotation
+
+                ARAnchor anchor = anchors.AddAnchor(new Pose(hitpose.position, Quaternion.Euler(new Vector3(0, 0, 0))));
+                instance.transform.parent = anchor.transform;
 
             }
             else
             {
-                instance.transform.position = hitpose.position;       
+                //instance.transform.position = hitpose.position;           //Odkomentovat pro presouvani pozice
             }
                 
         }
@@ -82,12 +87,14 @@ public class TapToPlace : MonoBehaviour
             if(instance!=null)
             {
                 instance.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
+                
             }
             
             
         }
         
     }
+
     public void Shot()
     {
         try
