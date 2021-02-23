@@ -68,7 +68,9 @@ public class TapToPlace : MonoBehaviour
             var hitpose = hits[0].pose;
             Vector3 pos = hitpose.position;
             if(instance==null)
-            {                                            
+            {
+                prefab = modelHradu;        //Toto odkomentovat
+
                 instance = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(0,0,0)));      //hitpose.rotation
 
                 ARAnchor anchor = anchors.AddAnchor(new Pose(hitpose.position, Quaternion.Euler(new Vector3(0, 0, 0))));
