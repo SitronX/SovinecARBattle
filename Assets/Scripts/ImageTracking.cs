@@ -11,17 +11,18 @@ public class ImageTracking : MonoBehaviour
     [SerializeField]
     private GameObject[] placeablePrefabs;
     public Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
-    private ARTrackedImageManager trackedImageManager;
+    public GameObject spawnedObject;
+    public ARTrackedImageManager trackedImageManager;
 
 
 
     private void Awake()
     {
-        trackedImageManager = FindObjectOfType<ARTrackedImageManager>();
+        
 
 
 
-        foreach (GameObject prefab in placeablePrefabs)
+        /*foreach (GameObject prefab in placeablePrefabs)
         {
             
             
@@ -29,7 +30,7 @@ public class ImageTracking : MonoBehaviour
             newPrefab.SetActive(false);
             newPrefab.name = prefab.name;
             spawnedPrefabs.Add(prefab.name, newPrefab);
-        }
+        }*/
     }
     private void OnEnable()
     {
@@ -51,30 +52,40 @@ public class ImageTracking : MonoBehaviour
         {
             UpdateImage(trackedImage);
         }
-        foreach (ARTrackedImage trackedImage in eventArgs.removed)
-        {
-            spawnedPrefabs[trackedImage.name].SetActive(false);
-        }
+        
     }
     private void UpdateImage(ARTrackedImage trackedImage)
     {
-        
+        /*
         string name = trackedImage.referenceImage.name;
 
-        /*if(!spawnedPrefabs[name].activeSelf)
-        {
-            GameObject prefab = spawnedPrefabs[name];
-            prefab.transform.position = trackedImage.transform.position;
-            prefab.transform.rotation = trackedImage.transform.rotation;
-            prefab.SetActive(true);
 
-        }*/
-
-
+            
         GameObject prefab = spawnedPrefabs[name];
-        prefab.transform.position = Vector3.Lerp(prefab.transform.position, trackedImage.transform.position, 0.02f);
-        prefab.transform.rotation = Quaternion.Lerp(prefab.transform.rotation, trackedImage.transform.rotation, 0.02f);
+
+
+        
+        prefab.transform.position = trackedImage.transform.position;
+        prefab.transform.rotation = trackedImage.transform.rotation;
         prefab.SetActive(true);
+
+        prefab.transform.parent = trackedImage.gameObject.transform;
+
+        */
+
+        if(spawnedObject==null)
+        {
+            spawnedObject= Instantiate(placeablePrefabs[0], trackedImage.transform.position, trackedImage.transform.rotation);
+            spawnedObject.transform.parent = trackedImage.gameObject.transform;
+        }
+
+
+            
+
+     
+
+
+        
 
         /*foreach(GameObject go in spawnedPrefabs.Values)
         {

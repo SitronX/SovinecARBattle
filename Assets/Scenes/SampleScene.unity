@@ -2291,6 +2291,7 @@ GameObject:
   - component: {fileID: 839196526}
   - component: {fileID: 839196525}
   - component: {fileID: 839196524}
+  - component: {fileID: 839196527}
   m_Layer: 5
   m_Name: Button (6)
   m_TagString: Untagged
@@ -2315,7 +2316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 855, y: -273}
+  m_AnchoredPosition: {x: 636, y: -737.0001}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839196524
@@ -2362,10 +2363,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 839196527}
+        m_TargetAssemblyTypeName: HelperScript, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2412,6 +2413,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839196522}
   m_CullTransparentMesh: 0
+--- !u!114 &839196527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839196522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026fc74d646adc446941e02797975a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &868708725
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,6 +4459,7 @@ GameObject:
   - component: {fileID: 1480426144}
   - component: {fileID: 1480426143}
   - component: {fileID: 1480426142}
+  - component: {fileID: 1480426145}
   m_Layer: 5
   m_Name: Button (5)
   m_TagString: Untagged
@@ -4470,7 +4484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 855, y: -114}
+  m_AnchoredPosition: {x: 636, y: -578}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1480426142
@@ -4517,10 +4531,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1480426145}
+        m_TargetAssemblyTypeName: HelperScript, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4567,6 +4581,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480426140}
   m_CullTransparentMesh: 0
+--- !u!114 &1480426145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480426140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026fc74d646adc446941e02797975a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1495061970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5917,8 +5943,8 @@ GameObject:
   - component: {fileID: 1855517208}
   - component: {fileID: 1855517210}
   - component: {fileID: 1855517209}
-  - component: {fileID: 1855517211}
   - component: {fileID: 1855517212}
+  - component: {fileID: 1855517211}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -5961,14 +5987,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855517204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 11400000, guid: 4d42471626147414f9e7fc115c4af309,
     type: 2}
-  m_MaxNumberOfMovingImages: 2
+  m_MaxNumberOfMovingImages: 0
   m_TrackedImagePrefab: {fileID: 0}
 --- !u!114 &1855517208
 MonoBehaviour:
@@ -5977,7 +6003,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855517204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
@@ -5992,7 +6018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855517204}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5bf57c26c158b3479e51eca45e73b63, type: 3}
   m_Name: 
@@ -6027,15 +6053,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855517204}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4203028fbdd912248881dd00e7ae77dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   placeablePrefabs:
-  - {fileID: 1000010823978654, guid: 3228a22491941734bb83ad691d17fcb9, type: 3}
-  - {fileID: 7390148047247788363, guid: 839ebcd9672bdcd469a405bcb64cc1f1, type: 3}
-  - {fileID: 1380549336898556127, guid: fa8094b9e3d626544b6e789047ae1eea, type: 3}
+  - {fileID: 7584099874108146646, guid: 9e0b9329e72048c4fa8cc7a5dbaa0b9a, type: 3}
+  spawnedObject: {fileID: 0}
+  trackedImageManager: {fileID: 1855517207}
 --- !u!114 &1855517212
 MonoBehaviour:
   m_ObjectHideFlags: 0
