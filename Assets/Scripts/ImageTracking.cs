@@ -11,7 +11,7 @@ public class ImageTracking : MonoBehaviour
     [SerializeField]
     private GameObject[] placeablePrefabs;
     public Dictionary<string, GameObject> spawnedPrefabs = new Dictionary<string, GameObject>();
-    public GameObject spawnedObject;
+    private GameObject spawnedObject;
     public ARTrackedImageManager trackedImageManager;
 
 

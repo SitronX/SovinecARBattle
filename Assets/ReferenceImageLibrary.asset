@@ -19,29 +19,9 @@ MonoBehaviour:
       m_GuidLow: 5066827024836123517
       m_GuidHigh: 11835066512163061917
     m_SerializedTextureGuid:
-      m_GuidLow: 6410023214425880307
-      m_GuidHigh: 436893934193639624
-    m_Size: {x: 0.3, y: 0.22500001}
+      m_GuidLow: 5085777407295995081
+      m_GuidHigh: 14580674530416439722
+    m_Size: {x: 0.2, y: 0.2}
     m_SpecifySize: 1
-    m_Name: holder
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4990209726230154454
-      m_GuidHigh: 11811199451742591409
-    m_SerializedTextureGuid:
-      m_GuidLow: 14111058644248548276
-      m_GuidHigh: 12822883490015830362
-    m_Size: {x: 0.5, y: 0.60562974}
-    m_SpecifySize: 1
-    m_Name: fire
-    m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4906988174940312552
-      m_GuidHigh: 17814857919120465809
-    m_SerializedTextureGuid:
-      m_GuidLow: 15259494828497517427
-      m_GuidHigh: 5037875414061960265
-    m_Size: {x: 0.2, y: 0.23377001}
-    m_SpecifySize: 1
-    m_Name: CivilianTest
-    m_Texture: {fileID: 0}
+    m_Name: sheep
+    m_Texture: {fileID: 2800000, guid: 3895bcc94f9b4694aab10ed33bf658ca, type: 3}

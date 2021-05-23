@@ -13,8 +13,11 @@ public class Subtitle : MonoBehaviour
 
     public List<string> subtitles;
     public List<int> timing;
+    public AudioClip currentAudio;
+    public float currentAudioDelay;
 
     public static List<Subtitle> allSubtitles = new List<Subtitle>();
+    public static List<AudioSource> allAudios = new List<AudioSource>();
     void Start()
     {
         cam = GameObject.Find("AR Camera").GetComponent<Camera>();
@@ -36,6 +39,15 @@ public class Subtitle : MonoBehaviour
         {
             i.StopAllCoroutines();
         }
+        foreach(AudioSource i in allAudios)
+        {
+            i.Stop();
+        }
+
+
+
+        
+
 
         for(int i=0;i<subtitles.Count;i++)
         {
@@ -44,8 +56,26 @@ public class Subtitle : MonoBehaviour
         }
 
 
-        
+        StartCoroutine(PlayAudio(currentAudioDelay));
 
+
+    }
+    IEnumerator PlayAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        AudioSource audioSource = this.gameObject.AddComponent<AudioSource>();
+
+        try
+        {
+            audioSource.clip = currentAudio;
+        }
+        catch
+        {
+
+        }
+        audioSource.Play();
+        allAudios.Add(audioSource);
     }
 
     IEnumerator ChangeText(string text,int time)
