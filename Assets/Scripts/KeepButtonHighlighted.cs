@@ -9,6 +9,7 @@ public class KeepButtonHighlighted : MonoBehaviour
     // Start is called before the first frame update
     private EventSystem eventS;
     private GameObject lastSelected = null;
+    private bool locked = false;
 
     // Update is called once per frame
 
@@ -21,14 +22,24 @@ public class KeepButtonHighlighted : MonoBehaviour
     
     private void Update()           //EventSystem bohuzel neobsahuje delegata onSelectionChange nebo neco podobneho, proto takto hnusne
     {
-        if (eventS.currentSelectedGameObject != null)
+        if(lastSelected!=null)
         {
-            lastSelected = eventS.currentSelectedGameObject;
+            if(!locked)
+            {
+                eventS.SetSelectedGameObject(lastSelected);
+            }
         }
-        else
-        {
-            eventS.SetSelectedGameObject(lastSelected);
-        }
+          
+            
+
+        
+    }
+    public void MakeSelectionChange(GameObject i)
+    {
+        locked = true;
+        lastSelected = i;
+        eventS.SetSelectedGameObject(lastSelected);
+        locked = false;
     }
 
 

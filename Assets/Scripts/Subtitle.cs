@@ -13,7 +13,9 @@ public class Subtitle : MonoBehaviour
 
     public List<string> subtitles;
     public List<int> timing;
-    public AudioClip currentAudio;
+    public AudioClip currentAudioClip;
+    [HideInInspector]
+    public AudioSource currentAudioSource;
     public float currentAudioDelay;
 
     public static List<Subtitle> allSubtitles = new List<Subtitle>();
@@ -64,18 +66,23 @@ public class Subtitle : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        AudioSource audioSource = this.gameObject.AddComponent<AudioSource>();
+        currentAudioSource = this.gameObject.AddComponent<AudioSource>();
 
         try
         {
-            audioSource.clip = currentAudio;
+            currentAudioSource.clip = currentAudioClip;
         }
         catch
         {
 
         }
-        audioSource.Play();
-        allAudios.Add(audioSource);
+        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //If game was is muted
+        if (temp.audioMuted)
+        {
+            currentAudioSource.volume = 0;
+        }
+        currentAudioSource.Play();
+        allAudios.Add(currentAudioSource);
     }
 
     IEnumerator ChangeText(string text,int time)

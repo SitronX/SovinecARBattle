@@ -31,6 +31,8 @@ public class AnimDay : MonoBehaviour
             lastAnimDay = this;
 
             StartCoroutine(Launching());
+
+            
         }
         else
         {
@@ -100,6 +102,12 @@ public class AnimDay : MonoBehaviour
         {
             Debug.LogError("Armady neobsahuji urcity den");
         }
+
+        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //If game was paused and user selected another day, animation will start and UI button will change appeareance
+        if (temp.animationsPaused)
+        {
+            temp.AnimationRecover();
+        }
     }
 
     public void StopMethod()
@@ -142,6 +150,80 @@ public class AnimDay : MonoBehaviour
         
 
       
+    }
+    public void PauseMethod()
+    {
+        try
+        {
+            this.GetComponent<Animator>().speed = 0;
+        }
+        catch
+        {
+            Console.WriteLine("Nebyl nalezen animator");
+        }
+
+
+
+        foreach (Animator i in animatorArrowToLaunch)
+        {
+            try
+            {
+                i.speed = 0;
+            }
+            catch
+            {
+                Debug.LogError("Nekompatibilni animator");
+            }
+        }
+
+        foreach (Animator i in animatorToLaunch)
+        {
+            try
+            {
+                i.speed = 0;
+            }
+            catch
+            {
+                Debug.LogError("Špatný animator, nebo jméno triggeru");
+            }
+        }
+    }
+    public void ResumeMethod()
+    {
+        try
+        {
+            this.GetComponent<Animator>().speed = 1;
+        }
+        catch
+        {
+            Console.WriteLine("Nebyl nalezen animator");
+        }
+
+
+
+        foreach (Animator i in animatorArrowToLaunch)
+        {
+            try
+            {
+                i.speed = 1;
+            }
+            catch
+            {
+                Debug.LogError("Nekompatibilni animator");
+            }
+        }
+
+        foreach (Animator i in animatorToLaunch)
+        {
+            try
+            {
+                i.speed = 1;
+            }
+            catch
+            {
+                Debug.LogError("Špatný animator, nebo jméno triggeru");
+            }
+        }
     }
 
     IEnumerator StartAnimation(Animator arrowAnim,int time,string command)
