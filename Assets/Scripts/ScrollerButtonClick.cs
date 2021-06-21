@@ -37,8 +37,25 @@ public class ScrollerButtonClick : MonoBehaviour
              GameObject.Find(dayName).GetComponent<AnimDay>().StartMethod();
         }
         catch
-        { 
-            Console.WriteLine("Objekt neobsahuje funkci StartMethod");
+        {
+            try
+            {
+                AnimDay.lastAnimDay.StopAllCoroutines();
+                AnimDay.lastAnimDay.StopMethod();
+                foreach (AudioSource i in Subtitle.allAudios)
+                {
+                    i.Stop();
+                }
+                foreach (Subtitle i in Subtitle.allSubtitles)
+                {
+                    i.StopAllCoroutines();
+                }
+            }
+            catch
+            {
+
+            }
+           
         }
 
         if (nextDayDelay > 0 && nextButton != null)

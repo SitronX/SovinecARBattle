@@ -18,7 +18,7 @@ public class AnimDay : MonoBehaviour
     public List<int> animatorTimes = new List<int>();
     public List<string> animatorTriggers = new List<string>();
 
-    private static AnimDay lastAnimDay = null;
+    public static AnimDay lastAnimDay = null;
 
 
     public void StartMethod()
