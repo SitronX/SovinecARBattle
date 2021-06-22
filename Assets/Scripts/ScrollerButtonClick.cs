@@ -75,7 +75,8 @@ public class ScrollerButtonClick : MonoBehaviour
 
         yield return new WaitForSeconds(nextDayDelay);
 
-        nextButton.GetComponent<Button>().Select();
+        GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(nextButton);
+
         nextButton.GetComponent<ScrollerButtonClick>().OnMyButtonClick();
 
         

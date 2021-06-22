@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Transactions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,32 +12,39 @@ using UnityEngine.XR.ARSubsystems;
 public class TapToPlace : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Slider sl;
-    public GameObject balista;
+   
 
-    public GameObject musketa;
 
-    public GameObject ctenar;
-
-    public GameObject modelHradu;
-    public GameObject scrollerBackground;
-
-    public Dropdown dd;
+    public TMPro.TMP_Dropdown dd;
     public GameObject prefab;
     private GameObject instance;
     private ARRaycastManager raycastM;
     private Vector2 touchPos;
 
-    public bool planesEnabled = true;
+    
+
+    public static bool planesEnabled = true;
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private ARAnchorManager anchors;
 
+    private void OnEnable()
+    {
+        planesEnabled = false;
+        ChangePlanes();
+    }
+    private void OnDisable()
+    {
+        Destroy(instance);
+    }
+
     private void Awake()
     {
         raycastM = GetComponent<ARRaycastManager>();
         anchors = this.GetComponent<ARAnchorManager>();
+
+        
     }
     int TryGetTouchPosition(out Vector2 touchPos)
     {
@@ -69,17 +77,18 @@ public class TapToPlace : MonoBehaviour
             Vector3 pos = hitpose.position;
             if(instance==null)
             {
-                prefab = modelHradu;        //Toto odkomentovat
 
-                instance = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(0,0,0)));      //hitpose.rotation
+                //instance = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(0,0,0)));      //hitpose.rotation
+                instance = Instantiate(prefab, pos, hitpose.rotation);
 
-                ARAnchor anchor = anchors.AddAnchor(new Pose(hitpose.position, Quaternion.Euler(new Vector3(0, 0, 0))));
+                ARAnchor anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
                 instance.transform.parent = anchor.transform;
-
+                Physics.gravity = new Vector3(pos.x,pos.y-9.81f,pos.z);  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
+                                                                         //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit
             }
             else
             {
-                //instance.transform.position = hitpose.position;           //Odkomentovat pro presouvani pozice
+                instance.transform.position = hitpose.position;          
             }
                 
         }
@@ -97,54 +106,11 @@ public class TapToPlace : MonoBehaviour
         
     }
 
-    public void Shot()
-    {
-        try
-        {
-            instance.GetComponent<Animator>().SetTrigger("trigger");
+    
+  
+   
 
-        }
-        catch { }
-    }
-    public void DropDownChange()
-    {
-        scrollerBackground.SetActive(false);
-
-        if (dd.captionText.text=="Balista")
-        {
-            prefab = balista;
-            Destroy(instance);
-        }
-        else if(dd.captionText.text=="Mušketa")
-        {
-            prefab = musketa;
-            Destroy(instance);
-        }
-        else if(dd.captionText.text=="Čtenář")
-        {
-            prefab = ctenar;
-            Destroy(instance);
-
-            
-        }
-        else if(dd.captionText.text=="Model Historie")
-        {
-            prefab = modelHradu;
-            Destroy(instance);
-            scrollerBackground.SetActive(true);
-            
-
-
-        }
-    }
-    public void SliderChange()
-    {
-        float val = sl.value / 100 * 0.05f;
-        
-        GetComponent<ImageTracking>().spawnedPrefabs["fire"].transform.localScale = new Vector3(val+0.01f, val, val);
-    }
-
-    public void ChangePlanes()
+    public static void ChangePlanes()
     {
         if(planesEnabled)
         {

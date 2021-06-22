@@ -39,7 +39,7 @@ public class ImageTracking : MonoBehaviour
     private void OnDisable()
     {
         trackedImageManager.trackedImagesChanged -= ImageChanged;
-
+        Destroy(spawnedObject);
     }
 
     private void ImageChanged(ARTrackedImagesChangedEventArgs eventArgs)
@@ -53,6 +53,10 @@ public class ImageTracking : MonoBehaviour
             UpdateImage(trackedImage);
         }
         
+    }
+    public void TapToPlaceEnable()
+    {
+        this.GetComponent<TapToPlace>().enabled = true;
     }
     private void UpdateImage(ARTrackedImage trackedImage)
     {
@@ -77,6 +81,9 @@ public class ImageTracking : MonoBehaviour
         {
             spawnedObject= Instantiate(placeablePrefabs[0], trackedImage.transform.position, trackedImage.transform.rotation);
             spawnedObject.transform.parent = trackedImage.gameObject.transform;
+
+            Physics.gravity = new Vector3(trackedImage.transform.position.x, trackedImage.transform.position.y-9.81f, trackedImage.transform.position.z);   //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
+                                                                                                                                                            //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit
         }
 
 
