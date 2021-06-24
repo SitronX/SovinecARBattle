@@ -103,7 +103,7 @@ public class AnimDay : MonoBehaviour
             Debug.LogError("Armady neobsahuji urcity den");
         }
 
-        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //If game was paused and user selected another day, animation will start and UI button will change appeareance
+        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //Kdyz byla hra pauznuta a uzivatel vybral spusteni jineho dne, UI tlacitko se zmeni a animace se spusti
         if (temp.animationsPaused)
         {
             temp.AnimationRecover();

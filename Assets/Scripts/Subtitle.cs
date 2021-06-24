@@ -32,7 +32,7 @@ public class Subtitle : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+   
 
 
     public void SubtitleTimes()
@@ -76,7 +76,7 @@ public class Subtitle : MonoBehaviour
         {
 
         }
-        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //If game was is muted
+        UIGameLogic temp = GameObject.Find("UiButtons").GetComponent<UIGameLogic>();            //If game is muted
         if (temp.audioMuted)
         {
             currentAudioSource.volume = 0;

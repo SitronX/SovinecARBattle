@@ -17,7 +17,11 @@ public class TapToPlace : MonoBehaviour
 
     public TMPro.TMP_Dropdown dd;
     public GameObject prefab;
+    public GameObject gravityPrefab;
+
     private GameObject instance;
+    private GameObject gravityCenter;
+
     private ARRaycastManager raycastM;
     private Vector2 touchPos;
 
@@ -28,6 +32,7 @@ public class TapToPlace : MonoBehaviour
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
     private ARAnchorManager anchors;
+    private ARAnchor anchor;
 
     private void OnEnable()
     {
@@ -37,6 +42,7 @@ public class TapToPlace : MonoBehaviour
     private void OnDisable()
     {
         Destroy(instance);
+        Destroy(gravityCenter);
     }
 
     private void Awake()
@@ -63,7 +69,6 @@ public class TapToPlace : MonoBehaviour
     }
     
 
-    // Update is called once per frame
     void Update()
     {
         if(TryGetTouchPosition(out Vector2 touchPos)==0) 
@@ -78,32 +83,33 @@ public class TapToPlace : MonoBehaviour
             if(instance==null)
             {
 
-                //instance = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(0,0,0)));      //hitpose.rotation
                 instance = Instantiate(prefab, pos, hitpose.rotation);
+                gravityCenter=Instantiate(gravityPrefab, pos, hitpose.rotation);
 
-                ARAnchor anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
+                anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
                 instance.transform.parent = anchor.transform;
-                Physics.gravity = new Vector3(pos.x,pos.y-9.81f,pos.z);  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
-                                                                         //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit
+                gravityCenter.transform.parent = anchor.transform;
+
+
+                gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
+                Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
+                                                                         //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
+                
             }
             else
             {
-                instance.transform.position = hitpose.position;          
+                anchor.transform.position = hitpose.position;          
             }
                 
         }
         else
-        {
-                                   //Odkomentovat k otaceni
+        {                                 
             if(instance!=null)
             {
-                instance.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
+                anchor.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
                 
-            }
-            
-            
-        }
-        
+            }         
+        }       
     }
 
     
@@ -121,8 +127,7 @@ public class TapToPlace : MonoBehaviour
             {                                                                                               
                 i.gameObject.SetActive(false);
             }
-            tmp.enabled = false;
-            
+            tmp.enabled = false;            
         }
         else
         {
