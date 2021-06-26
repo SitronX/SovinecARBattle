@@ -32,11 +32,11 @@ static Il2CppMethodPointer s_methodPointers[5] =
 };
 static const int32_t s_InvokerIndices[5] = 
 {
-	3772,
-	3772,
-	3772,
-	3772,
-	3772,
+	3773,
+	3773,
+	3773,
+	3773,
+	3773,
 };
 extern const CustomAttributesCacheGenerator g_Unity_TerrainTools_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_TerrainTools_CodeGenModule;
