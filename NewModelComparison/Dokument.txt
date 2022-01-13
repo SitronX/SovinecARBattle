@@ -1,0 +1,58 @@
+-Pro komprimaci byl pouzit planar compression v blenderu, protoze model ma nove texturu, a planar comprese v blenderu umoznuje zachovat vrcholy ktere pouziva uv (textura) po vybrani spravneho nastaveni, pri smazani dulezitych vrcholu pouzivaneho texturami by model hradu vypadal skarede a byl roztazeny. 
+
+Docela jsem experimentoval s uhlem teto komprese a nakonec jsem se rozhodl pro 20° kompresi (tzn, ze vsechny vedlejsi vedlejsi plochy ktere jsou k prave aktivni plose pod uhlem 20 stupnu jsou slouceny do jedne plochy), která mi pripadla pravdepodobne nejvhodnejsi(kvalita X pocet vrcholu) . Na prilozenych obrazcich by melo byt patrne, proc k tomuto rozhodnuti doslo. 
+
+Tato planar komprese je idealni na rovne plochy jako jsou louky, na lesy uz moc ucinna nebyla. Model jsem rozdelil na vice casti a lesy jsou komprimovany jak pomoci planar komprese, tak i pomoci collapse komprese. Textura lesu je vesmes jednobarevna, proto artefatky nejsou videt a vysledny mesh tak skoro neztraci na kvalite (respektive ztraci, ale jedna se o nedulezitou cast). Proto je temer na vsechny casti krome hradu pouzita dvojita komprese. Prvne planar komprese, kde dojde ke zbaveni zbytecnych vrcholu kde je misto vesmes rovne a pak se teren komprimuje collapse rezimem.
+
+-Prilozene snimky v blenderu lehce zkresluji pocet stran, protoze pri exportu do unity musi byt model slozeny z trojuhelniku, jinak se spravne nezobrazi. Pri prevodu na trojuhelnikovy model se pocet vrcholu nezmenil, ale narostl pocet stran.
+
+-Diry nachazejici se na louce byly vyplneny v blenderu. Byly ovsem zatim vyplneny tak jak jsou zobrazeny v dodane texture, cili tmavymi misty (nevim jestli to tak ma byt. Opravdu textura odpovida realnemu modelu a jsou v realnem modelu tyto cerne kruhy? Protoze v texture tyto tmave kruhy jsou.). Tyto tmave mista se muzou kdyztak doupravit, pokud to ma vypadat jinak...
+
+-Stale zbyva vytvorit spravne pozadi, protoze model obsahuje mezery a diry, ktere nejdou tak lehce vyplnit jako diry jiz vyplnene na louce. Budu taky jeste muset vymyslet reseni jak lepe spojit celkovy model, protoze komprimace lehce narusila strukturu terenu, a tak uz nejde model spojit tak dobre jako v originalu a prechody jednotlivych casti jsou vice ocividne.
+
+-Silna komprimace zapricinila obcasne zmeny a zjednoduseni terenu. Divak ale nebude pravdepodobne teren pozorovat z takove blizky, proto si myslim, ze vysledny pridany vykon vychazi ve vysledku daleko lepe, nez o lehce lepsi a strukturovanejsi teren. Pokud by divak chtel pozorovat model z blizky, bude zamerovat pravdepodobne na hrad, kde byla druha komprese vynechana a vesmes je komprimovany hrad totozny s puvodnim.
+
+-S novym modelem bylo znovu zvetsene meritko svedske armady, puvodni velikost armady, novemu velkemu modelu nedostacovala. Proto byl pocet vojaku zvetsen zhruba o 280 jednotek.
+
+-Z duvodu velmi velkeho zjednoduseni terenu, se naskyta moznost pohyb vojaku nasimulovat fyzikalnimi collidery a usetrit tak cas, ktery by se musel vynalozit do rucni prepisovani animace a napasovani na novy teren. Je treba ovsem zjistit jak moc jednotlive collidery zatezuji procesor, a jestli ma cenu jit touto cestou. Pokud by se ukazalo, ze je tato cesta mozna, doslo by ke znacnemu usetreni casu.
+
+
+
+Vysledky komprimace:
+
+Hrad:
+	puvodne: 
+		-201 000 vrcholu
+		-112 MB (obj)
+	komprimovane: 
+		-45 000 vrcholu
+		-5 MB (fbx)
+		
+
+Pole:
+	puvodne: 
+		-138 000 vrcholu
+		-75 MB (obj)
+	komprimovane: 
+		-15 000 vrcholu
+		-2 MB (fbx)
+Les:
+	puvodne: 
+		-767 000 vrcholu
+		-439 MB (obj)
+	komprimovane: 
+		-51 000 vrcholu
+		-6.7 MB (fbx)
+
+CELKEM-------------------------
+	puvodne: 
+		-1 106 000 vrcholu
+		-626 MB (obj)
+	komprimovane:
+		-111 000 vrcholu
+		-13.7 MB (fbx)
+	
+Komprimacni pomer: 
+		-10.03% puvodnich vrcholu
+		-2.188% puvodni velikosti (MB)
+	
