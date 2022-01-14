@@ -18,6 +18,12 @@ public class AnimDay : MonoBehaviour
     public List<int> animatorTimes = new List<int>();
     public List<string> animatorTriggers = new List<string>();
 
+    public List<GameObject> objectsToEnable = new List<GameObject>();
+    public List<float> objectsToEnableTimes = new List<float>();
+
+    public List<GameObject> objectsToDisable = new List<GameObject>();
+    public List<float> objectsToDisableTimes = new List<float>();
+
     public static AnimDay lastAnimDay = null;
 
 
@@ -90,6 +96,30 @@ public class AnimDay : MonoBehaviour
             catch
             {
                 Debug.LogError("Špatný animator, nebo jméno triggeru");
+            }
+        }
+
+        foreach (GameObject i in objectsToEnable)
+        {
+            try
+            {
+                StartCoroutine(ChangeObjectState(i, objectsToEnableTimes[objectsToEnable.IndexOf(i)], true));
+            }
+            catch
+            {
+                Debug.LogError("Nelze aktivovat objekt");
+            }
+        }
+
+        foreach (GameObject i in objectsToDisable)
+        {
+            try
+            {
+                StartCoroutine(ChangeObjectState(i, objectsToDisableTimes[objectsToDisable.IndexOf(i)], false));
+            }
+            catch
+            {
+                Debug.LogError("Nelze vypnout objekt");
             }
         }
 
@@ -231,6 +261,13 @@ public class AnimDay : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         arrowAnim.SetTrigger(command);
+    }
+
+    IEnumerator ChangeObjectState(GameObject obj,float time,bool value)
+    {
+        yield return new WaitForSeconds(time);
+
+        obj.SetActive(value);
     }
 
 }
