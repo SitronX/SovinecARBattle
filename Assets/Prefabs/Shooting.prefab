@@ -4947,7 +4947,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15.3
+      scalar: 15
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -5384,15 +5384,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
-    angle: 0
+    type: 5
+    angle: 5.3
     length: 0.12
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0
+    radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 0, z: 2.5}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 10, y: 1, z: 5}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -5471,7 +5471,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 3.64
+      value: 3.97
       mode: 0
       spread: 0
       speed:
@@ -5528,7 +5528,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 180
       mode: 0
       spread: 0
       speed:
@@ -5700,7 +5700,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 200
+        scalar: 100
         minScalar: 200
         maxCurve:
           serializedVersion: 2
@@ -6271,8 +6271,8 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: -4
+      scalar: 2
+      minScalar: -2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6341,8 +6341,8 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: -4
+      scalar: 2
+      minScalar: -2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9572,7 +9572,7 @@ Transform:
   m_GameObject: {fileID: 6039544012078804672}
   m_LocalRotation: {x: 0.04155748, y: -0.000000007450581, z: -7.712515e-10, w: 0.9991361}
   m_LocalPosition: {x: 1137.1642, y: 492.1444, z: -12363.961}
-  m_LocalScale: {x: 499.99994, y: 500, z: 499.99982}
+  m_LocalScale: {x: 499.9999, y: 500, z: 499.9998}
   m_Children:
   - {fileID: 6043123970753927644}
   - {fileID: 6043123970771330288}
@@ -10062,15 +10062,15 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 5
     angle: 28.2
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 0
+    radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 10, y: 1, z: 10}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -10206,7 +10206,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 184.1
+      value: 360
       mode: 0
       spread: 0
       speed:
