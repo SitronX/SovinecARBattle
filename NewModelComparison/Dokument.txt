@@ -1,4 +1,4 @@
--Pro komprimaci byl pouzit planar compression v blenderu, protoze model ma nove texturu, a planar comprese v blenderu umoznuje zachovat vrcholy ktere pouziva uv (textura) po vybrani spravneho nastaveni, pri smazani dulezitych vrcholu pouzivaneho texturami by model hradu vypadal skarede a byl roztazeny. 
+-Pro komprimaci byl pouzit planar compression v blenderu, protoze model ma nove texturu, a planar comprese v blenderu umoznuje zachovat vrcholy ktere pouzive texturou (pri vybrani spravneho nastaveni), pri smazani dulezitych vrcholu pouzivaneho texturami by model hradu vypadal skarede a byl roztazeny. 
 
 Docela jsem experimentoval s uhlem teto komprese a nakonec jsem se rozhodl pro 20° kompresi (tzn, ze vsechny vedlejsi vedlejsi plochy ktere jsou k prave aktivni plose pod uhlem 20 stupnu jsou slouceny do jedne plochy), která mi pripadla pravdepodobne nejvhodnejsi(kvalita X pocet vrcholu) . Na prilozenych obrazcich by melo byt patrne, proc k tomuto rozhodnuti doslo. 
 
