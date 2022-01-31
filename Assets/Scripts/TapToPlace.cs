@@ -27,7 +27,7 @@ public class TapToPlace : MonoBehaviour
 
     
 
-    public static bool planesEnabled = true;
+    public static bool planesEnabled = false;
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -37,7 +37,7 @@ public class TapToPlace : MonoBehaviour
     private void OnEnable()
     {
         planesEnabled = false;
-        ChangePlanes();
+        ChangePlanes(planesEnabled);
     }
     private void OnDisable()
     {
@@ -116,31 +116,19 @@ public class TapToPlace : MonoBehaviour
   
    
 
-    public static void ChangePlanes()
+    public static void ChangePlanes(bool val)
     {
-        if(planesEnabled)
-        {
-            planesEnabled = false;
+        
+        planesEnabled = val;
 
-            ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       
-            foreach (var i in tmp.trackables)                                                               
-            {                                                                                               
-                i.gameObject.SetActive(false);
-            }
-            tmp.enabled = false;            
+        ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       
+        foreach (var i in tmp.trackables)                                                               
+        {                                                                                               
+            i.gameObject.SetActive(val);
         }
-        else
-        {
-            planesEnabled = true;
-
-            ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
-            tmp.enabled = true;
-            foreach (var i in tmp.trackables)
-            {
-                i.gameObject.SetActive(true);
-            }
-            
-        }
+        tmp.enabled = val;            
+      
+        
     }
 
 }

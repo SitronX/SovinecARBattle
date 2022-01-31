@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,11 +12,13 @@ public class DropDownSwitch : MonoBehaviour
     public TapToPlace tapToPlaceScript;
     public ImageTracking imageTrackingScript;
 
+    public Action<bool> planeDetection;
+
 
     public void DropDownChange()
     {
 
-        if (dd.captionText.text == "Rozpoznání vzoru")
+        if (dd.captionText.text == "RozpoznÃ¡nÃ­ vzoru")
         {
             foreach (Subtitle i in Subtitle.allSubtitles)
             {
@@ -31,12 +33,14 @@ public class DropDownSwitch : MonoBehaviour
 
             tapToPlaceScript.enabled = false;
             imageTrackingScript.enabled = true;
-            
-            TapToPlace.planesEnabled = true;
-            TapToPlace.ChangePlanes();
+
+            TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
+            TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
+
+            planeDetection?.Invoke(false);
 
         }
-        else if (dd.captionText.text == "Umístìní na rovinu")
+        else if (dd.captionText.text == "UmÃ­stÄ›nÃ­ na rovinu")
         {
             foreach (Subtitle i in Subtitle.allSubtitles)
             {
@@ -52,8 +56,10 @@ public class DropDownSwitch : MonoBehaviour
             imageTrackingScript.enabled = false;
             tapToPlaceScript.enabled = true;
 
-            TapToPlace.planesEnabled = false;
-            TapToPlace.ChangePlanes();
+            TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
+            TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
+
+            planeDetection?.Invoke(true);
 
         }
 

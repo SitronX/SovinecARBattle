@@ -57,6 +57,30 @@ public class AnimDay : MonoBehaviour
 
         yield return null;              //Pockani na dalsi snimek, aby mely animatory cas reagovat (Vsechny probihajici animace z minula se vypnou, pak jeden snimek na odpocinek a pak se zapnou nove animace)
 
+        foreach (GameObject i in objectsToEnable)
+        {
+            try
+            {
+                StartCoroutine(ChangeObjectState(i, objectsToEnableTimes[objectsToEnable.IndexOf(i)], true));
+            }
+            catch
+            {
+                Debug.LogError("Nelze aktivovat objekt");
+            }
+        }
+
+        foreach (GameObject i in objectsToDisable)
+        {
+            try
+            {
+                StartCoroutine(ChangeObjectState(i, objectsToDisableTimes[objectsToDisable.IndexOf(i)], false));
+            }
+            catch
+            {
+                Debug.LogError("Nelze vypnout objekt");
+            }
+        }
+
         try
         {
             this.GetComponent<Animator>().SetTrigger("Start");
@@ -99,29 +123,7 @@ public class AnimDay : MonoBehaviour
             }
         }
 
-        foreach (GameObject i in objectsToEnable)
-        {
-            try
-            {
-                StartCoroutine(ChangeObjectState(i, objectsToEnableTimes[objectsToEnable.IndexOf(i)], true));
-            }
-            catch
-            {
-                Debug.LogError("Nelze aktivovat objekt");
-            }
-        }
-
-        foreach (GameObject i in objectsToDisable)
-        {
-            try
-            {
-                StartCoroutine(ChangeObjectState(i, objectsToDisableTimes[objectsToDisable.IndexOf(i)], false));
-            }
-            catch
-            {
-                Debug.LogError("Nelze vypnout objekt");
-            }
-        }
+        
 
         try
         {

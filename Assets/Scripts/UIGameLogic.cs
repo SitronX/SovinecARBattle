@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIGameLogic : MonoBehaviour
 {
@@ -8,9 +9,19 @@ public class UIGameLogic : MonoBehaviour
 
     public  bool animationsPaused = false;
     public  bool audioMuted = false;
+    public  bool gridActive = true;
     public Animator audioAnimator;
     public Animator pauseAnimator;
-    
+    [SerializeField] private Button gridButton;
+    public Animator gridAnimator;
+
+    [SerializeField] private DropDownSwitch dds;
+
+    private void OnEnable()
+    {
+        dds.planeDetection += PlaneChange;
+    }
+
     public void AudioStateChange()
     {
         if(!audioMuted)
@@ -41,6 +52,31 @@ public class UIGameLogic : MonoBehaviour
             pauseAnimator.SetTrigger("SwitchState");
             AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
             Time.timeScale = 1;
+        }
+    }
+    public void PlaneChange(bool val)
+    {
+        if(TapToPlace.planesEnabled)
+        {
+            gridButton.interactable = true;
+        }
+        else
+        {
+            gridButton.interactable = false;
+        }  
+    }
+    public void HidePlanes()
+    {
+        TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
+
+        if(TapToPlace.planesEnabled)
+        {
+            gridAnimator.SetTrigger("GridOn");
+        }
+        else
+        {
+            gridAnimator.SetTrigger("GridOff");
+
         }
     }
     public void AnimationRecover()
