@@ -34,6 +34,8 @@ public class TapToPlace : MonoBehaviour
     private ARAnchorManager anchors;
     private ARAnchor anchor;
 
+    public Action inputDetected;
+
     private void OnEnable()
     {
         planesEnabled = false;
@@ -71,49 +73,82 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetMouseButton(0))
+        {
+            inputDetected?.Invoke();
+        }
         if(TryGetTouchPosition(out Vector2 touchPos)==0) 
         { 
             return; 
         }
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
+            inputDetected?.Invoke();
             raycastM.Raycast(touchPos1, hits, TrackableType.PlaneWithinPolygon);
             var hitpose = hits[0].pose;
             Vector3 pos = hitpose.position;
             if(instance==null)
             {
 
-                instance = Instantiate(prefab, pos, hitpose.rotation);
-                gravityCenter=Instantiate(gravityPrefab, pos, hitpose.rotation);
+                instance = Instantiate(prefab, pos, Quaternion.identity);
 
-                anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
-                instance.transform.parent = anchor.transform;
-                gravityCenter.transform.parent = anchor.transform;
+                //anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
+                //instance.transform.parent = anchor.transform;
 
+                //gravityCenter = Instantiate(gravityPrefab, pos, hitpose.rotation);
+                //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
+                //Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
+                                                                     //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
 
-                gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
-                Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
-                                                                         //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
-                
+                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
             }
             else
             {
-                anchor.transform.position = hitpose.position;          
+                //gravityCenter.transform.position = hitpose.position;
+                //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
+                //Physics.gravity = gravityCenter.transform.position;
+
+                instance.transform.position = hitpose.position;
+                //this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
+
             }
-                
+
         }
         else
-        {                                 
+        {
+            inputDetected?.Invoke();
             if(instance!=null)
             {
-                anchor.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
+
+                this.gameObject.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
                 
             }         
         }       
     }
 
     
-  
+    public void TestTestDeleteAfter()
+    {
+        
+        if (instance == null)
+        {
+            Vector3 pos =new  Vector3(-0.5f, -2.31f, 3.09f);
+            instance = Instantiate(prefab, pos, Quaternion.identity);
+            gravityCenter = Instantiate(gravityPrefab, pos, Quaternion.identity);
+
+            //anchor = anchors.AddAnchor(new Pose(pos, Quaternion.identity));
+            //instance.transform.parent = anchor.transform;
+            //gravityCenter.transform.parent = anchor.transform;
+
+
+            //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
+            //Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
+                                                                 //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
+
+            //this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position, instance.transform.rotation);
+
+        }
+    }
    
 
     public static void ChangePlanes(bool val)

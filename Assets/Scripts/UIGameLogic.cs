@@ -59,15 +59,19 @@ public class UIGameLogic : MonoBehaviour
         if(TapToPlace.planesEnabled)
         {
             gridButton.interactable = true;
+            gridAnimator.SetTrigger("GridOn");
+
         }
         else
         {
             gridButton.interactable = false;
+            gridAnimator.SetTrigger("GridOff");
         }  
     }
     public void HidePlanes()
     {
         TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
+        TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
 
         if(TapToPlace.planesEnabled)
         {
@@ -76,7 +80,6 @@ public class UIGameLogic : MonoBehaviour
         else
         {
             gridAnimator.SetTrigger("GridOff");
-
         }
     }
     public void AnimationRecover()
