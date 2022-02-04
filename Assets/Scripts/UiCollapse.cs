@@ -10,6 +10,8 @@ public class UiCollapse : MonoBehaviour
     [SerializeField] TapToPlace ttp;
     bool inputDetected = false;
     bool collapsed = false;
+    bool movement = false;
+    float blendValue = 0;
 
     private void OnEnable()
     {
@@ -28,7 +30,11 @@ public class UiCollapse : MonoBehaviour
 
         if (!inputDetected)
         {
+            //buttonAnimator.SetFloat("Blend", 1);
+
             buttonAnimator.SetTrigger("Collapse");
+            //movement = true;
+            //StartCoroutine(Show());
             collapsed = true;
         }
         else
@@ -42,7 +48,11 @@ public class UiCollapse : MonoBehaviour
         if(collapsed)
         {
             collapsed = false;
+            //buttonAnimator.SetFloat("Blend", -1); 
             buttonAnimator.SetTrigger("Appear");
+            //StopCoroutine(Show());
+            //movement = false;
+           // StartCoroutine(Show());
             StartCoroutine(CheckInput(checkEverySec));
         }
         else
@@ -50,5 +60,40 @@ public class UiCollapse : MonoBehaviour
             inputDetected = true;
         }
     }
+    //IEnumerator Show()
+    //{
+    //
+    //    if (movement)
+    //    {
+    //        blendValue += (0.005f/1f);
+    //
+    //        yield return new WaitForSeconds(0.005f);
+    //
+    //        if (blendValue <= 1 && blendValue >= 0)
+    //        {
+    //            buttonAnimator.SetFloat("Blend", blendValue);
+    //            StartCoroutine(Show());
+    //        }
+    //        else
+    //        {
+    //            blendValue = Mathf.Clamp01(blendValue);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        blendValue -= (0.005f / 1f);
+    //        yield return new WaitForSeconds(0.005f);
+    //
+    //        if (blendValue <= 1 && blendValue >= 0)
+    //        {
+    //            buttonAnimator.SetFloat("Blend", blendValue);
+    //            StartCoroutine(Show());
+    //        }
+    //        else
+    //        {
+    //            blendValue = Mathf.Clamp01(blendValue);
+    //        }
+    //    }
+    //}
 
 }
