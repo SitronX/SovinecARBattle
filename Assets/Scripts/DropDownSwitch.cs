@@ -20,6 +20,8 @@ public class DropDownSwitch : MonoBehaviour
 
         if (dd.captionText.text == "Rozpoznání vzoru")
         {
+            
+
             foreach (Subtitle i in Subtitle.allSubtitles)
             {
                 i.StopAllCoroutines();
@@ -30,6 +32,13 @@ public class DropDownSwitch : MonoBehaviour
             }
             Subtitle.allAudios.Clear();
             Subtitle.allSubtitles.Clear();
+
+           //try
+           //{
+           //    AnimDay.lastAnimDay.StopMethod();
+           //    AnimDay.lastAnimDay.StopAllCoroutines();
+           //}
+           //catch { }
 
             tapToPlaceScript.enabled = false;
             imageTrackingScript.enabled = true;
@@ -52,6 +61,13 @@ public class DropDownSwitch : MonoBehaviour
             }
             Subtitle.allAudios.Clear();
             Subtitle.allSubtitles.Clear();
+
+           //try
+           //{
+           //    AnimDay.lastAnimDay.StopMethod();
+           //    AnimDay.lastAnimDay.StopAllCoroutines();
+           //}
+           //catch { }
 
             imageTrackingScript.enabled = false;
             tapToPlaceScript.enabled = true;
