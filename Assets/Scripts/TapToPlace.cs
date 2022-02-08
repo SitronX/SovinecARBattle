@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Transactions;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -21,11 +22,9 @@ public class TapToPlace : MonoBehaviour
 
     private GameObject instance;
     private GameObject gravityCenter;
-
+     
     private ARRaycastManager raycastM;
-    private Vector2 touchPos;
-
-    
+    private Vector2 touchPos;    
 
     public static bool planesEnabled = false;
 
@@ -73,13 +72,13 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            inputDetected?.Invoke();
-        }
-        if(TryGetTouchPosition(out Vector2 touchPos)==0) 
+        if((TryGetTouchPosition(out Vector2 touchPos)==0))
         { 
             return; 
+        }
+        else if(EventSystem.current.IsPointerOverGameObject(0))
+        {
+            inputDetected?.Invoke();
         }
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
@@ -126,31 +125,6 @@ public class TapToPlace : MonoBehaviour
         }       
     }
 
-    
-    public void TestTestDeleteAfter()
-    {
-        
-        if (instance == null)
-        {
-            Vector3 pos =new  Vector3(-0.5f, -2.31f, 3.09f);
-            instance = Instantiate(prefab, pos, Quaternion.identity);
-            gravityCenter = Instantiate(gravityPrefab, pos, Quaternion.identity);
-
-            //anchor = anchors.AddAnchor(new Pose(pos, Quaternion.identity));
-            //instance.transform.parent = anchor.transform;
-            //gravityCenter.transform.parent = anchor.transform;
-
-
-            //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
-            //Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
-                                                                 //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
-
-            //this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position, instance.transform.rotation);
-
-        }
-    }
-   
-
     public static void ChangePlanes(bool val)
     {
         
@@ -163,7 +137,17 @@ public class TapToPlace : MonoBehaviour
         }
         tmp.enabled = val;            
       
-        
     }
+
+    //DELETE IF EVERYTHING WORKS FINE
+
+    //private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
+    //{
+    //    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+    //    eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+    //    List<RaycastResult> results = new List<RaycastResult>();
+    //    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+    //    return results.Count > 0;
+    //}
 
 }

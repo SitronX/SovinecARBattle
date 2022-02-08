@@ -33,7 +33,7 @@ public class LoadScene : MonoBehaviour
             {
                 loadingSlider.value = loadProgress;
 
-                text.text =(loadProgress*100).ToString("0.000")+ " %";
+                text.text =(loadProgress*100).ToString("0.00")+ " %";
 
                 lastLoadProgress = loadProgress;
             }            

@@ -130,8 +130,10 @@ public class AnimDay : MonoBehaviour
 
         try
         {
-            GameObject.Find("AttackingArmy").GetComponent<Animator>().SetTrigger(dayToLaunch);
-            GameObject.Find("DefendingArmy").GetComponent<Animator>().SetTrigger(dayToLaunch);
+            Animator animatorAtt = GameObject.Find("AttackingArmy").GetComponent<Animator>();
+            Animator animatorDef= GameObject.Find("DefendingArmy").GetComponent<Animator>();
+            StartCoroutine(StartAnimation(animatorAtt, 0, dayToLaunch));
+            StartCoroutine(StartAnimation(animatorDef, 0, dayToLaunch));
         }
         catch
         {
