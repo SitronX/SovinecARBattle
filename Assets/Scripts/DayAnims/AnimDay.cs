@@ -114,17 +114,20 @@ public class AnimDay : MonoBehaviour
             }
         }
 
-        foreach (Animator i in animatorToLaunch)
+        
+        for(int i=0;i<animatorToLaunch.Count;i++)
         {
             try
             {
-                StartCoroutine(StartAnimation(i, animatorTimes[animatorToLaunch.IndexOf(i)], animatorTriggers[animatorToLaunch.IndexOf(i)]));
+                StartCoroutine(StartAnimation(animatorToLaunch[i], animatorTimes[i], animatorTriggers[i]));
             }
             catch
             {
                 Debug.LogError("Špatný animator, nebo jméno triggeru");
             }
         }
+
+        
 
         
 
