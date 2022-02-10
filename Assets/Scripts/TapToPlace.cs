@@ -76,7 +76,7 @@ public class TapToPlace : MonoBehaviour
         { 
             return; 
         }
-        else if(EventSystem.current.IsPointerOverGameObject(0))
+        else if(IsPointerOverUIObject()y)
         {
             inputDetected?.Invoke();
         }
@@ -141,13 +141,13 @@ public class TapToPlace : MonoBehaviour
 
     //DELETE IF EVERYTHING WORKS FINE
 
-    //private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
-    //{
-    //    PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-    //    eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-    //    List<RaycastResult> results = new List<RaycastResult>();
-    //    EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-    //    return results.Count > 0;
-    //}
+    private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
 
 }
