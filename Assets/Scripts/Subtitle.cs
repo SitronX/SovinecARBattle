@@ -22,7 +22,7 @@ public class Subtitle : MonoBehaviour
     public static List<AudioSource> allAudios = new List<AudioSource>();
     void Start()
     {
-        cam = GameObject.Find("AR Camera").GetComponent<Camera>();
+        cam = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
 
         GameObject tmp = GameObject.Find("CanvasSubtitles");
         canvasSubtitle = tmp.GetComponent<TextMeshProUGUI>();

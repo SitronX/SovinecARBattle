@@ -76,7 +76,7 @@ public class TapToPlace : MonoBehaviour
         { 
             return; 
         }
-        else if(IsPointerOverUIObject()y)
+        else if(IsPointerOverUIObject())
         {
             inputDetected?.Invoke();
         }
