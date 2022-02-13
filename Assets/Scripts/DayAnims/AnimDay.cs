@@ -25,8 +25,6 @@ public class AnimDay : MonoBehaviour
     public List<GameObject> objectsToDisable = new List<GameObject>();
     public List<float> objectsToDisableTimes = new List<float>();
 
-    public PlayableDirector timelineToStart = new PlayableDirector();
-
     public static AnimDay lastAnimDay = null;
 
 
@@ -148,8 +146,6 @@ public class AnimDay : MonoBehaviour
         {
             temp.AnimationRecover();
         }
-
-        timelineToStart?.Play();
     }
 
     public void StopMethod()

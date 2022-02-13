@@ -9,31 +9,41 @@ public class OffScreen : MonoBehaviour
     GameObject arrowCS;
     Canvas canvas;
     Image arrowImage;
-    Vector3 middleScreen;
     RectTransform rt;
+    Color c = Color.white;
 
-    bool isTracking = true;
+    Transform arrowParent;
+    GameObject arrowWorldTransform;
+
+    bool isTracking = false;
 
     private void OnEnable()
     {
         cam = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
-        arrowCS = GameObject.Find("ArrowCS");
         canvas = GameObject.Find("MainCanvas(DO NOT CHANGE NAME)").GetComponent<Canvas>();
+        arrowParent = GameObject.Find("ArrowParent(DO NOT CHANGE NAME)").GetComponent<Transform>();
+        arrowCS = arrowParent.transform.GetChild(0).gameObject;
+        arrowWorldTransform = arrowParent.transform.GetChild(1).gameObject;
+
 
         arrowImage = arrowCS.GetComponent<Image>();
         rt = arrowCS.GetComponent<RectTransform>();
 
-        Color c;
+        StartCoroutine(CheckVisibilityAfterFirstFrame());       //Check after first frame, cause object is enabled here, but renderer logic for object is still not
+    }    
+    IEnumerator CheckVisibilityAfterFirstFrame()        
+    {
+        yield return new WaitForFixedUpdate();
+
         if (GetComponent<Renderer>().isVisible)
         {
-            c = Color.white;
             c.a = 0;
+            isTracking = false;
         }
         else
         {
-            UpdatePositionAndRotation();
-            c = Color.white;
             c.a = 1;
+            isTracking = true;
         }
         arrowImage.color = c;
     }
@@ -47,35 +57,39 @@ public class OffScreen : MonoBehaviour
     }
     private void UpdatePositionAndRotation()
     {
-        var targetPosLocal = cam.transform.InverseTransformPoint(this.transform.position);              //Calculate rotation
-        var targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg;
-        arrowImage.transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
-
         Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
-        arrowImage.transform.position = cam.WorldToScreenPoint(tmpPos);
+        arrowParent.transform.position = cam.WorldToScreenPoint(tmpPos);
 
         float posX = rt.rect.width * canvas.scaleFactor;
         float posY = rt.rect.height * canvas.scaleFactor;
 
-
-
-        if (arrowImage.transform.position.x <= 0f + posX / 2)                                       //Change position to edges
+        if (arrowParent.transform.position.x <= 0f + posX / 2)                                       //Change position to edges
         {
-            arrowImage.transform.position = new Vector3(0f + posX / 2, arrowImage.transform.position.y, arrowImage.transform.position.z);
+            arrowParent.transform.position = new Vector3(0f + posX / 2, arrowParent.transform.position.y, arrowParent.transform.position.z);
         }
-        else if (arrowImage.transform.position.x >= cam.pixelWidth - posX / 2)
+        else if (arrowParent.transform.position.x >= cam.pixelWidth - posX / 2)
         {
-            arrowImage.transform.position = new Vector3(cam.pixelWidth - posX / 2, arrowImage.transform.position.y, arrowImage.transform.position.z);
+            arrowParent.transform.position = new Vector3(cam.pixelWidth - posX / 2, arrowParent.transform.position.y, arrowParent.transform.position.z);
         }
 
-        if (arrowImage.transform.position.y <= 0f + posY / 2)
+        if (arrowParent.transform.position.y <= 0f + posY / 2)
         {
-            arrowImage.transform.position = new Vector3(arrowImage.transform.position.x, 0f + posY / 2, arrowImage.transform.position.z);
+            arrowParent.transform.position = new Vector3(arrowParent.transform.position.x, 0f + posY / 2, arrowParent.transform.position.z);
         }
-        else if (arrowImage.transform.position.y >= cam.pixelHeight - posY / 2)
+        else if (arrowParent.transform.position.y >= cam.pixelHeight - posY / 2)
         {
-            arrowImage.transform.position = new Vector3(arrowImage.transform.position.x, cam.pixelHeight - posY / 2, arrowImage.transform.position.z);
+            arrowParent.transform.position = new Vector3(arrowParent.transform.position.x, cam.pixelHeight - posY / 2, arrowParent.transform.position.z);
         }
+
+        arrowWorldTransform.transform.position = cam.ScreenToWorldPoint(arrowImage.transform.position);
+
+        Vector3 targetPosLocal = arrowWorldTransform.transform.InverseTransformPoint(transform.position);              //Calculate rotation
+        float targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg;
+        arrowImage.transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
+
+
+        
+
     }
     private Vector3 calculateWorldPosition(Vector3 position, Camera camera)             //Bug in unity doesnt correctly represent object position behind camera, this is for a fix from: https://forum.unity.com/threads/camera-worldtoscreenpoint-bug.85311/#post-2121212
     {
@@ -96,28 +110,37 @@ public class OffScreen : MonoBehaviour
 
     private void OnBecameVisible()
     {
-        Color c = Color.white;
-        c.a = 0;
-        arrowImage.color = c;
-        isTracking = false;
+        try
+        {
+            c.a = 0;
+            arrowImage.color = c;
+            isTracking = false;
+        }
+        catch
+        {
+
+        }
+       
     }
     private void OnBecameInvisible()
     {
-        Color c = Color.white;
-        c.a = 1;
-        arrowImage.color = c;
-        isTracking = true;
+        try
+        {
+            UpdatePositionAndRotation();
+            c.a = 1;
+            arrowImage.color = c;
+            isTracking = true;
+        }
+        catch
+        {
+
+        }
+        
     }
     private void OnDisable()
     {
-        try
-        {
-            Color c = Color.white;
-            c.a = 0;
-            arrowImage.color = c;
-        }
-        catch { }
-        
+        c.a = 0;
+        arrowImage.color = c;      
     }
    
 
