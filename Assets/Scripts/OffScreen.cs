@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,8 +18,12 @@ public class OffScreen : MonoBehaviour
 
     bool isTracking = false;
 
+    static List<GameObject> doubleObjectList=new List<GameObject>();                //Ensure that only one attention object can be active at the same time
+
     private void OnEnable()
     {
+        doubleObjectList.Add(this.gameObject);
+
         cam = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
         canvas = GameObject.Find("MainCanvas(DO NOT CHANGE NAME)").GetComponent<Canvas>();
         arrowParent = GameObject.Find("ArrowParent(DO NOT CHANGE NAME)").GetComponent<Transform>();
@@ -44,17 +49,21 @@ public class OffScreen : MonoBehaviour
         {
             c.a = 1;
             isTracking = true;
+            StartCoroutine(UpdateArrow());
         }
         arrowImage.color = c;
     }
-
-    void Update()
+    IEnumerator UpdateArrow()
     {
-        if (isTracking)
+        if (doubleObjectList.Last() != this.gameObject) yield break;
+
+        while(isTracking)
         {
+            yield return new WaitForSeconds(0.04f);
             UpdatePositionAndRotation();
         }
     }
+
     private void UpdatePositionAndRotation()
     {
         Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
@@ -116,11 +125,7 @@ public class OffScreen : MonoBehaviour
             arrowImage.color = c;
             isTracking = false;
         }
-        catch
-        {
-
-        }
-       
+        catch { }    
     }
     private void OnBecameInvisible()
     {
@@ -130,15 +135,13 @@ public class OffScreen : MonoBehaviour
             c.a = 1;
             arrowImage.color = c;
             isTracking = true;
+            StartCoroutine(UpdateArrow());
         }
-        catch
-        {
-
-        }
-        
+        catch { }     
     }
     private void OnDisable()
     {
+        doubleObjectList.Remove(this.gameObject);
         c.a = 0;
         arrowImage.color = c;      
     }

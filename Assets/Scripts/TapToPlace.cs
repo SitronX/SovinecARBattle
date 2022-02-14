@@ -79,7 +79,7 @@ public class TapToPlace : MonoBehaviour
         else if(IsPointerOverUIObject())
         {
             inputDetected?.Invoke();
-        }
+        }       
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
             inputDetected?.Invoke();
@@ -88,43 +88,20 @@ public class TapToPlace : MonoBehaviour
             Vector3 pos = hitpose.position;
             if(instance==null)
             {
-
-                instance = Instantiate(prefab, pos, Quaternion.identity);
-
-                //anchor = anchors.AddAnchor(new Pose(hitpose.position, hitpose.rotation));     
-                //instance.transform.parent = anchor.transform;
-
-                //gravityCenter = Instantiate(gravityPrefab, pos, hitpose.rotation);
-                //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
-                //Physics.gravity = gravityCenter.transform.position;  //Quaternion.identity je v ARFoundation divne naklonen, musi se proto pouzit rotace z raycastu, nebo z rozpoznavaneho obrazku. 
-                                                                     //Pote se obrazek polozi do spravne rotace, ale physics.gravity funguje porad s (0,-9.81f,0), kvuli tomu ze je zde vyuzita primitivni fyzika k delovym koulim a kamenum, musi se upravit s pomoci metody vyse se vytahne korektni vector 3 hodnota a ta se priradi
-
+                instance = Instantiate(prefab, pos, Quaternion.identity);           
                 this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
             }
             else
             {
-                //gravityCenter.transform.position = hitpose.position;
-                //gravityCenter.transform.Translate(new Vector3(0, -9.81f, 0), Space.Self);
-                //Physics.gravity = gravityCenter.transform.position;
-
                 instance.transform.position = hitpose.position;
-                //this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
-
             }
-
         }
         else
         {
             inputDetected?.Invoke();
-            if(instance!=null)
-            {
+        }
 
-                this.gameObject.transform.Rotate(new Vector3(0, 2, 0), Space.Self);
-                
-            }         
-        }       
     }
-
     public static void ChangePlanes(bool val)
     {
         
@@ -139,7 +116,6 @@ public class TapToPlace : MonoBehaviour
       
     }
 
-    //DELETE IF EVERYTHING WORKS FINE
 
     private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
     {
