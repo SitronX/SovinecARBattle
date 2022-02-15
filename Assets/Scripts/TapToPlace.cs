@@ -26,7 +26,7 @@ public class TapToPlace : MonoBehaviour
     private ARRaycastManager raycastM;
     private Vector2 touchPos;    
 
-    public static bool planesEnabled = false;
+    public static bool planesEnabled = true;
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -34,10 +34,10 @@ public class TapToPlace : MonoBehaviour
     private ARAnchor anchor;
 
     public Action inputDetected;
+    [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
 
     private void OnEnable()
     {
-        planesEnabled = false;
         ChangePlanes(planesEnabled);
     }
     private void OnDisable()
@@ -72,14 +72,17 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
-        if((TryGetTouchPosition(out Vector2 touchPos)==0))
+        if ((TryGetTouchPosition(out Vector2 touchPos)==0))
         { 
             return; 
         }
-        else if(IsPointerOverUIObject())
+        else if (IsPointerOverUIObject())
         {
+            if (uiIgnoredObjects.Find(i => i.activeSelf == true)) return;
+            
             inputDetected?.Invoke();
-        }       
+            
+        }              
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
             inputDetected?.Invoke();

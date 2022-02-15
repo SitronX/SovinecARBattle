@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,12 +15,15 @@ public class UIGameLogic : MonoBehaviour
     public Animator pauseAnimator;
     [SerializeField] private Button gridButton;
     public Animator gridAnimator;
+    public Animator captionAnimator;
 
     [SerializeField] private DropDownSwitch dds;
+    [SerializeField] private Animator subtitleAnimator;
+    private bool subtitlesShowing = true;
 
     private void OnEnable()
     {
-        dds.planeDetection += PlaneChange;
+        //dds.planeDetection += PlaneChange;
     }
 
     public void AudioStateChange()
@@ -43,7 +47,11 @@ public class UIGameLogic : MonoBehaviour
         if (!animationsPaused)
         {
             animationsPaused = true;
-            StartCoroutine(AnimationPause());
+            pauseAnimator.SetTrigger("SwitchState");
+                     
+            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
+            Time.timeScale = 0;
+
         }
         else
         {
@@ -54,20 +62,20 @@ public class UIGameLogic : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-    public void PlaneChange(bool val)
-    {
-        if(TapToPlace.planesEnabled)
-        {
-            gridButton.interactable = true;
-            gridAnimator.SetTrigger("GridOn");
-
-        }
-        else
-        {
-            gridButton.interactable = false;
-            gridAnimator.SetTrigger("GridOff");
-        }  
-    }
+    //public void PlaneChange(bool val)
+    //{
+    //    if(TapToPlace.planesEnabled)
+    //    {
+    //        gridButton.interactable = true;
+    //        gridAnimator.SetTrigger("GridOn");
+    //
+    //    }
+    //    else
+    //    {
+    //        gridButton.interactable = false;
+    //        gridAnimator.SetTrigger("GridOff");
+    //    }  
+    //}
     public void HidePlanes()
     {
         TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
@@ -82,6 +90,21 @@ public class UIGameLogic : MonoBehaviour
             gridAnimator.SetTrigger("GridOff");
         }
     }
+    public void ChangeSubtitles()
+    { 
+        if(subtitlesShowing)
+        {
+            subtitleAnimator.SetTrigger("SubtitleOFF");
+            subtitlesShowing = false;
+            captionAnimator.SetTrigger("CaptionOff");
+        }
+        else
+        {
+            subtitleAnimator.SetTrigger("SubtitleON");
+            subtitlesShowing = true;
+            captionAnimator.SetTrigger("CaptionOn");
+        }
+    }
     public void AnimationRecover()
     {
         animationsPaused = false;
@@ -89,15 +112,15 @@ public class UIGameLogic : MonoBehaviour
         pauseAnimator.SetTrigger("SwitchState");
         Time.timeScale = 1;
     }
-    IEnumerator AnimationPause()
-    {
-        pauseAnimator.SetTrigger("SwitchState");
-        yield return new WaitForSeconds(0.5f);
-        
-       
-        AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
-        Time.timeScale = 0;
-    }
+    //IEnumerator AnimationPause()
+    //{
+    //    pauseAnimator.SetTrigger("SwitchState");
+    //    yield return new WaitForSeconds(0.5f);
+    //    
+    //   
+    //    AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
+    //    Time.timeScale = 0;
+    //}
     
 
 }

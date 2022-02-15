@@ -11,7 +11,7 @@ public class ResolutionManager : MonoBehaviour
     {
         Resolution res = Screen.currentResolution;
 
-        
+
         Screen.SetResolution(res.width/2, res.height/2, true);
     }
 

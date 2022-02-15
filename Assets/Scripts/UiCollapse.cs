@@ -7,6 +7,7 @@ public class UiCollapse : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] int checkEverySec = 5;
     [SerializeField] Animator buttonAnimator;
+    [SerializeField] Animator panelAnimator;
     [SerializeField] TapToPlace ttp;
     bool inputDetected = false;
     bool collapsed = false;
@@ -30,11 +31,9 @@ public class UiCollapse : MonoBehaviour
 
         if (!inputDetected)
         {
-            //buttonAnimator.SetFloat("Blend", 1);
 
             buttonAnimator.SetTrigger("Collapse");
-            //movement = true;
-            //StartCoroutine(Show());
+            panelAnimator.SetTrigger("Collapse");
             collapsed = true;
         }
         else
@@ -48,11 +47,8 @@ public class UiCollapse : MonoBehaviour
         if(collapsed)
         {
             collapsed = false;
-            //buttonAnimator.SetFloat("Blend", -1); 
             buttonAnimator.SetTrigger("Appear");
-            //StopCoroutine(Show());
-            //movement = false;
-           // StartCoroutine(Show());
+            panelAnimator.SetTrigger("Appear");
             StartCoroutine(CheckInput(checkEverySec));
         }
         else
@@ -60,40 +56,4 @@ public class UiCollapse : MonoBehaviour
             inputDetected = true;
         }
     }
-    //IEnumerator Show()
-    //{
-    //
-    //    if (movement)
-    //    {
-    //        blendValue += (0.005f/1f);
-    //
-    //        yield return new WaitForSeconds(0.005f);
-    //
-    //        if (blendValue <= 1 && blendValue >= 0)
-    //        {
-    //            buttonAnimator.SetFloat("Blend", blendValue);
-    //            StartCoroutine(Show());
-    //        }
-    //        else
-    //        {
-    //            blendValue = Mathf.Clamp01(blendValue);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        blendValue -= (0.005f / 1f);
-    //        yield return new WaitForSeconds(0.005f);
-    //
-    //        if (blendValue <= 1 && blendValue >= 0)
-    //        {
-    //            buttonAnimator.SetFloat("Blend", blendValue);
-    //            StartCoroutine(Show());
-    //        }
-    //        else
-    //        {
-    //            blendValue = Mathf.Clamp01(blendValue);
-    //        }
-    //    }
-    //}
-
 }
