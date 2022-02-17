@@ -14,8 +14,6 @@ public class OffScreen : MonoBehaviour
     Color c = Color.white;
 
     Transform arrowParent;
-    GameObject arrowWorldTransform;
-
     bool isTracking = false;
 
     static List<GameObject> doubleObjectList=new List<GameObject>();                //Ensure that only one attention object can be active at the same time
@@ -23,17 +21,15 @@ public class OffScreen : MonoBehaviour
     private void OnEnable()
     {
         doubleObjectList.Add(this.gameObject);
-
+        
         cam = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
         canvas = GameObject.Find("MainCanvas(DO NOT CHANGE NAME)").GetComponent<Canvas>();
         arrowParent = GameObject.Find("ArrowParent(DO NOT CHANGE NAME)").GetComponent<Transform>();
         arrowCS = arrowParent.transform.GetChild(0).gameObject;
-        arrowWorldTransform = arrowParent.transform.GetChild(1).gameObject;
-
-
+        
         arrowImage = arrowCS.GetComponent<Image>();
         rt = arrowCS.GetComponent<RectTransform>();
-
+        
         StartCoroutine(CheckVisibilityAfterFirstFrame());       //Check after first frame, cause object is enabled here, but renderer logic for object is still not
     }    
     IEnumerator CheckVisibilityAfterFirstFrame()        
@@ -66,7 +62,8 @@ public class OffScreen : MonoBehaviour
 
     private void UpdatePositionAndRotation()
     {
-        Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
+        //Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
+        Vector3 tmpPos = transform.position;
         arrowParent.transform.position = cam.WorldToScreenPoint(tmpPos);
 
         float posX = rt.rect.width * canvas.scaleFactor;
@@ -90,9 +87,7 @@ public class OffScreen : MonoBehaviour
             arrowParent.transform.position = new Vector3(arrowParent.transform.position.x, cam.pixelHeight - posY / 2, arrowParent.transform.position.z);
         }
 
-        arrowWorldTransform.transform.position = cam.ScreenToWorldPoint(arrowImage.transform.position);
-
-        Vector3 targetPosLocal = arrowWorldTransform.transform.InverseTransformPoint(transform.position);              //Calculate rotation
+        Vector3 targetPosLocal = cam.transform.InverseTransformPoint(transform.position);              //Calculate rotation
         float targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg;
         arrowImage.transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
 
@@ -108,10 +103,10 @@ public class OffScreen : MonoBehaviour
         float camNormDot = Vector3.Dot(camNormal, vectorFromCam.normalized);
         if (camNormDot <= 0f)
         {
-            //we are beind the camera, project the position on the camera plane
-            float camDot = Vector3.Dot(camNormal, vectorFromCam);
-            Vector3 proj = (camNormal * camDot * 1.01f);   //small epsilon to keep the position infront of the camera
-            position = camera.transform.position + (vectorFromCam - proj);
+          //we are beind the camera, project the position on the camera plane
+          float camDot = Vector3.Dot(camNormal, vectorFromCam);
+          Vector3 proj = (camNormal * camDot * 1.01f);   //small epsilon to keep the position infront of the camera
+          position = camera.transform.position + (vectorFromCam - proj);
         }
 
         return position;
