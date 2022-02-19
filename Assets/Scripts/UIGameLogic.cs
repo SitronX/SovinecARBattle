@@ -28,39 +28,48 @@ public class UIGameLogic : MonoBehaviour
 
     public void AudioStateChange()
     {
-        if(!audioMuted)
+        try
         {
-            audioMuted = true;
-            audioAnimator.SetTrigger("SwitchState");
-            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume=0;
+            if (!audioMuted)
+            {
+                audioMuted = true;
+                audioAnimator.SetTrigger("SwitchState");
+                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume = 0;
 
+            }
+            else
+            {
+                audioMuted = false;
+                audioAnimator.SetTrigger("SwitchState");
+                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume = 1;
+            }
         }
-        else
-        {
-            audioMuted = false;
-            audioAnimator.SetTrigger("SwitchState");
-            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume = 1;
-        }
+        catch { }
+        
     }
     public void AnimationStateChange()
     {
-        if (!animationsPaused)
+        try
         {
-            animationsPaused = true;
-            pauseAnimator.SetTrigger("SwitchState");
-                     
-            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
-            Time.timeScale = 0;
+            if (!animationsPaused)
+            {
+                animationsPaused = true;
+                pauseAnimator.SetTrigger("SwitchState");
 
-        }
-        else
-        {
-            animationsPaused = false;
+                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
+                Time.timeScale = 0;
+            }
+            else
+            {
+                animationsPaused = false;
 
-            pauseAnimator.SetTrigger("SwitchState");
-            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
-            Time.timeScale = 1;
+                pauseAnimator.SetTrigger("SwitchState");
+                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
+                Time.timeScale = 1;
+            }
         }
+        catch { }
+        
     }
     //public void PlaneChange(bool val)
     //{
@@ -91,19 +100,23 @@ public class UIGameLogic : MonoBehaviour
         }
     }
     public void ChangeSubtitles()
-    { 
-        if(subtitlesShowing)
+    {
+        try
         {
-            subtitleAnimator.SetTrigger("SubtitleOFF");
-            subtitlesShowing = false;
-            captionAnimator.SetTrigger("CaptionOff");
+            if (subtitlesShowing)
+            {
+                subtitleAnimator.SetTrigger("SubtitleOFF");
+                subtitlesShowing = false;
+                captionAnimator.SetTrigger("CaptionOff");
+            }
+            else
+            {
+                subtitleAnimator.SetTrigger("SubtitleON");
+                subtitlesShowing = true;
+                captionAnimator.SetTrigger("CaptionOn");
+            }
         }
-        else
-        {
-            subtitleAnimator.SetTrigger("SubtitleON");
-            subtitlesShowing = true;
-            captionAnimator.SetTrigger("CaptionOn");
-        }
+        catch { }    
     }
     public void AnimationRecover()
     {

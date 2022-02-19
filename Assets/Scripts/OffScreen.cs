@@ -55,7 +55,7 @@ public class OffScreen : MonoBehaviour
 
         while(isTracking)
         {
-            yield return new WaitForSeconds(0.04f);
+            yield return 0;                         //wait one frame
             UpdatePositionAndRotation();
         }
     }
@@ -131,6 +131,7 @@ public class OffScreen : MonoBehaviour
             arrowImage.color = c;
             isTracking = true;
             StartCoroutine(UpdateArrow());
+
         }
         catch { }     
     }

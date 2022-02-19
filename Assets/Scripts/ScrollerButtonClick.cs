@@ -15,6 +15,7 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public GameObject nextButton;
     public int nextDayDelay;
+    [SerializeField] TapToPlace ttp;
 
     private static List<ScrollerButtonClick> allButtons = new List<ScrollerButtonClick>();
 
@@ -23,6 +24,10 @@ public class ScrollerButtonClick : MonoBehaviour
         this.GetComponent<Button>().onClick.AddListener(OnMyButtonClick);
 
         allButtons.Add(this);
+
+        this.GetComponent<Button>().interactable = false;
+
+        ttp.objectPlaced += EnableAllButtons;
     }
     
 
@@ -83,6 +88,13 @@ public class ScrollerButtonClick : MonoBehaviour
 
         
 
+    }
+    void EnableAllButtons()
+    {
+        foreach(ScrollerButtonClick i in allButtons)
+        {
+            i.GetComponent<Button>().interactable = true;
+        }
     }
 
 

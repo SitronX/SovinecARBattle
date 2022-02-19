@@ -10,6 +10,7 @@ public class KeepButtonHighlighted : MonoBehaviour
     private EventSystem eventS;
     private GameObject lastSelected = null;
     private bool locked = false;
+    [SerializeField] UiCollapse uiCollapseLogic;
 
     // Update is called once per frame
 
@@ -17,9 +18,6 @@ public class KeepButtonHighlighted : MonoBehaviour
     {
         eventS = GetComponent<EventSystem>();
     }
-
-
-    
     private void Update()           //EventSystem bohuzel neobsahuje delegata onSelectionChange nebo neco podobneho, proto takto hnusne
     {
         if(lastSelected!=null)
@@ -28,11 +26,7 @@ public class KeepButtonHighlighted : MonoBehaviour
             {
                 eventS.SetSelectedGameObject(lastSelected);
             }
-        }
-          
-            
-
-        
+        }    
     }
     public void MakeSelectionChange(GameObject i)
     {
@@ -41,6 +35,7 @@ public class KeepButtonHighlighted : MonoBehaviour
         eventS.SetSelectedGameObject(lastSelected);
         locked = false;
     }
+
 
 
 }

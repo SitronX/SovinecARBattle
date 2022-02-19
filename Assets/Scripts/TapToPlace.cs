@@ -33,6 +33,8 @@ public class TapToPlace : MonoBehaviour
     private ARAnchorManager anchors;
     private ARAnchor anchor;
 
+    public Action objectPlaced;
+
     public Action inputDetected;
     [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
 
@@ -72,6 +74,7 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
+        
         if ((TryGetTouchPosition(out Vector2 touchPos)==0))
         { 
             return; 
@@ -93,6 +96,7 @@ public class TapToPlace : MonoBehaviour
             {
                 instance = Instantiate(prefab, pos, Quaternion.identity);           
                 this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
+                objectPlaced?.Invoke();
             }
             else
             {

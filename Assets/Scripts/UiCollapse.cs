@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,12 @@ public class UiCollapse : MonoBehaviour
     [SerializeField] Animator buttonAnimator;
     [SerializeField] Animator panelAnimator;
     [SerializeField] TapToPlace ttp;
+    [SerializeField] List<GameObject> panelsToDisable = new List<GameObject>();
     bool inputDetected = false;
-    bool collapsed = false;
-    bool movement = false;
-    float blendValue = 0;
+    bool shrinked = false;
+
+    public Action panelCollapsed;
+
 
     private void OnEnable()
     {
@@ -33,8 +36,8 @@ public class UiCollapse : MonoBehaviour
         {
 
             buttonAnimator.SetTrigger("Collapse");
-            panelAnimator.SetTrigger("Collapse");
-            collapsed = true;
+            panelAnimator.SetTrigger("Spread");
+            shrinked = true;
         }
         else
         {
@@ -44,16 +47,52 @@ public class UiCollapse : MonoBehaviour
     }
     void InputDetected()
     {
-        if(collapsed)
+        if(shrinked)
         {
-            collapsed = false;
+            shrinked = false;
             buttonAnimator.SetTrigger("Appear");
-            panelAnimator.SetTrigger("Appear");
+            panelAnimator.SetTrigger("Shrink");
             StartCoroutine(CheckInput(checkEverySec));
         }
         else
         {
             inputDetected = true;
+        }
+    }
+    public void SetPanelAnimator(string val)
+    {
+        if(val=="Collapse")
+        {
+            if(buttonAnimator.GetCurrentAnimatorStateInfo(0).IsName("UiCollapse"))
+            {
+                shrinked = false;
+                buttonAnimator.SetTrigger("Appear");
+                StartCoroutine(CheckInput(checkEverySec));
+            }
+
+            panelCollapsed?.Invoke();
+            StartCoroutine("DisablePanels");
+        }
+        else if(val=="Appear")
+        {
+            StopCoroutine("DisablePanels");
+        }
+        panelAnimator.SetTrigger(val);
+    }
+    public void DisablePanelFromButtons()
+    {
+        if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") || panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2")) return;
+        panelAnimator.SetTrigger("Collapse");
+    }
+
+    IEnumerator DisablePanels()
+    {
+        //Only if prefab is placed
+        yield return new WaitForSeconds(1);
+
+        foreach(GameObject i in panelsToDisable)
+        {
+            i.SetActive(false);
         }
     }
 }
