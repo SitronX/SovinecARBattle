@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiCollapse : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class UiCollapse : MonoBehaviour
     [SerializeField] Animator buttonAnimator;
     [SerializeField] Animator panelAnimator;
     [SerializeField] TapToPlace ttp;
+    [SerializeField] Button gridButton;
     [SerializeField] List<GameObject> panelsToDisable = new List<GameObject>();
     bool inputDetected = false;
     bool shrinked = false;
@@ -20,6 +22,7 @@ public class UiCollapse : MonoBehaviour
     private void OnEnable()
     {
         ttp.inputDetected += InputDetected;
+        ttp.backButtonDetected += BackButtorPressed;
     }
 
     void Start()
@@ -70,11 +73,16 @@ public class UiCollapse : MonoBehaviour
                 StartCoroutine(CheckInput(checkEverySec));
             }
 
+            gridButton.interactable = true;
             panelCollapsed?.Invoke();
             StartCoroutine("DisablePanels");
+            TapToPlace.ChangePlanes(true,true);
+
         }
         else if(val=="Appear")
         {
+            gridButton.interactable = false;
+            TapToPlace.ChangePlanes(false, true);
             StopCoroutine("DisablePanels");
         }
         panelAnimator.SetTrigger(val);
@@ -82,7 +90,13 @@ public class UiCollapse : MonoBehaviour
     public void DisablePanelFromButtons()
     {
         if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") || panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2")) return;
+        gridButton.interactable = true;
         panelAnimator.SetTrigger("Collapse");
+        TapToPlace.ChangePlanes(true,true);
+    }
+    public void BackButtorPressed()
+    {
+        SetPanelAnimator("Collapse");
     }
 
     IEnumerator DisablePanels()

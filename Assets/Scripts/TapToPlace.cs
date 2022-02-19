@@ -26,21 +26,24 @@ public class TapToPlace : MonoBehaviour
     private ARRaycastManager raycastM;
     private Vector2 touchPos;    
 
-    public static bool planesEnabled = true;
+    public static bool planesEnabled = false;
+    public static bool helpPlaneStatus = true;                 //Just for ui collapsing, so we know which state we were in previously
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
-    private ARAnchorManager anchors;
-    private ARAnchor anchor;
+    private bool isObjectRotating=false;
 
     public Action objectPlaced;
 
     public Action inputDetected;
+    public Action backButtonDetected;
     [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
 
     private void OnEnable()
     {
-        ChangePlanes(planesEnabled);
+        ChangePlanes(false,false);                      //Ugly but works
+        helpPlaneStatus = true;
+
     }
     private void OnDisable()
     {
@@ -51,9 +54,13 @@ public class TapToPlace : MonoBehaviour
     private void Awake()
     {
         raycastM = GetComponent<ARRaycastManager>();
-        anchors = this.GetComponent<ARAnchorManager>();
+        GetComponent<PinchRotate>().rotating += ChangeRotationState;
 
         
+    }
+    void ChangeRotationState(bool val)
+    {
+        isObjectRotating = val;
     }
     int TryGetTouchPosition(out Vector2 touchPos)
     {
@@ -74,8 +81,11 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
-        
-        if ((TryGetTouchPosition(out Vector2 touchPos)==0))
+        if(Input.GetKey(KeyCode.Escape))                //Back button pressed
+        {
+            backButtonDetected?.Invoke();
+        }
+        if ((TryGetTouchPosition(out Vector2 touchPos)==0))         //Touch logic start
         { 
             return; 
         }
@@ -95,12 +105,15 @@ public class TapToPlace : MonoBehaviour
             if(instance==null)
             {
                 instance = Instantiate(prefab, pos, Quaternion.identity);           
-                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position, Quaternion.identity);
+                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position);
                 objectPlaced?.Invoke();
             }
             else
             {
+                //if (isObjectRotating) return;                   //Comment or not???
+
                 instance.transform.position = hitpose.position;
+                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position);
             }
         }
         else
@@ -109,9 +122,19 @@ public class TapToPlace : MonoBehaviour
         }
 
     }
-    public static void ChangePlanes(bool val)
+    public static void ChangePlanes(bool val,bool isPanelCall)      
     {
-        
+        if(!isPanelCall)                    //When panel is active all tracking is disabled and hidden
+        {
+            helpPlaneStatus = val;
+        }
+        else
+        {
+            if(val)
+            {
+                val = helpPlaneStatus;
+            }
+        }
         planesEnabled = val;
 
         ARPlaneManager tmp = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();       
@@ -122,6 +145,8 @@ public class TapToPlace : MonoBehaviour
         tmp.enabled = val;            
       
     }
+
+    
 
 
     private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 

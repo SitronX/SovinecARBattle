@@ -44,7 +44,7 @@ public class DropDownSwitch : MonoBehaviour
             imageTrackingScript.enabled = true;
 
             TapToPlace.planesEnabled = false;
-            TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
+            TapToPlace.ChangePlanes(TapToPlace.planesEnabled,false);
 
             planeDetection?.Invoke(false);
 
@@ -73,7 +73,7 @@ public class DropDownSwitch : MonoBehaviour
             tapToPlaceScript.enabled = true;
 
             TapToPlace.planesEnabled = true;
-            TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
+            TapToPlace.ChangePlanes(TapToPlace.planesEnabled,false);
 
             planeDetection?.Invoke(true);
 

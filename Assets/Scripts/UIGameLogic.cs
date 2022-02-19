@@ -88,7 +88,7 @@ public class UIGameLogic : MonoBehaviour
     public void HidePlanes()
     {
         TapToPlace.planesEnabled = !TapToPlace.planesEnabled;
-        TapToPlace.ChangePlanes(TapToPlace.planesEnabled);
+        TapToPlace.ChangePlanes(TapToPlace.planesEnabled,false);
 
         if(TapToPlace.planesEnabled)
         {

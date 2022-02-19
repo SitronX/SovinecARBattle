@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,17 @@ public class PinchRotate : MonoBehaviour
 {
     float multiplier = 0.002f;
     Vector3 _startPosition;
+    bool rotation = false;
+    public Action<bool> rotating;
 
 
     void Update()
     {
+        
         if(Input.touchCount==2)
         {
+            rotating?.Invoke(true);
+            rotation = true;
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
@@ -36,7 +42,15 @@ public class PinchRotate : MonoBehaviour
                 float angle = Vector2.SignedAngle(_startPosition, currVector);
                 transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + angle, 0);
                 _startPosition = currVector;
-            }          
+            }        
+        }
+        else if(rotation)
+        {
+            if(Input.touchCount==0)
+            {
+                rotation = false;
+                rotating.Invoke(false);
+            }
         }
     }
     void Zoom(float increment)
