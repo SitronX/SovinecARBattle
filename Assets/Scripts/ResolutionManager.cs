@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class ResolutionManager : MonoBehaviour
 {
@@ -9,10 +10,8 @@ public class ResolutionManager : MonoBehaviour
 
     private void Awake()
     {
-        Resolution res = Screen.currentResolution;
-
-
-        Screen.SetResolution(res.width/2, res.height/2, true);
+        Application.targetFrameRate = 60;
+        GetComponent<ARSession>().matchFrameRateRequested = true;
     }
 
 }
