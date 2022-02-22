@@ -25,7 +25,7 @@ public class ScrollerButtonClick : MonoBehaviour
 
         allButtons.Add(this);
 
-        this.GetComponent<Button>().interactable = false;
+        this.GetComponent<Button>().interactable = true;
 
         ttp.objectPlaced += EnableAllButtons;
     }
