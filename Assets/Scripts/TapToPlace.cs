@@ -81,7 +81,8 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))                //Back button pressed
+        
+        if (Input.GetKey(KeyCode.Escape))                //Back button pressed
         {
             backButtonDetected?.Invoke();
         }
@@ -92,10 +93,9 @@ public class TapToPlace : MonoBehaviour
         else if (IsPointerOverUIObject())
         {
             if (uiIgnoredObjects.Find(i => i.activeSelf == true)) return;
-            
-            inputDetected?.Invoke();
-            
-        }              
+
+            inputDetected?.Invoke();  
+        }
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
             inputDetected?.Invoke();

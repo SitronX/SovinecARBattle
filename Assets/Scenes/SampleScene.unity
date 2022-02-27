@@ -219,18 +219,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -297,6 +285,8 @@ MonoBehaviour:
   nextButton: {fileID: 245952078}
   nextDayDelay: 87
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!43 &9132849
 Mesh:
   m_ObjectHideFlags: 0
@@ -658,9 +648,9 @@ RectTransform:
   m_Father: {fileID: 278679757}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -174.60844}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 225, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &41419166
@@ -827,18 +817,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -905,6 +883,8 @@ MonoBehaviour:
   nextButton: {fileID: 2033112896}
   nextDayDelay: 100
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!43 &51550496
 Mesh:
   m_ObjectHideFlags: 0
@@ -1102,9 +1082,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3562.0044}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71630201
@@ -1169,170 +1149,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!43 &87647778
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8082
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 36
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 36
-    localAABB:
-      m_Center: {x: 0.0005, y: 0.0005, z: -0.0005}
-      m_Extent: {x: 0.0005, y: 0.0005, z: 0.0005}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 00000100020003000400050006000700080009000a000b000c000d000e000f0010001100120013001400150016001700180019001a001b001c001d001e001f002000210022002300
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 36
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 1728
-    _typelessdata: 0000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.0005, y: 0.0005, z: -0.0005}
-    m_Extent: {x: 0.0005, y: 0.0005, z: 0.0005}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &98502030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1335,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5ab83e56ac261b34ebbf2a2e3cc8df75, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1545,7 +1361,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1653,9 +1469,9 @@ RectTransform:
   m_Father: {fileID: 346695587}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130395851
@@ -1792,9 +1608,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -887.79285}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &135175800
@@ -1950,8 +1766,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 17.59
+  m_fontSizeBase: 17.59
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2409,18 +2225,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -2487,6 +2291,8 @@ MonoBehaviour:
   nextButton: {fileID: 9022080}
   nextDayDelay: 84
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &245845194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,18 +2425,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -2697,6 +2491,8 @@ MonoBehaviour:
   nextButton: {fileID: 1798122118}
   nextDayDelay: 54
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &265539316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,9 +2661,9 @@ RectTransform:
   m_Father: {fileID: 914652638}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278679758
@@ -3634,9 +3430,9 @@ RectTransform:
   m_Father: {fileID: 71630200}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333856797
@@ -3711,9 +3507,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -2631.7026}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346695588
@@ -3846,18 +3642,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -3924,6 +3708,8 @@ MonoBehaviour:
   nextButton: {fileID: 778976637}
   nextDayDelay: 51
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &367917589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,7 +3898,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8806
+  m_Name: pb_Mesh1389848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4303,9 +4089,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3338.5938}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &390315529
@@ -4367,9 +4153,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3226.8884}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395163863
@@ -4430,9 +4216,9 @@ RectTransform:
   m_Father: {fileID: 1609732924}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230, y: -64.69555}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 29.3911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395861268
@@ -5017,9 +4803,9 @@ RectTransform:
   m_Father: {fileID: 390315528}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 27.9268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461298618
@@ -5152,9 +4938,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -1136.6089}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 64.2215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467627706
@@ -5691,9 +5477,9 @@ RectTransform:
   m_Father: {fileID: 1609732924}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230, y: -14.69555}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 29.3911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530795167
@@ -5827,9 +5613,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -334.72534}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &547792908
@@ -6266,7 +6052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.079, y: 0.113000005}
   m_AnchorMax: {x: 0.9278269, y: 0.8687328}
-  m_AnchoredPosition: {x: -5.335327, y: 1.8165283}
+  m_AnchoredPosition: {x: -5.335327, y: 1.8164062}
   m_SizeDelta: {x: 34.692, y: 132.1919}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566826760
@@ -6457,9 +6243,9 @@ RectTransform:
   m_Father: {fileID: 130395850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -12.10845}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 141.7597, y: 24.2169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568261150
@@ -6985,18 +6771,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -7063,6 +6837,8 @@ MonoBehaviour:
   nextButton: {fileID: 808926034}
   nextDayDelay: 31
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!43 &612822766
 Mesh:
   m_ObjectHideFlags: 0
@@ -7394,9 +7170,9 @@ RectTransform:
   m_Father: {fileID: 395163862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 27.9268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &658863855
@@ -7992,9 +7768,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3024.3203}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 28.3149}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688583114
@@ -8340,7 +8116,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.0219346e+9, z: 2.28e-43, w: 9e-44}
+  m_BoundingSphereOverride: {x: 0, y: 11.529243, z: 7.23e-43, w: 2.73e-43}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -8441,8 +8217,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1634394223}
   m_HandleRect: {fileID: 1634394222}
   m_Direction: 0
-  m_Value: -0.0000002092228
-  m_Size: 0.32993877
+  m_Value: -0.00000020922283
+  m_Size: 0.3299388
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8485,6 +8261,170 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705978449}
   m_CullTransparentMesh: 1
+--- !u!43 &729306650
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: pb_Mesh1393024
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 132
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 72
+    localAABB:
+      m_Center: {x: 0.5162964, y: 2.3265076, z: -0.5}
+      m_Extent: {x: 1.4904785, y: 3.2695618, z: 0.49987793}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a000b0008000a000b000a000c000d000b000c000e000f00100011000e0010001200130014001500120014001600170018001600190017001a0018001b001a00160018001c001d001e001c001f001d0020002100220020002300210008000b0024000b0025002400260027002800270029002800180017002a0017002b002a002c002d002e002d002f002e003000310032003100330032001900160034001600350034000a0009003600090037003600380039003a0039003b003a00170019003c0019003d003c003e003f0040003f0041004000420043004400430045004400090008004600080047004600
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 72
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 3456
+    _typelessdata: 000080b80013b340000000b9000000000000803f000000000000803f0000000000000000000080bf000080b8000000b90000803f0013b340000000b9000000000000803f000000000000803f0000000000000000000080bf0000803f000000b9000080b80013b34000f87fbf000000000000803f000000000000803f0000000000000000000080bf000080b800f87fbf0000803f0013b34000f87fbf000000000000803f000000000000803f0000000000000000000080bf0000803f00f87fbf00a8f93e006c71bf00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00a8f9be00f87fbf00d8023f006c71bf00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00d802bf00f87fbf00a8f93e006c71bf000000b900000000000080bf00000000000080bf0000000000000000000080bf00a8f9be000000b900d8023f006c71bf000000b900000000000080bf00000000000080bf0000000000000000000080bf00d802bf000000b9000080b80000103a000000b900000000000000000000803f000080bf0000000000000000000080bf000080380000103a0000803f0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf0000103a0000803f00f0fd3f000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf00f0fd3f000080b800f0fd3f000000b900000000000000000000803f000080bf0000000000000000000080bf0000803800f0fd3f0000803f0013b340000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf0013b340000080b80013b340000000b900000000000000000000803f000080bf0000000000000000000080bf000080380013b34000a0803f0000103a000000b9619e733f374d9dbe0000000000000000000000000000803f000080bf000000b95c569e3e00a0803f0000103a00f87fbf619e733f374d9dbe0000000000000000000000000000803f000080bf00f87fbf5c569e3e006f004000a6464000f87fbf619e733f374d9dbe0000000000000000000000000000803f000080bf00f87fbfe07f6440006f004000a64640000000b9619e733f374d9dbe0000000000000000000000000000803f000080bf000000b9e07f64400000803f00f0fd3f000000b90000803f000000000000000000000000000000000000803f000080bf000000b900f0fd3f0000803f00f0fd3f00f87fbf0000803f000000000000000000000000000000000000803f000080bf00f87fbf00f0fd3f0000803f0013b34000f87fbf0000803f000000000000000000000000000000000000803f000080bf00f87fbf0013b3400000803f0013b340000000b90000803f000000000000000000000000000000000000803f000080bf000000b90013b3400000803f00f0fd3f00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f00f0fd3f000080b80000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b80000103a000080b800f0fd3f00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b800f0fd3f0000803f0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f0000103a0000803f0013b34000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f0013b340000080b80013b34000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b80013b340006479bf00a6464000f87fbffe9874bf441a97be000000000000000000000000000080bf000080bf00f87f3f62335040000080bc0000103a000000b9fe9874bf441a97be000000000000000000000000000080bf000080bf00000039064da83b006479bf00a64640000000b9fe9874bf441a97be000000000000000000000000000080bf000080bf0000003962335040000080bc0000103a00f87fbffe9874bf441a97be000000000000000000000000000080bf000080bf00f87f3f064da83b000080b80013b34000f87fbf000080bf00000000000000000000000000000000000080bf000080bf00f87f3f0013b340000080b800f0fd3f000000b9000080bf00000000000000000000000000000000000080bf000080bf0000003900f0fd3f000080b80013b340000000b9000080bf00000000000000000000000000000000000080bf000080bf000000390013b340000080b800f0fd3f00f87fbf000080bf00000000000000000000000000000000000080bf000080bf00f87f3f00f0fd3f000080bc0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf0000803c0000103a006479bf00a64640000000b900000000000000000000803f000080bf0000000000000000000080bf0064793f00a64640000080b800f0fd3f000000b93029413fab00283f0000000000000000000000000000803f000080bf000000b91a9cbf3f000080b800f0fd3f00f87fbf3029413fab00283f0000000000000000000000000000803f000080bf00f87fbf1a9cbf3f006479bf00a64640000000b93029413fab00283f0000000000000000000000000000803f000080bf000000b9accd3e40006479bf00a6464000f87fbf3029413fab00283f0000000000000000000000000000803f000080bf00f87fbfaccd3e40006479bf00a6464000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf006479bf00a64640000080bc0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080bc0000103a000080b80000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf0000803800f87fbf000080b80000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf00008038000000b9000080bc0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf0000803c00f87fbf000080bc0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf0000803c000000b90000803f0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf000080bf000000b90000803f0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf000080bf00f87fbf00a0803f0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf00a080bf000000b900a0803f0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00a080bf00f87fbf00a0803f0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00a0803f0000103a006f004000a6464000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf006f004000a64640006f004000a64640000000b900000000000000000000803f000080bf0000000000000000000080bf006f00c000a6464000a0803f0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf00a080bf0000103a0000803f00f0fd3f00f87fbfef623ebfeb232b3f000000000000000000000000000080bf000080bf00f87f3f1b3609400000803f00f0fd3f000000b9ef623ebfeb232b3f000000000000000000000000000080bf000080bf000000391b360940006f004000a6464000f87fbfef623ebfeb232b3f000000000000000000000000000080bf000080bf00f87f3f22986940006f004000a64640000000b9ef623ebfeb232b3f000000000000000000000000000080bf000080bf000000392298694000a8f93e006c71bf00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00a8f93e006c71bf00d8023f006c71bf00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00d8023f006c71bf000080b80000103a000000b94c6c63bf8d12ebbe000000000000000000000000000080bf000080bf000000397f45073a000080b80000103a00f87fbf4c6c63bf8d12ebbe000000000000000000000000000080bf000080bf00f87f3f7f45073a00a8f93e006c71bf000000b94c6c63bf8d12ebbe000000000000000000000000000080bf000080bf000000395de487bf00a8f93e006c71bf00f87fbf4c6c63bf8d12ebbe000000000000000000000000000080bf000080bf00f87f3f5de487bf0000803f0000103a00f87fbf904d633f5689ebbe0000000000000000000000000000803f000080bf00f87fbf44c9eb3e0000803f0000103a000000b9904d633f5689ebbe0000000000000000000000000000803f000080bf000000b944c9eb3e00d8023f006c71bf00f87fbf904d633f5689ebbe0000000000000000000000000000803f000080bf00f87fbfad2a1abf00d8023f006c71bf000000b9904d633f5689ebbe0000000000000000000000000000803f000080bf000000b9ad2a1abf00d8023f006c71bf000000b900000000000000000000803f000080bf0000000000000000000080bf00d802bf006c71bf00a8f93e006c71bf000000b900000000000000000000803f000080bf0000000000000000000080bf00a8f9be006c71bf
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.5162964, y: 2.3265076, z: -0.5}
+    m_Extent: {x: 1.4904785, y: 3.2695618, z: 0.49987793}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &736406775
 GameObject:
   m_ObjectHideFlags: 0
@@ -8567,8 +8507,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2102665686}
   m_HandleRect: {fileID: 2102665685}
   m_Direction: 2
-  m_Value: 0.9999882
-  m_Size: 0.201066
+  m_Value: 0.99998814
+  m_Size: 0.22804208
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9094,9 +9034,9 @@ RectTransform:
   m_Father: {fileID: 1978840346}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 250, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &772093003
@@ -9385,18 +9325,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -9463,6 +9391,8 @@ MonoBehaviour:
   nextButton: {fileID: 981726905}
   nextDayDelay: 41
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 981726907}
+  wakeUiAtTheEnd: {fileID: 1125081814}
 --- !u!1 &780248877
 GameObject:
   m_ObjectHideFlags: 0
@@ -9913,9 +9843,9 @@ RectTransform:
   m_Father: {fileID: 1497407037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &798438752
@@ -10152,9 +10082,9 @@ RectTransform:
   m_Father: {fileID: 1978840346}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801390385
@@ -10291,18 +10221,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -10369,6 +10287,8 @@ MonoBehaviour:
   nextButton: {fileID: 362688188}
   nextDayDelay: 70
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &823245687
 GameObject:
   m_ObjectHideFlags: 0
@@ -10478,9 +10398,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -1385.425}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &831505093
@@ -10694,7 +10614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &877918047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10950,9 +10870,9 @@ RectTransform:
   m_Father: {fileID: 772093002}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -12.10845}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 141.7597, y: 24.2169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885588670
@@ -11162,9 +11082,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -1848.2919}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914652639
@@ -11430,6 +11350,7 @@ MonoBehaviour:
   gridButton: {fileID: 1243942141}
   gridAnimator: {fileID: 1243942140}
   captionAnimator: {fileID: 1038479086}
+  mainSubtitles: {fileID: 1514660507}
   dds: {fileID: 591054007}
   subtitleAnimator: {fileID: 1514660509}
 --- !u!95 &962185293
@@ -11444,7 +11365,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9c73b1e58bd7c8e49910480096520fad, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -11627,7 +11548,6 @@ GameObject:
   - component: {fileID: 981726909}
   - component: {fileID: 981726908}
   - component: {fileID: 981726907}
-  - component: {fileID: 981726910}
   m_Layer: 5
   m_Name: RestInfo
   m_TagString: Untagged
@@ -11676,10 +11596,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.627451, g: 1, b: 0, a: 1}
+    m_NormalColor: {r: 0.25729796, g: 0.8301268, b: 0.9245283, a: 1}
+    m_HighlightedColor: {r: 0.25882354, g: 0.83137256, b: 0.9254902, a: 1}
+    m_PressedColor: {r: 0.527527, g: 0.9528302, b: 0.20225172, a: 1}
+    m_SelectedColor: {r: 0.25882354, g: 0.83137256, b: 0.9254902, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11711,30 +11631,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
-      - m_Target: {fileID: 1799041324}
-        m_TargetAssemblyTypeName: KeepButtonHighlighted, Assembly-CSharp
-        m_MethodName: MakeSelectionChange
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 981726905}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: SetPanelAnimator
@@ -11797,22 +11693,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981726905}
   m_CullTransparentMesh: 1
---- !u!114 &981726910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981726905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c2f2d7f09c22b439b1f3c501f8b670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dayName: 
-  nextButton: {fileID: 0}
-  nextDayDelay: 0
-  ttp: {fileID: 1093930274}
 --- !u!43 &993638616
 Mesh:
   m_ObjectHideFlags: 0
@@ -12625,9 +12505,9 @@ RectTransform:
   m_Father: {fileID: 395163862}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059857124
@@ -12700,9 +12580,9 @@ RectTransform:
   m_Father: {fileID: 914652638}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1077800354
@@ -12784,14 +12664,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093930271}
-  m_LocalRotation: {x: 0.30347726, y: -0.20780711, z: 0.10877222, w: 0.92351854}
-  m_LocalPosition: {x: -0.09, y: 0.31, z: 0.88}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1798095040}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 37.282, y: -23.542, z: 5.393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1093930274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12857,7 +12737,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7932
+  m_Name: pb_Mesh1389516
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13111,18 +12991,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -13189,6 +13057,8 @@ MonoBehaviour:
   nextButton: {fileID: 186399413}
   nextDayDelay: 61
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!850595691 &1114040580
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -13374,13 +13244,14 @@ MonoBehaviour:
   panelsToDisable:
   - {fileID: 1444459352}
   - {fileID: 877918046}
+  ugl: {fileID: 962185292}
 --- !u!43 &1136806892
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10406
+  m_Name: pb_Mesh1385234
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13770,9 +13641,9 @@ RectTransform:
   m_Father: {fileID: 1602345365}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1162330450
@@ -14590,7 +14461,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8134
+  m_Name: pb_Mesh1391998
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15371,9 +15242,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -2861.6113}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 26.4065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286120940
@@ -15834,9 +15705,9 @@ RectTransform:
   m_Father: {fileID: 1602345365}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 27.9268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1316347916
@@ -16104,9 +15975,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -611.25916}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 119.6568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345346425
@@ -17340,9 +17211,9 @@ RectTransform:
   m_Father: {fileID: 1497407037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 27.9268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424924783
@@ -17686,9 +17557,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -59.01}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 118.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451405431
@@ -18039,170 +17910,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454994689}
   m_CullTransparentMesh: 1
---- !u!43 &1478251161
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10414
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 132
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 72
-    localAABB:
-      m_Center: {x: 0.5162964, y: 2.3265076, z: -0.5}
-      m_Extent: {x: 1.4904785, y: 3.2695618, z: 0.49987793}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200010003000200040005000600050007000600080009000a000b0008000a000b000a000c000d000b000c000e000f00100011000e0010001200130014001500120014001600170018001600190017001a0018001b001a00160018001c001d001e001c001f001d0020002100220020002300210008000b0024000b0025002400260027002800270029002800180017002a0017002b002a002c002d002e002d002f002e003000310032003100330032001900160034001600350034000a0009003600090037003600380039003a0039003b003a00170019003c0019003d003c003e003f0040003f0041004000420043004400430045004400090008004600080047004600
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 72
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 4
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 40
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 3456
-    _typelessdata: 000080b80013b340000000b9000000000000803f000000000000803f0000000000000000000080bf000080b8000000b90000803f0013b340000000b9000000000000803f000000000000803f0000000000000000000080bf0000803f000000b9000080b80013b34000f87fbf000000000000803f000000000000803f0000000000000000000080bf000080b800f87fbf0000803f0013b34000f87fbf000000000000803f000000000000803f0000000000000000000080bf0000803f00f87fbf00a8f93e006c71bf00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00a8f9be00f87fbf00d8023f006c71bf00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00d802bf00f87fbf00a8f93e006c71bf000000b900000000000080bf00000000000080bf0000000000000000000080bf00a8f9be000000b900d8023f006c71bf000000b900000000000080bf00000000000080bf0000000000000000000080bf00d802bf000000b9000080b80000103a000000b900000000000000000000803f000080bf0000000000000000000080bf000080380000103a0000803f0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf0000103a0000803f00f0fd3f000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf00f0fd3f000080b800f0fd3f000000b900000000000000000000803f000080bf0000000000000000000080bf0000803800f0fd3f0000803f0013b340000000b900000000000000000000803f000080bf0000000000000000000080bf000080bf0013b340000080b80013b340000000b900000000000000000000803f000080bf0000000000000000000080bf000080380013b34000a0803f0000103a000000b9619e733f374d9dbe0000000000000000000000000000803f000080bf000000b95c569e3e00a0803f0000103a00f87fbf619e733f374d9dbe0000000000000000000000000000803f000080bf00f87fbf5c569e3e006f004000a6464000f87fbf619e733f374d9dbe0000000000000000000000000000803f000080bf00f87fbfe07f6440006f004000a64640000000b9619e733f374d9dbe0000000000000000000000000000803f000080bf000000b9e07f64400000803f00f0fd3f000000b90000803f000000000000000000000000000000000000803f000080bf000000b900f0fd3f0000803f00f0fd3f00f87fbf0000803f000000000000000000000000000000000000803f000080bf00f87fbf00f0fd3f0000803f0013b34000f87fbf0000803f000000000000000000000000000000000000803f000080bf00f87fbf0013b3400000803f0013b340000000b90000803f000000000000000000000000000000000000803f000080bf000000b90013b3400000803f00f0fd3f00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f00f0fd3f000080b80000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b80000103a000080b800f0fd3f00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b800f0fd3f0000803f0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f0000103a0000803f0013b34000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf0000803f0013b340000080b80013b34000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080b80013b340006479bf00a6464000f87fbffe9874bf441a97be000000000000000000000000000080bf000080bf00f87f3f62335040000080bc0000103a000000b9fe9874bf441a97be000000000000000000000000000080bf000080bf00000039064da83b006479bf00a64640000000b9fe9874bf441a97be000000000000000000000000000080bf000080bf0000003962335040000080bc0000103a00f87fbffe9874bf441a97be000000000000000000000000000080bf000080bf00f87f3f064da83b000080b80013b34000f87fbf000080bf00000000000000000000000000000000000080bf000080bf00f87f3f0013b340000080b800f0fd3f000000b9000080bf00000000000000000000000000000000000080bf000080bf0000003900f0fd3f000080b80013b340000000b9000080bf00000000000000000000000000000000000080bf000080bf000000390013b340000080b800f0fd3f00f87fbf000080bf00000000000000000000000000000000000080bf000080bf00f87f3f00f0fd3f000080bc0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf0000803c0000103a006479bf00a64640000000b900000000000000000000803f000080bf0000000000000000000080bf0064793f00a64640000080b800f0fd3f000000b93029413fab00283f0000000000000000000000000000803f000080bf000000b91a9cbf3f000080b800f0fd3f00f87fbf3029413fab00283f0000000000000000000000000000803f000080bf00f87fbf1a9cbf3f006479bf00a64640000000b93029413fab00283f0000000000000000000000000000803f000080bf000000b9accd3e40006479bf00a6464000f87fbf3029413fab00283f0000000000000000000000000000803f000080bf00f87fbfaccd3e40006479bf00a6464000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf006479bf00a64640000080bc0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf000080bc0000103a000080b80000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf0000803800f87fbf000080b80000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf00008038000000b9000080bc0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf0000803c00f87fbf000080bc0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf0000803c000000b90000803f0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf000080bf000000b90000803f0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf000080bf00f87fbf00a0803f0000103a000000b900000000000080bf00000000000080bf0000000000000000000080bf00a080bf000000b900a0803f0000103a00f87fbf00000000000080bf00000000000080bf0000000000000000000080bf00a080bf00f87fbf00a0803f0000103a00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00a0803f0000103a006f004000a6464000f87fbf0000000000000000000080bf0000803f0000000000000000000080bf006f004000a64640006f004000a64640000000b900000000000000000000803f000080bf0000000000000000000080bf006f00c000a6464000a0803f0000103a000000b900000000000000000000803f000080bf0000000000000000000080bf00a080bf0000103a0000803f00f0fd3f00f87fbfef623ebfeb232b3f000000000000000000000000000080bf000080bf00f87f3f1b3609400000803f00f0fd3f000000b9ef623ebfeb232b3f000000000000000000000000000080bf000080bf000000391b360940006f004000a6464000f87fbfef623ebfeb232b3f000000000000000000000000000080bf000080bf00f87f3f22986940006f004000a64640000000b9ef623ebfeb232b3f000000000000000000000000000080bf000080bf000000392298694000a8f93e006c71bf00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00a8f93e006c71bf00d8023f006c71bf00f87fbf0000000000000000000080bf0000803f0000000000000000000080bf00d8023f006c71bf000080b80000103a000000b94c6c63bf8d12ebbe000000000000000000000000000080bf000080bf000000397f45073a000080b80000103a00f87fbf4c6c63bf8d12ebbe000000000000000000000000000080bf000080bf00f87f3f7f45073a00a8f93e006c71bf000000b94c6c63bf8d12ebbe000000000000000000000000000080bf000080bf000000395de487bf00a8f93e006c71bf00f87fbf4c6c63bf8d12ebbe000000000000000000000000000080bf000080bf00f87f3f5de487bf0000803f0000103a00f87fbf904d633f5689ebbe0000000000000000000000000000803f000080bf00f87fbf44c9eb3e0000803f0000103a000000b9904d633f5689ebbe0000000000000000000000000000803f000080bf000000b944c9eb3e00d8023f006c71bf00f87fbf904d633f5689ebbe0000000000000000000000000000803f000080bf00f87fbfad2a1abf00d8023f006c71bf000000b9904d633f5689ebbe0000000000000000000000000000803f000080bf000000b9ad2a1abf00d8023f006c71bf000000b900000000000000000000803f000080bf0000000000000000000080bf00d802bf006c71bf00a8f93e006c71bf000000b900000000000000000000803f000080bf0000000000000000000080bf00a8f9be006c71bf
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.5162964, y: 2.3265076, z: -0.5}
-    m_Extent: {x: 1.4904785, y: 3.2695618, z: 0.49987793}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1479737412
 GameObject:
   m_ObjectHideFlags: 0
@@ -18506,9 +18213,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3115.183}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1497407038
@@ -18774,7 +18481,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 928a6633943426847a83fbfd809b998f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -19041,18 +18748,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -19119,6 +18814,8 @@ MonoBehaviour:
   nextButton: {fileID: 601980997}
   nextDayDelay: 31
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &1547619481
 GameObject:
   m_ObjectHideFlags: 0
@@ -19151,9 +18848,9 @@ RectTransform:
   m_Father: {fileID: 390315528}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547619483
@@ -19391,9 +19088,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -2942.4885}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 427.8242, y: 51.9377}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &1583030592
@@ -19499,9 +19196,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3450.299}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602345366
@@ -19727,9 +19424,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -3688.7097}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1609732925
@@ -19865,9 +19562,9 @@ RectTransform:
   m_Father: {fileID: 278679757}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -12.10845}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 141.7597, y: 24.2169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645642074
@@ -20001,9 +19698,9 @@ RectTransform:
   m_Father: {fileID: 130395850}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -174.60844}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 225, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &1673680982
@@ -20543,7 +20240,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-11606
+  m_Name: pb_Mesh1384714
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20733,9 +20430,9 @@ RectTransform:
   m_Father: {fileID: 346695587}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -175}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779849596
@@ -21047,18 +20744,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -21125,6 +20810,8 @@ MonoBehaviour:
   nextButton: {fileID: 1535407890}
   nextDayDelay: 25
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &1799041320
 GameObject:
   m_ObjectHideFlags: 0
@@ -21504,6 +21191,170 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!43 &1807227236
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: pb_Mesh1390286
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 36
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 36
+    localAABB:
+      m_Center: {x: 0.0005, y: 0.0005, z: -0.0005}
+      m_Extent: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 00000100020003000400050006000700080009000a000b000c000d000e000f0010001100120013001400150016001700180019001a001b001c001d001e001f002000210022002300
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 36
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 40
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 1728
+    _typelessdata: 0000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a6f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000000000006f12833a6f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f000000000000000000000000000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a000000006f1283ba0000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000006f12833a00000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f00000000000000000000000000000000000000000000000000000000000000000000c0ff0000c0ff0000c0ff0000803f0000000000000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.0005, y: 0.0005, z: -0.0005}
+    m_Extent: {x: 0.0005, y: 0.0005, z: 0.0005}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1809810297
 GameObject:
   m_ObjectHideFlags: 0
@@ -21536,9 +21387,9 @@ RectTransform:
   m_Father: {fileID: 71630200}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280, y: -35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 400, y: 27.9268}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809810299
@@ -21690,7 +21541,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a9ecefbfc3aacd741ae7102ff479635c, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -22076,7 +21927,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7538
+  m_Name: pb_Mesh1400616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -22266,9 +22117,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -1616.8584}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 460, y: 29.4561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1850529112
@@ -22402,9 +22253,9 @@ RectTransform:
   m_Father: {fileID: 772093002}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -174.60844}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 225, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &1887626335
@@ -23960,7 +23811,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 87647778}
+      objectReference: {fileID: 1807227236}
     - target: {fileID: 1248232608851115850, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_Tangents.Array.data[0].x
@@ -24330,7 +24181,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 87647778}
+      objectReference: {fileID: 1807227236}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_RootOrder
@@ -24339,52 +24190,52 @@ PrefabInstance:
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.08
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.68
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.05
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.947254
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.27357945
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.1633356
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.034431968
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -30.468
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 22.388
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071572, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -10.333
       objectReference: {fileID: 0}
     - target: {fileID: 4305238779402071574, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
@@ -24760,17 +24611,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1478251161}
+      objectReference: {fileID: 729306650}
     - target: {fileID: 7025512609742478821, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1478251161}
+      objectReference: {fileID: 729306650}
     - target: {fileID: 7025512609742478823, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1478251161}
+      objectReference: {fileID: 729306650}
     - target: {fileID: 7084991512300720173, guid: abe3e1e8fcf13fc469dc642228deaa95,
         type: 3}
       propertyPath: m_Mesh
@@ -25536,9 +25387,9 @@ RectTransform:
   m_Father: {fileID: 1989316257}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 246.6733, y: -2239.9973}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 450, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978840347
@@ -25941,18 +25792,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 126124174}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: set_interactable
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1125081814}
         m_TargetAssemblyTypeName: UiCollapse, Assembly-CSharp
         m_MethodName: DisablePanelFromButtons
@@ -26019,6 +25858,8 @@ MonoBehaviour:
   nextButton: {fileID: 1097990712}
   nextDayDelay: 25
   ttp: {fileID: 1093930274}
+  buttonToClick: {fileID: 0}
+  wakeUiAtTheEnd: {fileID: 0}
 --- !u!1 &2034113383
 GameObject:
   m_ObjectHideFlags: 0
@@ -26424,8 +26265,8 @@ RectTransform:
   m_Father: {fileID: 690816814}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7989245}
-  m_AnchorMax: {x: 1, y: 0.99999046}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26473,7 +26314,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-8042
+  m_Name: pb_Mesh1393406
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

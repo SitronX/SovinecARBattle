@@ -16,6 +16,7 @@ public class UIGameLogic : MonoBehaviour
     [SerializeField] private Button gridButton;
     public Animator gridAnimator;
     public Animator captionAnimator;
+    [SerializeField] TextMeshProUGUI mainSubtitles;
 
     [SerializeField] private DropDownSwitch dds;
     [SerializeField] private Animator subtitleAnimator;
@@ -53,19 +54,13 @@ public class UIGameLogic : MonoBehaviour
         {
             if (!animationsPaused)
             {
-                animationsPaused = true;
-                pauseAnimator.SetTrigger("SwitchState");
+                StartCoroutine(AnimationPause(0.5f));
 
-                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
-                Time.timeScale = 0;
+                
             }
             else
             {
-                animationsPaused = false;
-
-                pauseAnimator.SetTrigger("SwitchState");
-                AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
-                Time.timeScale = 1;
+                AnimationRecover();
             }
         }
         catch { }
@@ -121,19 +116,32 @@ public class UIGameLogic : MonoBehaviour
     public void AnimationRecover()
     {
         animationsPaused = false;
+        mainSubtitles.enabled = true;
+
+        Time.timeScale = 1;
+        pauseAnimator.SetTrigger("SwitchState");
+        try
+        {
+            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
+        }
+        catch { }
+    }
+    public IEnumerator AnimationPause(float time)
+    {
+        animationsPaused = true;
+        mainSubtitles.enabled = false; 
 
         pauseAnimator.SetTrigger("SwitchState");
-        Time.timeScale = 1;
+        yield return new WaitForSeconds(time);
+
+        Time.timeScale = 0;
+        try
+        {
+            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
+        }
+        catch { }
+        
     }
-    //IEnumerator AnimationPause()
-    //{
-    //    pauseAnimator.SetTrigger("SwitchState");
-    //    yield return new WaitForSeconds(0.5f);
-    //    
-    //   
-    //    AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
-    //    Time.timeScale = 0;
-    //}
     
 
 }

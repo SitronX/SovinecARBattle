@@ -16,6 +16,8 @@ public class ScrollerButtonClick : MonoBehaviour
     public GameObject nextButton;
     public int nextDayDelay;
     [SerializeField] TapToPlace ttp;
+    [SerializeField] Button buttonToClick;
+    [SerializeField] UiCollapse wakeUiAtTheEnd;
 
     private static List<ScrollerButtonClick> allButtons = new List<ScrollerButtonClick>();
 
@@ -82,9 +84,22 @@ public class ScrollerButtonClick : MonoBehaviour
 
         yield return new WaitForSeconds(nextDayDelay);
 
-        GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(nextButton);
 
-        nextButton.GetComponent<ScrollerButtonClick>().OnMyButtonClick();
+        if(buttonToClick==null)
+        {
+            GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(nextButton);
+            nextButton.GetComponent<ScrollerButtonClick>().OnMyButtonClick();
+        }
+        else
+        {
+            
+            GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);         //Specially for Additional Info
+            AnimDay.lastAnimDay = null;
+            wakeUiAtTheEnd.InputDetected();
+
+            if (buttonToClick != null) buttonToClick.onClick.Invoke();
+        }
+   
 
         
 
