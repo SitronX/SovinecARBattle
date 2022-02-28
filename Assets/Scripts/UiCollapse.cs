@@ -10,6 +10,7 @@ public class UiCollapse : MonoBehaviour
     [SerializeField] int checkEverySec = 5;
     [SerializeField] Animator buttonAnimator;
     [SerializeField] Animator panelAnimator;
+    [SerializeField] Animator closeAnimator;
     [SerializeField] TapToPlace ttp;
     [SerializeField] Button gridButton;
     [SerializeField] List<GameObject> panelsToDisable = new List<GameObject>();
@@ -18,6 +19,7 @@ public class UiCollapse : MonoBehaviour
     bool shrinked = false;
 
     public Action panelCollapsed;
+    bool collapsedPan = false;
 
 
     private void OnEnable()
@@ -81,7 +83,7 @@ public class UiCollapse : MonoBehaviour
                 StartCoroutine(CheckInput(checkEverySec));
             }
             inputDetected = true;
-
+            collapsedPan = true;
             gridButton.interactable = true;
             panelCollapsed?.Invoke();
             StartCoroutine("DisablePanels");
@@ -96,6 +98,7 @@ public class UiCollapse : MonoBehaviour
             {
                 StartCoroutine(ugl.AnimationPause(1f));
             }
+            collapsedPan = false;
             gridButton.interactable = false;
             TapToPlace.ChangePlanes(false, true);
             
@@ -111,6 +114,8 @@ public class UiCollapse : MonoBehaviour
         }
         if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") || panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2")) return;
 
+        panelCollapsed?.Invoke();
+        collapsedPan = true;
         inputDetected = true;
         StartCoroutine("DisablePanels");
         gridButton.interactable = true;
@@ -119,8 +124,18 @@ public class UiCollapse : MonoBehaviour
     }
     public void BackButtorPressed()
     {
-        SetPanelAnimator("Collapse");
+        if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2"))
+        {
+            SetPanelAnimator("Collapse");
+        }
+
+
+        if (collapsedPan)
+        {
+            closeAnimator.SetTrigger("ChangeState");
+        }
     }
+    
 
     IEnumerator DisablePanels()
     {

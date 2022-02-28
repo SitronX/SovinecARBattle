@@ -16,7 +16,7 @@ public class AnimDay : MonoBehaviour
     public List<int> animatorArrowTimes = new List<int>();
 
     public List<Animator> animatorToLaunch = new List<Animator>();
-    public List<int> animatorTimes = new List<int>();
+    public List<float> animatorTimes = new List<float>();
     public List<string> animatorTriggers = new List<string>();
 
     public List<GameObject> objectsToEnable = new List<GameObject>();
@@ -264,7 +264,7 @@ public class AnimDay : MonoBehaviour
         }
     }
 
-    IEnumerator StartAnimation(Animator arrowAnim,int time,string command)
+    IEnumerator StartAnimation(Animator arrowAnim,float time,string command)
     {
         yield return new WaitForSeconds(time);
 

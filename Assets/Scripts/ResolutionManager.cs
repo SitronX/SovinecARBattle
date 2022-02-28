@@ -13,5 +13,9 @@ public class ResolutionManager : MonoBehaviour
         Application.targetFrameRate = 60;
         GetComponent<ARSession>().matchFrameRateRequested = true;
     }
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 
 }
