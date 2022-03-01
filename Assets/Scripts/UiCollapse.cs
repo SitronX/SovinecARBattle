@@ -20,6 +20,10 @@ public class UiCollapse : MonoBehaviour
 
     public Action panelCollapsed;
     bool collapsedPan = false;
+    bool collapsedClose = true;
+
+    bool Uiclicked = false;              //Avoid rapid clicking on UI
+    float clickDelay = 0.5f;
 
 
     private void OnEnable()
@@ -42,7 +46,10 @@ public class UiCollapse : MonoBehaviour
         {
 
             buttonAnimator.SetTrigger("Collapse");
-            if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2")) panelAnimator.SetTrigger("Spread");
+            if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2"))
+            {
+                panelAnimator.SetTrigger("Spread");
+            }
 
             shrinked = true;
         }
@@ -58,7 +65,10 @@ public class UiCollapse : MonoBehaviour
         {
             shrinked = false;
             buttonAnimator.SetTrigger("Appear");
-            if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelSpread"))   panelAnimator.SetTrigger("Shrink");
+            if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UiPanelSpread"))
+            {
+                panelAnimator.SetTrigger("Shrink");
+            }
 
 
             StartCoroutine(CheckInput(checkEverySec));
@@ -82,14 +92,12 @@ public class UiCollapse : MonoBehaviour
                 buttonAnimator.SetTrigger("Appear");
                 StartCoroutine(CheckInput(checkEverySec));
             }
+            StartCoroutine(PreventRapidClicking(panelAnimator, val, true,true));
+
             inputDetected = true;
-            collapsedPan = true;
             gridButton.interactable = true;
-            panelCollapsed?.Invoke();
             StartCoroutine("DisablePanels");
             TapToPlace.ChangePlanes(true,true);
-
-            
 
         }
         else if(val=="Appear")
@@ -98,13 +106,10 @@ public class UiCollapse : MonoBehaviour
             {
                 StartCoroutine(ugl.AnimationPause(1f));
             }
-            collapsedPan = false;
-            gridButton.interactable = false;
-            TapToPlace.ChangePlanes(false, true);
-            
+            StartCoroutine(SpecialClosingCase());      
             StopCoroutine("DisablePanels");
         }
-        panelAnimator.SetTrigger(val);
+
     }
     public void DisablePanelFromButtons()
     {
@@ -114,25 +119,79 @@ public class UiCollapse : MonoBehaviour
         }
         if (panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") || panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2")) return;
 
-        panelCollapsed?.Invoke();
-        collapsedPan = true;
         inputDetected = true;
         StartCoroutine("DisablePanels");
         gridButton.interactable = true;
-        panelAnimator.SetTrigger("Collapse");
+        StartCoroutine(PreventRapidClicking(panelAnimator, "Collapse",true,true));
         TapToPlace.ChangePlanes(true,true);
     }
     public void BackButtorPressed()
     {
-        if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2"))
+        if (collapsedPan)
+        {
+            if (collapsedClose)
+            {
+                StartCoroutine(PreventRapidClicking(closeAnimator, "Hidden", false, false));
+            }
+            else
+            {
+                StartCoroutine(PreventRapidClicking(closeAnimator, "Hidden", false, true));
+            }
+        }   
+        else if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2"))
         {
             SetPanelAnimator("Collapse");
         }
-
-
-        if (collapsedPan)
+    }
+    IEnumerator SpecialClosingCase()
+    {
+        if(!Uiclicked)
         {
-            closeAnimator.SetTrigger("ChangeState");
+            Uiclicked = true;
+
+            collapsedPan = false;
+            panelAnimator.SetTrigger("Appear");
+            gridButton.interactable = false;
+            TapToPlace.ChangePlanes(false, true);
+
+            if (!collapsedClose)                                 //If info button is pressed when having quit dialog, hide quit dialogue and open info, No delay, because this has to happen every time
+            {
+                collapsedClose = true;
+                closeAnimator.SetBool("Hidden", collapsedClose);
+            }
+            yield return new WaitForSecondsRealtime(clickDelay);
+
+            Uiclicked = false;
+        }
+       
+    }
+    IEnumerator PreventRapidClicking(Animator animator,string trigger,bool panel,bool val)
+    {
+        if(!Uiclicked)
+        {
+            if(panel)
+            {
+                Uiclicked = true;
+                animator.SetTrigger(trigger);
+                panelCollapsed?.Invoke();
+                collapsedPan = val;
+
+                yield return new WaitForSecondsRealtime(clickDelay);
+               
+                Uiclicked = false;
+   
+            }
+            else
+            {
+                Uiclicked = true;
+                collapsedClose = val;
+
+                animator.SetBool(trigger,collapsedClose);
+
+                yield return new WaitForSecondsRealtime(clickDelay);
+                
+                Uiclicked = false;
+            }
         }
     }
     

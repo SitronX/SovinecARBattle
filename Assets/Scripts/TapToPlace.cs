@@ -82,7 +82,7 @@ public class TapToPlace : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.Escape))                //Back button pressed
+        if (Input.GetKeyDown(KeyCode.Escape))                //Back button pressed
         {
             backButtonDetected?.Invoke();
         }
