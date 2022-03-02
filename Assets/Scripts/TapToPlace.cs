@@ -110,7 +110,7 @@ public class TapToPlace : MonoBehaviour
             }
             else
             {
-                //if (isObjectRotating) return;                   //Comment or not???
+                if (isObjectRotating) return;                   //Comment or not???
 
                 instance.transform.position = hitpose.position;
                 this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position);

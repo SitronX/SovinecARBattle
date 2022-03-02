@@ -194,6 +194,15 @@ public class UiCollapse : MonoBehaviour
             }
         }
     }
+    public void SwitchToPanel(GameObject obj)
+    {
+        obj.SetActive(true);
+
+        foreach (GameObject i in panelsToDisable)
+        {
+            if(i!=obj) i.SetActive(false);
+        }
+    }
     
 
     IEnumerator DisablePanels()
