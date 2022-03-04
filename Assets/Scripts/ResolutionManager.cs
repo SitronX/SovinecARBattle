@@ -11,7 +11,6 @@ public class ResolutionManager : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        GetComponent<ARSession>().matchFrameRateRequested = true;
     }
     public void QuitApp()
     {

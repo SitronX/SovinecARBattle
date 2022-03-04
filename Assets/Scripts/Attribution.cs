@@ -19,6 +19,7 @@ public class Attribution : MonoBehaviour
         urlValues.Add("torch", "https://sketchfab.com/3d-models/torch-3e1203d8410348c8900c0ace23d9d40d");
         urlValues.Add("mGlass", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
         urlValues.Add("email", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
+        urlValues.Add("gestures", "https://static.lukew.com/TouchGestureGuide.pdf");
 
 
     }
