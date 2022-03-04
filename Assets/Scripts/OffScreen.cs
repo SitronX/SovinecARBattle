@@ -34,6 +34,8 @@ public class OffScreen : MonoBehaviour
     }    
     IEnumerator CheckVisibilityAfterFirstFrame()        
     {
+        UpdatePositionAndRotation();
+
         yield return new WaitForFixedUpdate();
 
         if (GetComponent<Renderer>().isVisible)

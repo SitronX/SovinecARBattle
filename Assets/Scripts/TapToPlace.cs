@@ -146,8 +146,6 @@ public class TapToPlace : MonoBehaviour
       
     }
 
-    
-
 
     private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
     {

@@ -6734,7 +6734,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -173.32104, z: 7.74e-43, w: 2.62e-43}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 2.2691425e-19}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7095,7 +7095,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2102665685}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.22166778
+  m_Size: 0.09475397
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
