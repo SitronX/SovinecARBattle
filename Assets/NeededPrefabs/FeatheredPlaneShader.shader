@@ -12,6 +12,7 @@
         LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
+        Offset 50,50
 
         Pass
         {

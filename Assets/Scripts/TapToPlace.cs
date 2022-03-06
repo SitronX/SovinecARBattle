@@ -38,11 +38,23 @@ public class TapToPlace : MonoBehaviour
     public Action inputDetected;
     public Action backButtonDetected;
     [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
+    [SerializeField] ARSession arsess;
+
+    Vector3 zOffset = new Vector3(0, 0, 0);
+    [SerializeField] Slider testSlider;
+    Vector3 latestHit = new Vector3(0, 0, 0);
+    Vector3 withoutARpos = new Vector3(-0.5f, -0.5f, 3);
+    Vector3 withoutARrot = new Vector3(-15, 20, -10);
+
+    public static bool usingAR=true;
+
 
     private void OnEnable()
     {
         ChangePlanes(false,false);                      //Ugly but works
         helpPlaneStatus = true;
+        //ARSession.stateChanged += DetermineWhatTypeToLaunch;
+
 
     }
     private void OnDisable()
@@ -55,8 +67,8 @@ public class TapToPlace : MonoBehaviour
     {
         raycastM = GetComponent<ARRaycastManager>();
         GetComponent<PinchRotate>().rotating += ChangeRotationState;
+        DetermineWhatTypeToLaunch(ARSession.state);
 
-        
     }
     void ChangeRotationState(bool val)
     {
@@ -101,19 +113,19 @@ public class TapToPlace : MonoBehaviour
             inputDetected?.Invoke();
             raycastM.Raycast(touchPos1, hits, TrackableType.PlaneWithinPolygon);
             var hitpose = hits[0].pose;
-            Vector3 pos = hitpose.position;
+            latestHit = hitpose.position + zOffset;
             if(instance==null)
             {
-                instance = Instantiate(prefab, pos, Quaternion.identity);           
-                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position);
+                instance = Instantiate(prefab, latestHit, Quaternion.identity);           
+                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
                 objectPlaced?.Invoke();
             }
             else
             {
                 if (isObjectRotating) return;                   //Comment or not???
 
-                instance.transform.position = hitpose.position;
-                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, hitpose.position);
+                instance.transform.position = latestHit;
+                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
             }
         }
         else
@@ -142,8 +154,15 @@ public class TapToPlace : MonoBehaviour
         {                                                                                               
             i.gameObject.SetActive(val);
         }
-        tmp.enabled = val;            
-      
+        tmp.enabled = val;
+    }
+
+    public void ChangeOffset()
+    {
+        zOffset = new Vector3(0,testSlider.value,0);
+
+        instance.transform.position = latestHit + zOffset;
+        this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position);
     }
 
 
@@ -154,6 +173,22 @@ public class TapToPlace : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
+    }
+
+    void DetermineWhatTypeToLaunch(ARSessionState state)
+    {
+        if(state==ARSessionState.Unsupported||state==ARSessionState.None)
+        {
+            //TODO LAUNCH DEFAULT
+            usingAR = false;
+
+            if (instance == null)
+            {
+                instance = Instantiate(prefab, withoutARpos, Quaternion.Euler(withoutARrot));
+               
+                objectPlaced?.Invoke();
+            }
+        }
     }
 
 }

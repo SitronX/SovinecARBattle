@@ -21,17 +21,16 @@ public class ScrollerButtonClick : MonoBehaviour
 
     private static List<ScrollerButtonClick> allButtons = new List<ScrollerButtonClick>();
 
-    void Start()
+    private void Awake()
     {
         this.GetComponent<Button>().onClick.AddListener(OnMyButtonClick);
 
         allButtons.Add(this);
 
-        this.GetComponent<Button>().interactable = false;
+        if(TapToPlace.usingAR) this.GetComponent<Button>().interactable = false;
 
         ttp.objectPlaced += EnableAllButtons;
     }
-    
 
     public void OnMyButtonClick()
     {
