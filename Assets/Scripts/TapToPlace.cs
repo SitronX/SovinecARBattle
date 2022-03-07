@@ -20,7 +20,7 @@ public class TapToPlace : MonoBehaviour
     public GameObject prefab;
     public GameObject gravityPrefab;
 
-    private GameObject instance;
+    public static GameObject instance;
     private GameObject gravityCenter;
      
     private ARRaycastManager raycastM;
@@ -31,30 +31,37 @@ public class TapToPlace : MonoBehaviour
 
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
-    private bool isObjectRotating=false;
 
-    public Action objectPlaced;
+    public static Action<GameObject> objectPlaced;
 
     public Action inputDetected;
     public Action backButtonDetected;
     [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
-    [SerializeField] ARSession arsess;
+    [SerializeField] ARSession m_Session;
+    [SerializeField] Camera cam;
+    [SerializeField] GameObject placedPlane;
+    [SerializeField] Animator arPopupAnim;
 
     Vector3 zOffset = new Vector3(0, 0, 0);
     [SerializeField] Slider testSlider;
     Vector3 latestHit = new Vector3(0, 0, 0);
-    Vector3 withoutARpos = new Vector3(-0.5f, -0.5f, 3);
-    Vector3 withoutARrot = new Vector3(-15, 20, -10);
+    Vector3 withoutARpos = new Vector3(0, 0, 0);
+    Vector3 withoutARrot = new Vector3(0, 23, 0);
+    Vector3 withoutARsessionPos = new Vector3(0.5f, 1.5f, -2);
+    Vector3 withoutARsessionRot = new Vector3(40, 0, 0);
+    bool isModelVisible = false;
 
-    public static bool usingAR=true;
+    public static bool UsingAR { get; set; }
+    private Vector2 lastTouch = Vector2.zero;
+
 
 
     private void OnEnable()
     {
         ChangePlanes(false,false);                      //Ugly but works
         helpPlaneStatus = true;
-        //ARSession.stateChanged += DetermineWhatTypeToLaunch;
-
+        ModelVisibility.modelVisible += ModelVisibilityChange;
+        StartCoroutine(DetermineWhatTypeToLaunch());
 
     }
     private void OnDisable()
@@ -66,13 +73,6 @@ public class TapToPlace : MonoBehaviour
     private void Awake()
     {
         raycastM = GetComponent<ARRaycastManager>();
-        GetComponent<PinchRotate>().rotating += ChangeRotationState;
-        DetermineWhatTypeToLaunch(ARSession.state);
-
-    }
-    void ChangeRotationState(bool val)
-    {
-        isObjectRotating = val;
     }
     int TryGetTouchPosition(out Vector2 touchPos)
     {
@@ -99,7 +99,8 @@ public class TapToPlace : MonoBehaviour
             backButtonDetected?.Invoke();
         }
         if ((TryGetTouchPosition(out Vector2 touchPos)==0))         //Touch logic start
-        { 
+        {
+            if (lastTouch != Vector2.zero) lastTouch = Vector2.zero;
             return; 
         }
         else if (IsPointerOverUIObject())
@@ -111,28 +112,118 @@ public class TapToPlace : MonoBehaviour
         else if(TryGetTouchPosition(out Vector2 touchPos1) == 1)
         {
             inputDetected?.Invoke();
-            raycastM.Raycast(touchPos1, hits, TrackableType.PlaneWithinPolygon);
-            var hitpose = hits[0].pose;
-            latestHit = hitpose.position + zOffset;
-            if(instance==null)
+
+            if (instance==null)
             {
-                instance = Instantiate(prefab, latestHit, Quaternion.identity);           
-                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
-                objectPlaced?.Invoke();
+                if(UsingAR)                                 //SPAWN IF USING AR
+                {
+                    if (!RayCasting(true, touchPos1)) return;
+
+                    instance = Instantiate(prefab, latestHit, Quaternion.identity);
+                    GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
+                    objectPlaced?.Invoke(instance);
+                }
+                else
+                {                                                                   //SPAWN IF NOT USING AR
+                    if (!RayCasting(false, touchPos1)) return;
+
+                    instance = Instantiate(prefab, latestHit, Quaternion.identity);
+                    objectPlaced?.Invoke(instance);
+
+                }
+
+
             }
             else
             {
-                if (isObjectRotating) return;                   //Comment or not???
+               
+                if(!isModelVisible)
+                {
+                    if (UsingAR)
+                    {
+                        if (!RayCasting(true, touchPos1)) return;
 
-                instance.transform.position = latestHit;
-                this.GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
+                        instance.transform.position = latestHit;
+                        GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, latestHit);
+                    }
+                    else
+                    {
+                        if (!RayCasting(false, touchPos1)) return;
+
+                        instance.transform.position = latestHit;
+
+                    }
+
+
+                }
+                else
+                {
+                    //DRAG INFO
+                    if (lastTouch == Vector2.zero)
+                    {
+                        lastTouch = touchPos1;
+                    }
+                    else
+                    {
+                        float multiplier = 0.001f;
+                        Vector3 dir = touchPos1 - lastTouch;
+                        Vector3 dir2 = new Vector3(dir.x * multiplier, dir.z * multiplier, dir.y * multiplier);
+
+                        var forward = cam.transform.forward;
+                        var right = cam.transform.right;
+
+                        forward.y = 0f;
+                        right.y = 0f;
+
+                        Vector3 desiredMoveDirection = forward * dir2.z + right * dir2.x;
+
+                        instance.transform.Translate(desiredMoveDirection);
+                        lastTouch = touchPos1;
+
+                        //GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position);
+
+                    }
+
+                }
             }
         }
         else
         {
             inputDetected?.Invoke();
+            if (lastTouch != Vector2.zero) lastTouch = Vector2.zero;
         }
 
+    }
+    bool RayCasting(bool isAR,Vector2 screenPoint)
+    {
+        if(isAR)
+        {
+            if(raycastM.Raycast(screenPoint, hits, TrackableType.PlaneWithinPolygon))
+            {
+                var hitpose = hits[0].pose;
+                latestHit = hitpose.position + zOffset;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            Ray ray = cam.ScreenPointToRay(screenPoint);
+            
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                latestHit = hit.point+ zOffset;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     public static void ChangePlanes(bool val,bool isPanelCall)      
     {
@@ -175,20 +266,46 @@ public class TapToPlace : MonoBehaviour
         return results.Count > 0;
     }
 
-    void DetermineWhatTypeToLaunch(ARSessionState state)
+    private void ModelVisibilityChange(bool val)
     {
-        if(state==ARSessionState.Unsupported||state==ARSessionState.None)
-        {
-            //TODO LAUNCH DEFAULT
-            usingAR = false;
+        isModelVisible = val;
+    }
 
+    public void InitializeWithoutAR()
+    {
+        arPopupAnim.SetBool("Hidden", true);
+
+        Instantiate(placedPlane, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
+
+        instance = Instantiate(prefab, withoutARpos, Quaternion.Euler(withoutARrot));
+        gameObject.transform.position = withoutARsessionPos;
+        gameObject.transform.rotation = Quaternion.Euler(withoutARsessionRot);
+
+        UsingAR = false;
+        objectPlaced?.Invoke(instance);
+    }
+
+    IEnumerator  DetermineWhatTypeToLaunch()
+    {
+        if ((ARSession.state == ARSessionState.None)||(ARSession.state == ARSessionState.CheckingAvailability))
+        {
+            yield return ARSession.CheckAvailability();
+        }
+
+        if (ARSession.state == ARSessionState.Unsupported)
+        {
             if (instance == null)
             {
-                instance = Instantiate(prefab, withoutARpos, Quaternion.Euler(withoutARrot));
-               
-                objectPlaced?.Invoke();
+                arPopupAnim.SetBool("Hidden", false);
             }
         }
+        else
+        {
+            // Start the AR session
+            UsingAR = true;
+            m_Session.enabled = true;
+        }
+        
     }
 
 }

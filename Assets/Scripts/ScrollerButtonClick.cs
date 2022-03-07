@@ -27,9 +27,9 @@ public class ScrollerButtonClick : MonoBehaviour
 
         allButtons.Add(this);
 
-        if(TapToPlace.usingAR) this.GetComponent<Button>().interactable = false;
+        if(TapToPlace.UsingAR) this.GetComponent<Button>().interactable = false;
 
-        ttp.objectPlaced += EnableAllButtons;
+        TapToPlace.objectPlaced += EnableAllButtons;
     }
 
     public void OnMyButtonClick()
@@ -103,7 +103,7 @@ public class ScrollerButtonClick : MonoBehaviour
         
 
     }
-    void EnableAllButtons()
+    void EnableAllButtons(GameObject pos)
     {
         foreach(ScrollerButtonClick i in allButtons)
         {

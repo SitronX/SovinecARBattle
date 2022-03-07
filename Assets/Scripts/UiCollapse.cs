@@ -95,7 +95,7 @@ public class UiCollapse : MonoBehaviour
             StartCoroutine(PreventRapidClicking(panelAnimator, val, true,true));
 
             inputDetected = true;
-            if(TapToPlace.usingAR) gridButton.interactable = true;
+            if(TapToPlace.UsingAR) gridButton.interactable = true;
             StartCoroutine("DisablePanels");
             TapToPlace.ChangePlanes(true,true);
 
@@ -121,7 +121,7 @@ public class UiCollapse : MonoBehaviour
 
         inputDetected = true;
         StartCoroutine("DisablePanels");
-        if (TapToPlace.usingAR) gridButton.interactable = true;
+        if (TapToPlace.UsingAR) gridButton.interactable = true;
         StartCoroutine(PreventRapidClicking(panelAnimator, "Collapse",true,true));
         TapToPlace.ChangePlanes(true,true);
     }
@@ -151,7 +151,7 @@ public class UiCollapse : MonoBehaviour
 
             collapsedPan = false;
             panelAnimator.SetTrigger("Appear");
-            if(TapToPlace.usingAR) gridButton.interactable = false;
+            if(TapToPlace.UsingAR) gridButton.interactable = false;
             TapToPlace.ChangePlanes(false, true);
 
             if (!collapsedClose)                                 //If info button is pressed when having quit dialog, hide quit dialogue and open info, No delay, because this has to happen every time

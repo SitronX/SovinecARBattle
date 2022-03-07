@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class PinchRotate : MonoBehaviour
 {
-    float multiplier = 0.002f;
+    float multiplier = 0.001f;
     Vector3 _startPosition;
     bool rotation = false;
     public Action<bool> rotating;
+
+    bool arActive;
+
+    private void Start()
+    {
+        arActive = TapToPlace.UsingAR;
+    }
 
 
     void Update()
@@ -40,7 +47,22 @@ public class PinchRotate : MonoBehaviour
             {
                 Vector2 currVector = touchOne.position - touchZero.position;
                 float angle = Vector2.SignedAngle(_startPosition, currVector);
-                transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + angle, 0);
+
+                if(arActive)
+                {
+                    transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + angle, 0);
+
+                }
+                else
+                {
+                    //transform.rotation = Quaternion.Euler(40, transform.rotation.eulerAngles.y + angle, 0); 
+                    if(TapToPlace.instance!=null)
+                    {
+                        //transform.RotateAround(TapToPlace.instance.transform.position, new Vector3(0, 1, 0), angle);
+                        
+                        transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), angle);
+                    }
+                }
                 _startPosition = currVector;
             }        
         }
@@ -49,14 +71,25 @@ public class PinchRotate : MonoBehaviour
             if(Input.touchCount==0)
             {
                 rotation = false;
-                rotating.Invoke(false);
+                rotating?.Invoke(false);
             }
         }
     }
     void Zoom(float increment)
     {
-        float tmp = Mathf.Clamp(transform.localScale.x - increment, 0.1f, 10);
-        transform.localScale = new Vector3(tmp, tmp, tmp);
+        if(arActive)
+        {
+            float tmp = Mathf.Clamp(transform.localScale.x - increment, 0.1f, 10);
+            transform.localScale = new Vector3(tmp, tmp, tmp);
+        }
+        else
+        {
+            Vector3 pos = transform.position + (transform.forward * increment);
+            if (pos.y < 0.5f || pos.y > 3.5f) return;
+
+            transform.position = pos;
+        }
+        
     }
     
 }
