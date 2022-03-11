@@ -180,7 +180,11 @@ public class TapToPlace : MonoBehaviour
                         instance.transform.Translate(desiredMoveDirection);
                         lastTouch = touchPos1;
 
-                        //GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position);
+                        if(UsingAR)
+                        {
+                            GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position);
+
+                        }
 
                     }
 

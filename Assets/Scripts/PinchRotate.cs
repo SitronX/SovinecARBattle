@@ -10,11 +10,9 @@ public class PinchRotate : MonoBehaviour
     bool rotation = false;
     public Action<bool> rotating;
 
-    bool arActive;
 
     private void Start()
     {
-        arActive = TapToPlace.UsingAR;
     }
 
 
@@ -48,7 +46,7 @@ public class PinchRotate : MonoBehaviour
                 Vector2 currVector = touchOne.position - touchZero.position;
                 float angle = Vector2.SignedAngle(_startPosition, currVector);
 
-                if(arActive)
+                if(TapToPlace.UsingAR)
                 {
                     transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + angle, 0);
 
@@ -77,7 +75,7 @@ public class PinchRotate : MonoBehaviour
     }
     void Zoom(float increment)
     {
-        if(arActive)
+        if(TapToPlace.UsingAR)
         {
             float tmp = Mathf.Clamp(transform.localScale.x - increment, 0.1f, 10);
             transform.localScale = new Vector3(tmp, tmp, tmp);
