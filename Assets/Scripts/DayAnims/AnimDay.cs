@@ -19,11 +19,19 @@ public class AnimDay : MonoBehaviour
     public List<float> animatorTimes = new List<float>();
     public List<string> animatorTriggers = new List<string>();
 
+    [SerializeField] List<Animator> animatorBool = new List<Animator>();
+    [SerializeField] List<float> animatorBoolTimes = new List<float>();
+    [SerializeField] List<string> animatorBoolNames = new List<string>();
+    [SerializeField] List<bool> animatorBoolValues = new List<bool>();
+
+
+
     public List<GameObject> objectsToEnable = new List<GameObject>();
     public List<float> objectsToEnableTimes = new List<float>();
 
     public List<GameObject> objectsToDisable = new List<GameObject>();
     public List<float> objectsToDisableTimes = new List<float>();
+
 
     public static AnimDay lastAnimDay = null;
 
@@ -124,10 +132,21 @@ public class AnimDay : MonoBehaviour
                 Debug.LogError("Špatný animator, nebo jméno triggeru");
             }
         }
+        for (int i = 0; i < animatorBool.Count; i++)
+        {
+            try
+            {
+                StartCoroutine(StartAnimation(animatorBool[i], animatorBoolTimes[i], animatorBoolNames[i], animatorBoolValues[i]));
+            }
+            catch
+            {
+                Debug.LogError("Špatný animator, nebo jméno triggeru");
+            }
+        }
 
-        
 
-        
+
+
 
         try
         {
@@ -269,6 +288,12 @@ public class AnimDay : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         arrowAnim.SetTrigger(command);
+    }
+    IEnumerator StartAnimation(Animator arrowAnim, float time,string boolName, bool value)
+    {
+        yield return new WaitForSeconds(time);
+
+        arrowAnim.SetBool(boolName, value);
     }
 
     IEnumerator ChangeObjectState(GameObject obj,float time,bool value)

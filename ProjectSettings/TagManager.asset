@@ -7,6 +7,8 @@ TagManager:
   - Pointer
   - SwedishSoldiers
   - CzechSoldiers
+  - LeaderSw
+  - LeaderSov
   layers:
   - Default
   - TransparentFX
