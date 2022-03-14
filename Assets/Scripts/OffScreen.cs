@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class OffScreen : MonoBehaviour
 {  
-    Camera cam;
+    Camera arCamera;
+    Camera nonArCam;
     GameObject arrowCS;
     Canvas canvas;
     Image arrowImage;
@@ -22,7 +23,8 @@ public class OffScreen : MonoBehaviour
     {
         doubleObjectList.Add(this.gameObject);
         
-        cam = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
+        arCamera = GameObject.Find("AR Camera (DO NOT CHANGE NAME)").GetComponent<Camera>();
+        nonArCam = GameObject.Find("NONARCAMERA (DO NOT CHANGE NAME)").GetComponent<Camera>();
         canvas = GameObject.Find("MainCanvas(DO NOT CHANGE NAME)").GetComponent<Canvas>();
         arrowParent = GameObject.Find("ArrowParent(DO NOT CHANGE NAME)").GetComponent<Transform>();
         arrowCS = arrowParent.transform.GetChild(0).gameObject;
@@ -64,6 +66,16 @@ public class OffScreen : MonoBehaviour
 
     private void UpdatePositionAndRotation()
     {
+
+        Camera cam;
+        if(TapToPlace.UsingAR)
+        {
+            cam = arCamera;
+        }
+        else
+        {
+            cam = nonArCam;
+        }
         //Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
         Vector3 tmpPos = transform.position;
         arrowParent.transform.position = cam.WorldToScreenPoint(tmpPos);

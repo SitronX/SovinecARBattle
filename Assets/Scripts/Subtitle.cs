@@ -99,4 +99,18 @@ public class Subtitle : MonoBehaviour
         yield return new WaitForSeconds(time);
         canvasSubtitle.fontSize = size;
     }
+    public static void ResetAudioAndSubtitles()
+    {
+        foreach (Subtitle i in allSubtitles)
+        {
+            i.StopAllCoroutines();
+        }
+        foreach (AudioSource i in allAudios)
+        {
+            i.Stop();
+        }
+        allAudios.Clear();
+        allSubtitles.Clear();
+    }
+    
 }

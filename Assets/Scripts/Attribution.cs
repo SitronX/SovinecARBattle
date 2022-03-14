@@ -20,6 +20,7 @@ public class Attribution : MonoBehaviour
         urlValues.Add("mGlass", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
         urlValues.Add("email", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
         urlValues.Add("gestures", "https://static.lukew.com/TouchGestureGuide.pdf");
+        urlValues.Add("warIcon", "https://www.onlinewebfonts.com/icon/327608");
 
 
     }
