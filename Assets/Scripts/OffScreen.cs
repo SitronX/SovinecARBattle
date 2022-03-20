@@ -76,8 +76,9 @@ public class OffScreen : MonoBehaviour
         {
             cam = nonArCam;
         }
-        //Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
-        Vector3 tmpPos = transform.position;
+        Vector3 tmpPos = calculateWorldPosition(this.transform.position, cam);                          //Fix position - Unity bug
+ 
+        
         arrowParent.transform.position = cam.WorldToScreenPoint(tmpPos);
 
         float posX = rt.rect.width * canvas.scaleFactor;

@@ -101,6 +101,7 @@ public class Subtitle : MonoBehaviour
     }
     public static void ResetAudioAndSubtitles()
     {
+        GameObject.Find("CanvasSubtitles").GetComponent<TextMeshProUGUI>().text = "";
         foreach (Subtitle i in allSubtitles)
         {
             i.StopAllCoroutines();

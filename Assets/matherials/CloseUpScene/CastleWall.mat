@@ -110,6 +110,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 0
+    - _SampleGI: 0
     - _Shininess: 0
     - _Smoothness: 0.5
     - _SmoothnessSource: 0

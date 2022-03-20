@@ -27,7 +27,7 @@ public class ScrollerButtonClick : MonoBehaviour
 
         allButtons.Add(this);
 
-        if(TapToPlace.UsingAR) this.GetComponent<Button>().interactable = false;
+        GetComponent<Button>().interactable = false;
 
         TapToPlace.objectPlaced += EnableAllButtons;
     }

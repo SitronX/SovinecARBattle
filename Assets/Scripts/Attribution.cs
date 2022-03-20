@@ -15,12 +15,13 @@ public class Attribution : MonoBehaviour
         urlValues.Add("surrenderFlag", "https://sketchfab.com/3d-models/flag-swing-9d0965e9e71241baa89583ea02090af6");
         urlValues.Add("rocks", "https://sketchfab.com/3d-models/low-poly-rock-set-48f8612d1db1429d976f8d4f08ed0f0c");
         urlValues.Add("shovel", "https://sketchfab.com/3d-models/low-poly-pirate-shovel-fbcef55c06c24cc2920b024af9f69b40");
-        urlValues.Add("swedishFlag", "https://sketchfab.com/3d-models/flag-alembic2-47b6b12926704946a1f7d21d8744a510");
         urlValues.Add("torch", "https://sketchfab.com/3d-models/torch-3e1203d8410348c8900c0ace23d9d40d");
         urlValues.Add("mGlass", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
         urlValues.Add("email", "https://sketchfab.com/3d-models/magnifying-glass-model-a4bf7706c6ad42ee979b47331d684e22");
         urlValues.Add("gestures", "https://static.lukew.com/TouchGestureGuide.pdf");
         urlValues.Add("warIcon", "https://www.onlinewebfonts.com/icon/327608");
+        urlValues.Add("dFlags", "https://sketchfab.com/3d-models/13-star-flag-of-the-united-states-5ab473466b5c4fe5ba518bac9d47a561");
+        urlValues.Add("basket", "https://sketchfab.com/3d-models/basket-43ef3703091f4e3fb63ee303a98a5bdc");
 
 
     }

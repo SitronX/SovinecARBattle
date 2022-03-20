@@ -44,6 +44,7 @@ public class TapToPlace : MonoBehaviour
     [SerializeField] GameObject placedPlane;
     [SerializeField] Animator arPopupAnim;
     [SerializeField] Animator arSwitchAnim;
+    [SerializeField] Animator arWarning;
     [SerializeField] TextMeshProUGUI arSwitchText;
     [SerializeField] TextMeshProUGUI arSwitchButtonText;
 
@@ -308,8 +309,8 @@ public class TapToPlace : MonoBehaviour
     {
         if(arIconAnimator.GetBool("ArOn"))
         {
-            Subtitle.ResetAudioAndSubtitles();
-            GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);     
+            //Subtitle.ResetAudioAndSubtitles();
+            //GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);     
             InitializeWithoutAR();
         }
         else
@@ -321,8 +322,9 @@ public class TapToPlace : MonoBehaviour
     }
     public void InitializeWithAR()
     {
-        if (instance != null) Destroy(instance);
-        if (planeInstance != null) Destroy(planeInstance);
+        if (instance != null) Destroy(instance,0);
+        if (planeInstance != null) Destroy(planeInstance,0);
+
 
         EnableAR();
 
@@ -344,11 +346,8 @@ public class TapToPlace : MonoBehaviour
     }
 
 
-    public void InitializeWithoutAR()
+    public void InitializeWithoutAR()       
     {
-        if (instance != null) Destroy(instance);
-        if (planeInstance != null) Destroy(planeInstance);
-
         DisableAR();
 
         
@@ -361,19 +360,26 @@ public class TapToPlace : MonoBehaviour
         gameObject.transform.localRotation = Quaternion.Euler(withoutARsessionRot);
         gameObject.transform.localScale = new Vector3(3, 3, 3);
 
-        cam.gameObject.transform.localPosition = new Vector3(0, 0, 0);
-        cam.gameObject.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-        cam.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        nonARCamera.gameObject.transform.localPosition = withoutARsessionPos;
+        nonARCamera.gameObject.transform.localRotation = Quaternion.Euler(withoutARsessionRot);
+        nonARCamera.gameObject.transform.localScale = new Vector3(1, 1, 1);
 
         arPopupAnim.SetBool("Hidden", true);
 
 
-        planeInstance = Instantiate(placedPlane, new Vector3(0,0,0), Quaternion.Euler(new Vector3(0, 0, 0)));
+        if(planeInstance==null)
+        {
+            planeInstance = Instantiate(placedPlane, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
+        }
 
-
-        instance = Instantiate(prefab, new Vector3(0,0,0), Quaternion.Euler(withoutARrot));
-
-
+        if(instance==null)
+        {
+            instance = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.Euler(withoutARrot));
+        }
+        else
+        {
+            instance.transform.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(withoutARrot));
+        }
 
         arIconAnimator.SetBool("ArOn", false);
 
@@ -395,6 +401,7 @@ public class TapToPlace : MonoBehaviour
             {
                 arPopupAnim.SetBool("Hidden", false);
                 arIcon.interactable = false;
+
             }
         }
         else
@@ -402,6 +409,7 @@ public class TapToPlace : MonoBehaviour
             // Start the AR session
             InitializeWithAR();
 
+            arWarning.SetBool("Hidden", false);
             arIcon.interactable = true;
         }
         
@@ -414,8 +422,6 @@ public class TapToPlace : MonoBehaviour
 
         ChangePlanes(true, true);       ////SImilar to panel behaviou so used again
 
-
-        GetComponent<ARSessionOrigin>().enabled = true;
 
         GetComponent<ARSessionOrigin>().enabled = true;
         GetComponent<ARRaycastManager>().enabled = true;
@@ -471,6 +477,10 @@ public class TapToPlace : MonoBehaviour
     public void HideSwitchPopup()
     {
         arSwitchAnim.SetBool("Hidden", true);
+    }
+    public void HideArWarning()
+    {
+        arWarning.SetBool("Hidden", true);
     }
 
 }

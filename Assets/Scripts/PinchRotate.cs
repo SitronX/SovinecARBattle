@@ -83,7 +83,7 @@ public class PinchRotate : MonoBehaviour
         else
         {
             Vector3 pos = transform.position + (transform.forward * increment);
-            if (pos.y < 0.5f || pos.y > 3.5f) return;
+            if (pos.y < 0.4f || pos.y > 3.5f) return;
 
             transform.position = pos;
         }
