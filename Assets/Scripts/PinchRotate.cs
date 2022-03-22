@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PinchRotate : MonoBehaviour
 {
-    float multiplier = 0.001f;
+    float multiplier = 0.0015f;
     Vector3 _startPosition;
     bool rotation = false;
     public Action<bool> rotating;
