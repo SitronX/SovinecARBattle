@@ -9,6 +9,7 @@ public class ToolTip : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] TextMeshProUGUI tooltipText;
+    [SerializeField] GameObject bubbleSize;
     [SerializeField] UIGameLogic uiG;
     Animator tooltipAnimator;
     bool tooltipHidden = true;
@@ -18,17 +19,18 @@ public class ToolTip : MonoBehaviour
     
     private Dictionary<int, string> tooltipValues = new Dictionary<int, string>();
 
-    void Start()
+    void Awake()        //Must be awake - User clicked must be launched before showtooltip
     {
         tooltipValues.Add(0, "TESTING VALUE");
         tooltipAnimator = GetComponent<Animator>();
-        TapToPlace.objectTouched += UserClicked;
+        TapToPlace.anyInputDetected += UserClicked;
 
     }
 
-    public void ShowTooltip(string text,Vector2 clickLocation)
+    public void ShowTooltip(string text,Vector2 clickLocation,int bubbleScale)
     {
-        transform.position = clickLocation; //TODO screen to world transform
+        bubbleSize.GetComponent<RectTransform>().offsetMax = new Vector2(bubbleScale,bubbleScale);
+        transform.position = clickLocation; 
         tooltipText.text = text;
         tooltipAnimator.SetBool("Hidden", false);
         tooltipHidden = false;
@@ -51,6 +53,7 @@ public class ToolTip : MonoBehaviour
                 uiG.AnimationRecover();
             }
         }
+
     }
 
     

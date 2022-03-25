@@ -34,7 +34,7 @@ public class TapToPlace : MonoBehaviour
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-    public static Action<List<RaycastResult>, Vector2> objectTouched;
+    public static Action<List<RaycastResult>, Vector2> anyInputDetected;        //FOR tooltip
     public static Action<GameObject> objectPlaced;
     public static Action<Vector2> uiInputDetected;
     public Action inputDetected;
@@ -301,7 +301,7 @@ public class TapToPlace : MonoBehaviour
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        objectTouched?.Invoke(results, eventDataCurrentPosition.position);
+        anyInputDetected?.Invoke(results, eventDataCurrentPosition.position);
         return results.Count > 0;
     }
 
