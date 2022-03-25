@@ -119,7 +119,7 @@ public class UIGameLogic : MonoBehaviour
         mainSubtitles.enabled = true;
 
         Time.timeScale = 1;
-        pauseAnimator.SetTrigger("SwitchState");
+        pauseAnimator.SetBool("Paused",false);
         try
         {
             AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Play();
@@ -131,7 +131,7 @@ public class UIGameLogic : MonoBehaviour
         animationsPaused = true;
         mainSubtitles.enabled = false; 
 
-        pauseAnimator.SetTrigger("SwitchState");
+        pauseAnimator.SetBool("Paused",true);
         yield return new WaitForSeconds(time);
 
         Time.timeScale = 0;
@@ -141,6 +141,19 @@ public class UIGameLogic : MonoBehaviour
         }
         catch { }
         
+    }
+    public void AnimationPause()        //Especially for tooltip, so subtitles are not disabled
+    {
+        animationsPaused = true;
+
+        pauseAnimator.SetBool("Paused",true);
+
+        Time.timeScale = 0;
+        try
+        {
+            AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.Pause();
+        }
+        catch { }
     }
     
 

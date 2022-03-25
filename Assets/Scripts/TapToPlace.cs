@@ -34,8 +34,9 @@ public class TapToPlace : MonoBehaviour
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    public static Action<List<RaycastResult>, Vector2> objectTouched;
     public static Action<GameObject> objectPlaced;
-
+    public static Action<Vector2> uiInputDetected;
     public Action inputDetected;
     public Action backButtonDetected;
     [SerializeField] List<GameObject> uiIgnoredObjects = new List<GameObject>();
@@ -91,8 +92,9 @@ public class TapToPlace : MonoBehaviour
     int TryGetTouchPosition(out Vector2 touchPos)
     {
         if(Input.touchCount==1)
-        {
+        {       
             touchPos = Input.GetTouch(0).position;
+            //userInteraction?.Invoke(touchPos);
             return 1;
         }
         if(Input.touchCount>1)
@@ -107,6 +109,7 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))                //Back button pressed
         {
@@ -298,6 +301,7 @@ public class TapToPlace : MonoBehaviour
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        objectTouched?.Invoke(results, eventDataCurrentPosition.position);
         return results.Count > 0;
     }
 

@@ -3003,8 +3003,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 43.454685, y: -887.2749}
-  m_SizeDelta: {x: 413.5271, y: 1838.0925}
+  m_AnchoredPosition: {x: 30.7409, y: -919.0462}
+  m_SizeDelta: {x: 414.0453, y: 1838.0925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285384871
 MonoBehaviour:
@@ -3032,6 +3032,145 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &312851437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312851438}
+  - component: {fileID: 312851440}
+  - component: {fileID: 312851439}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &312851438
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312851437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 692881922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.5231, y: 20}
+  m_SizeDelta: {x: 235.2603, y: 120.2016}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &312851439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312851437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Do b\u011Bla roz\u017Ehaven\xE9 \u017Eelezn\xE9 koule, kter\xE9 dok\xE1zaly
+    podp\xE1lit\r\njak\xFDkoliv ho\u0159lav\xFD materi\xE1l a\u017E p\u016Fl hodiny
+    po roz\u017Ehaven\xED. V\_hlavni d\u011Bla\r\nmusela b\xFDt ucp\xE1vka z\_vlhk\xE9ho
+    j\xEDlu, aby \u017Ehav\xE1 koule neza\u017Eehla n\xE1lo\u017E\r\nje\u0161t\u011B
+    p\u0159ed vyst\u0159elen\xEDm."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 964d27cf6993d05489741a8f94ea833c, type: 2}
+  m_sharedMaterial: {fileID: -3484017108090310329, guid: 964d27cf6993d05489741a8f94ea833c,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &312851440
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312851437}
+  m_CullTransparentMesh: 1
 --- !u!1 &321640981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,7 +3205,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -371.51422}
+  m_AnchoredPosition: {x: 207.02264, y: -371.51422}
   m_SizeDelta: {x: 460, y: 234.8707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321640983
@@ -4013,6 +4152,7 @@ GameObject:
   - component: {fileID: 373770035}
   - component: {fileID: 373770037}
   - component: {fileID: 373770036}
+  - component: {fileID: 373770038}
   m_Layer: 5
   m_Name: fourthP
   m_TagString: Untagged
@@ -4036,7 +4176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -1182.9126}
+  m_AnchoredPosition: {x: 207.02264, y: -1182.9126}
   m_SizeDelta: {x: 460, y: 355.7591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373770036
@@ -4063,12 +4203,12 @@ MonoBehaviour:
     nebo aby alespo\u0148 p\u016Fsobil nep\u0159\xEDteli co nejv\xEDce \u0161kod.
     Proto\u017Ee mu slezsk\xFD vrchn\xED \xFA\u0159ad neposkytl \u017E\xE1dnou pomoc,
     naverboval na n\xE1klady brunt\xE1lsk\xE9ho panstv\xED zp\xE1tky mu\u017Ee, kte\u0159\xED
-    ze\_Sovince odt\xE1hli (asi 120 mu\u0161ket\xFDr\u016F a\_80\_dragoun\u016F 13
-    ), a v roce 1644 podnikal opakovan\xE9 v\xFDpady proti \u0161v\xE9dsk\xFDm pos\xE1dk\xE1m
-    na Sovinci, v Uni\u010Dov\u011B i\_v\_Brunt\xE1le. Brunt\xE1l se mu poda\u0159ilo
-    znovu dob\xFDt. Skute\u010Dn\xFD v\xFDznam mohla m\xEDt ov\u0161em jen \xFApln\xE1
-    blok\xE1da Sovince. Ta byla po mnoha \u017E\xE1dostech v z\xE1\u0159\xED 1644
-    zah\xE1jena, ale vzhledem k tomu, \u017Ee k 50 brunt\xE1lsk\xFDm dragoun\u016Fm
+    ze\_Sovince odt\xE1hli (asi 120 mu\u0161ket\xFDr\u016F a\_80\_<link=0><u>dragoun\u016F</u></link>
+    13 ), a v roce 1644 podnikal opakovan\xE9 v\xFDpady proti \u0161v\xE9dsk\xFDm
+    pos\xE1dk\xE1m na Sovinci, v Uni\u010Dov\u011B i\_v\_Brunt\xE1le. Brunt\xE1l
+    se mu poda\u0159ilo znovu dob\xFDt. Skute\u010Dn\xFD v\xFDznam mohla m\xEDt ov\u0161em
+    jen \xFApln\xE1 blok\xE1da Sovince. Ta byla po mnoha \u017E\xE1dostech v z\xE1\u0159\xED
+    1644 zah\xE1jena, ale vzhledem k tomu, \u017Ee k 50 brunt\xE1lsk\xFDm dragoun\u016Fm
     p\u0159ibylo pouze 50 c\xEDsa\u0159sk\xFDch voj\xE1k\u016F Ladislava, hrab\u011Bte
     z Vald\u0161tejna, byla zcela nedostate\u010Dn\xE1."
   m_isRightToLeft: 0
@@ -4148,6 +4288,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373770034}
   m_CullTransparentMesh: 1
+--- !u!114 &373770038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373770034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9a1e0de86647a49b36da81847c2dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipValues:
+  - "Dragouni jezdili na koni jako kaval\xE9rie, ale bojovali jako p\u011Bchota.
+    Jmenuj\xED se podle kr\xE1tk\xE9 mu\u0161kety zvan\xE9 drago."
 --- !u!1 &390315527
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,6 +7271,82 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &692881921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692881922}
+  - component: {fileID: 692881924}
+  - component: {fileID: 692881923}
+  m_Layer: 5
+  m_Name: PanelContent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &692881922
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692881921}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 312851438}
+  m_Father: {fileID: 1344261832}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &692881923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692881921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 42882bb74e071044dae8f61ea7df3810, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &692881924
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692881921}
+  m_CullTransparentMesh: 1
 --- !u!1 &705496876
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,7 +7381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -520.10815}
+  m_AnchoredPosition: {x: 207.02264, y: -520.10815}
   m_SizeDelta: {x: 460, y: 39.9773}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705496878
@@ -7426,8 +7657,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1634394223}
   m_HandleRect: {fileID: 1634394222}
   m_Direction: 0
-  m_Value: -0.00000020922286
-  m_Size: 0.32993883
+  m_Value: -0.00000020922283
+  m_Size: 0.3299388
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7953,8 +8184,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2102665686}
   m_HandleRect: {fileID: 2102665685}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.15359297
+  m_Value: 1
+  m_Size: 0.23549251
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8818,7 +9049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -729.84454}
+  m_AnchoredPosition: {x: 207.02264, y: -729.84454}
   m_SizeDelta: {x: 460, y: 357.1558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780248879
@@ -9881,8 +10112,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 900055168}
   m_HandleRect: {fileID: 900055167}
   m_Direction: 2
-  m_Value: 0.97978324
-  m_Size: 0.14501914
+  m_Value: 0.99999994
+  m_Size: 0.42757
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9959,7 +10190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43.229992, y: -68.762054}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -68.762054}
   m_SizeDelta: {x: 377.2066, y: 237.5241}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &861987314
@@ -10527,8 +10758,8 @@ RectTransform:
   m_Father: {fileID: 1948112674}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8376959}
-  m_AnchorMax: {x: 1, y: 0.982715}
+  m_AnchorMin: {x: 0, y: 0.57242996}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12856,6 +13087,7 @@ RectTransform:
   - {fileID: 962185291}
   - {fileID: 1514660506}
   - {fileID: 86355349}
+  - {fileID: 1344261832}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14402,7 +14634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -121.077896}
+  m_AnchoredPosition: {x: 207.02264, y: -121.077896}
   m_SizeDelta: {x: 460, y: 150.0468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274976696
@@ -15355,7 +15587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -956.7277}
+  m_AnchoredPosition: {x: 207.02264, y: -956.7277}
   m_SizeDelta: {x: 460, y: 74.2708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343511558
@@ -15456,6 +15688,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343511556}
   m_CullTransparentMesh: 1
+--- !u!1 &1344261831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344261832}
+  - component: {fileID: 1344261834}
+  - component: {fileID: 1344261833}
+  m_Layer: 5
+  m_Name: Tooltip(DO NOT CHANGE NAME)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1344261832
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344261831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 692881922}
+  m_Father: {fileID: 1125081813}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -33.646, y: -72.9}
+  m_SizeDelta: {x: 272.355, y: 210}
+  m_Pivot: {x: 0.32, y: 0.03}
+--- !u!114 &1344261833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344261831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33046145117b461438b6f896f8ab4dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: {fileID: 312851439}
+  uiG: {fileID: 962185292}
+--- !u!95 &1344261834
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344261831}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5f7bd54887abb449985788ebce1ad9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1345346423
 GameObject:
   m_ObjectHideFlags: 0
@@ -15628,6 +15931,7 @@ GameObject:
   - component: {fileID: 1352492926}
   - component: {fileID: 1352492928}
   - component: {fileID: 1352492927}
+  - component: {fileID: 1352492929}
   m_Layer: 5
   m_Name: Intro
   m_TagString: Untagged
@@ -15651,7 +15955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -17.442322}
+  m_AnchoredPosition: {x: 207.02264, y: -17.442322}
   m_SizeDelta: {x: 466.31616, y: 34.8846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352492927
@@ -15674,7 +15978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rekapitulace v \u010D\xEDslech\r"
+  m_text: "<link=0><u>Rekapitulace v \u010D\xEDslech</u></link>\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 964d27cf6993d05489741a8f94ea833c, type: 2}
   m_sharedMaterial: {fileID: -3484017108090310329, guid: 964d27cf6993d05489741a8f94ea833c,
@@ -15752,6 +16056,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352492925}
   m_CullTransparentMesh: 1
+--- !u!114 &1352492929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352492925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9a1e0de86647a49b36da81847c2dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipValues:
+  - "Podrobn\xE9 podm\xEDnky kapitulace viz info panel Korespondence."
 --- !u!1 &1358886090
 GameObject:
   m_ObjectHideFlags: 0
@@ -16768,7 +17086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -225.09009}
+  m_AnchoredPosition: {x: 207.02264, y: -225.09009}
   m_SizeDelta: {x: 460, y: 35.6378}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441828004
@@ -18423,6 +18741,7 @@ GameObject:
   - component: {fileID: 1514660508}
   - component: {fileID: 1514660507}
   - component: {fileID: 1514660509}
+  - component: {fileID: 1514660510}
   m_Layer: 5
   m_Name: CanvasSubtitles
   m_TagString: Untagged
@@ -18463,7 +18782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -18565,6 +18884,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1514660510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514660505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9a1e0de86647a49b36da81847c2dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipValues:
+  - "V\_tomto p\u0159\xEDpad\u011B je hejtman vojensk\xE1 hodnost, ne funkce spr\xE1vy
+    hradu."
+  - "D\u011Blo pro d\u011Blov\xE9 koule o hmotnosti 24 liber (cca 12kg)"
+  - "D\u011Bla s\_kr\xE1tkou masivn\xED hlavn\xED, kter\xE1 st\u0159\xEDlej\xED pod
+    vysok\xFDm \xFAhlem projektily o velk\xE9 r\xE1\u017Ei. Pou\u017E\xEDvaly se
+    hlavn\u011B k\_ni\u010Den\xED opevn\u011Bn\xED"
+  - "1 centn\xE9\u0159 nebo cent\xFD\u0159 = kolem 60 kg"
+  - "Uzav\u0159en\xE9 n\xE1doby z\_litiny, keramiky, siln\xE9ho skla nebo olova pln\u011Bn\xE9
+    st\u0159eln\xFDm prachem. N\u011Bkdy se pou\u017E\xEDvaly i keramick\xE9 hrnce."
+  - "Kontreskarpa je vn\u011Bj\u0161\xED st\u011Bna hradebn\xEDho p\u0159\xEDkopu."
+  - "Do b\u011Bla roz\u017Ehaven\xE9 \u017Eelezn\xE9 koule, kter\xE9 dok\xE1zaly
+    podp\xE1lit jak\xFDkoliv ho\u0159lav\xFD materi\xE1l a\u017E p\u016Fl hodiny
+    po roz\u017Ehaven\xED. V\_hlavni d\u011Bla musela b\xFDt ucp\xE1vka z\_vlhk\xE9ho
+    j\xEDlu, aby \u017Ehav\xE1 koule neza\u017Eehla n\xE1lo\u017E je\u0161t\u011B
+    p\u0159ed vyst\u0159elen\xEDm."
+  - "Sou\u010D\xE1st d\u011Bla, na kter\xE9 je ulo\u017Eena hlave\u0148 (\u201Epodvozek\u201C)."
+  - "Hlouben\xED podzemn\xEDch chodeb sm\u011Brem k\_nep\u0159\xE1telsk\xE9mu opevn\u011Bn\xED,
+    pod kter\xFDm pot\xE9 vytvo\u0159ili podzemn\xED \u201Em\xEDstnost\u201C, tu
+    pak naplnili st\u0159eln\xFDm prachem. V\xFDbuch m\u011Bl zp\u016Fsobit zhroucen\xED
+    dan\xE9 \u010D\xE1sti opevn\u011Bn\xED."
+  - "Odpov\xEDd\xE1 cca 3 kg"
+  - "Hejtmanem Sovince v\_letech 1627\u20131652. Jeho erb se nach\xE1z\xED na\_budov\u011B
+    Remtru a jeho n\xE1hrobn\xED k\xE1men je um\xEDst\u011Bn v\_hradn\xEDm lapid\xE1riu."
+  - "Podrobn\xE9 podm\xEDnky kapitulace viz info panel Korespondence."
 --- !u!1 &1535407890
 GameObject:
   m_ObjectHideFlags: 0
@@ -19727,7 +20083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -1391.8174}
+  m_AnchoredPosition: {x: 207.02264, y: -1391.8174}
   m_SizeDelta: {x: 460, y: 39.7106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1739024405
@@ -22130,7 +22486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.76355, y: -1629.8826}
+  m_AnchoredPosition: {x: 207.02264, y: -1629.8826}
   m_SizeDelta: {x: 460, y: 414.0801}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006543297
