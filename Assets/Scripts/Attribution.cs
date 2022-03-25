@@ -22,6 +22,7 @@ public class Attribution : MonoBehaviour
         urlValues.Add("warIcon", "https://www.onlinewebfonts.com/icon/327608");
         urlValues.Add("dFlags", "https://sketchfab.com/3d-models/13-star-flag-of-the-united-states-5ab473466b5c4fe5ba518bac9d47a561");
         urlValues.Add("basket", "https://sketchfab.com/3d-models/basket-43ef3703091f4e3fb63ee303a98a5bdc");
+        urlValues.Add("grenade", "https://sketchfab.com/3d-models/round-bomb-2148b02dd8c948f797903f75988d8717");
 
 
     }

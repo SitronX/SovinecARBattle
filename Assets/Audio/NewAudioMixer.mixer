@@ -33,6 +33,20 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-3947152750006761555
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: efcc8751edb156b4c86fb4bef1e73989
+  m_EffectName: Attenuation
+  m_MixLevel: 13c466df52fc8dc4999cd6625c68eeab
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-2480212799166728701
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -75,6 +89,7 @@ AudioMixerController:
     - b49bb1f13cd49a2418a80b7becc1043a
     - 3a764d1b557b7b940919e39693f3646d
     - 3870b089d81c95f4a9d55d520d5dc647
+    - 18bf9ec5e33d45147b8cf8144074aefa
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -92,6 +107,7 @@ AudioMixerGroupController:
   - {fileID: 8168215820112770519}
   - {fileID: -2480212799166728701}
   - {fileID: -8125904019049224021}
+  - {fileID: 4716728652350230052}
   m_Volume: b2562c3a9fb581c4c98b12858a211400
   m_Pitch: 59536b8db702ae54498a4b8b8a974451
   m_Send: 00000000000000000000000000000000
@@ -143,6 +159,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &4716728652350230052
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grenade
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 18bf9ec5e33d45147b8cf8144074aefa
+  m_Children: []
+  m_Volume: 5d8e56ea97548084dbe6cc8741bd1776
+  m_Pitch: 69adaa9e73f44434dbe3fc092622c440
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3947152750006761555}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!243 &8168215820112770519
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
