@@ -34,14 +34,14 @@ public class UIGameLogic : MonoBehaviour
             if (!audioMuted)
             {
                 audioMuted = true;
-                audioAnimator.SetTrigger("SwitchState");
+                audioAnimator.SetBool("AudioOff",true);
                 AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume = 0;
 
             }
             else
             {
                 audioMuted = false;
-                audioAnimator.SetTrigger("SwitchState");
+                audioAnimator.SetBool("AudioOff",false);
                 AnimDay.lastAnimDay.subtitleToLaunch.currentAudioSource.volume = 1;
             }
         }
@@ -54,9 +54,7 @@ public class UIGameLogic : MonoBehaviour
         {
             if (!animationsPaused)
             {
-                StartCoroutine(AnimationPause(0.5f));
-
-                
+                AnimationPause();                
             }
             else
             {
@@ -87,11 +85,11 @@ public class UIGameLogic : MonoBehaviour
 
         if(TapToPlace.planesEnabled)
         {
-            gridAnimator.SetTrigger("GridOn");
+            gridAnimator.SetBool("GridOn",true);
         }
         else
         {
-            gridAnimator.SetTrigger("GridOff");
+            gridAnimator.SetBool("GridOn",false);
         }
     }
     public void ChangeSubtitles()
@@ -102,21 +100,24 @@ public class UIGameLogic : MonoBehaviour
             {
                 subtitleAnimator.SetTrigger("SubtitleOFF");
                 subtitlesShowing = false;
-                captionAnimator.SetTrigger("CaptionOff");
+                captionAnimator.SetBool("CaptionOff",true);
             }
             else
             {
                 subtitleAnimator.SetTrigger("SubtitleON");
                 subtitlesShowing = true;
-                captionAnimator.SetTrigger("CaptionOn");
+                captionAnimator.SetBool("CaptionOff",false);
             }
         }
         catch { }    
     }
     public void AnimationRecover()
     {
+        if(subtitlesShowing)
+        {
+            subtitleAnimator.SetTrigger("SubtitleON");
+        }
         animationsPaused = false;
-        mainSubtitles.enabled = true;
 
         Time.timeScale = 1;
         pauseAnimator.SetBool("Paused",false);
@@ -129,7 +130,7 @@ public class UIGameLogic : MonoBehaviour
     public IEnumerator AnimationPause(float time)
     {
         animationsPaused = true;
-        mainSubtitles.enabled = false; 
+        subtitleAnimator.SetTrigger("SubtitleOFF");
 
         pauseAnimator.SetBool("Paused",true);
         yield return new WaitForSeconds(time);

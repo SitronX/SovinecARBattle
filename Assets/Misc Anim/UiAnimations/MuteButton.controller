@@ -61,8 +61,8 @@ AnimatorController:
   m_Name: MuteButton
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: SwitchState
-    m_Type: 9
+  - m_Name: AudioOff
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -88,8 +88,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: SwitchState
+  - m_ConditionMode: 2
+    m_ConditionEvent: AudioOff
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8744241415909525662}
@@ -114,7 +114,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: SwitchState
+    m_ConditionEvent: AudioOff
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8555217124661510690}

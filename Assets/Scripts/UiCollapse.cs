@@ -104,7 +104,7 @@ public class UiCollapse : MonoBehaviour
         {
             if (!ugl.animationsPaused)
             {
-                StartCoroutine(ugl.AnimationPause(1f));
+                StartCoroutine(ugl.AnimationPause(0));
             }
             StartCoroutine(SpecialClosingCase());      
             StopCoroutine("DisablePanels");
