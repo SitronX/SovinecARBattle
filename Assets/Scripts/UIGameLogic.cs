@@ -113,10 +113,10 @@ public class UIGameLogic : MonoBehaviour
     }
     public void AnimationRecover()
     {
-        if(subtitlesShowing)
-        {
-            subtitleAnimator.SetTrigger("SubtitleON");
-        }
+        //if(subtitlesShowing)
+        //{
+        //    subtitleAnimator.SetTrigger("SubtitleON");
+        //}
         animationsPaused = false;
 
         Time.timeScale = 1;
@@ -130,7 +130,7 @@ public class UIGameLogic : MonoBehaviour
     public IEnumerator AnimationPause(float time)
     {
         animationsPaused = true;
-        subtitleAnimator.SetTrigger("SubtitleOFF");
+        //subtitleAnimator.SetTrigger("SubtitleOFF");
 
         pauseAnimator.SetBool("Paused",true);
         yield return new WaitForSeconds(time);

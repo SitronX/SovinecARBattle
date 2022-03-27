@@ -134,7 +134,7 @@ public class TapToPlace : MonoBehaviour
             
             if(!doubleTapped)
             {
-                if (lastClickTime + lastClickInterval > Time.time)
+                if (lastClickTime + lastClickInterval > Time.unscaledTime)
                 {
                     doubleTapped = true;
                 }
@@ -231,7 +231,7 @@ public class TapToPlace : MonoBehaviour
 
                 }                
             }
-            if (click1.phase == TouchPhase.Ended) lastClickTime = Time.time;        //Double tap
+            if (click1.phase == TouchPhase.Ended) lastClickTime = Time.unscaledTime;        //Double tap
 
         }
         else
