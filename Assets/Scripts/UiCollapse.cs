@@ -11,6 +11,7 @@ public class UiCollapse : MonoBehaviour
     [SerializeField] Animator buttonAnimator;
     [SerializeField] Animator panelAnimator;
     [SerializeField] Animator closeAnimator;
+    [SerializeField] Animator arQuestion;
     [SerializeField] TapToPlace ttp;
     [SerializeField] Button gridButton;
     [SerializeField] List<GameObject> panelsToDisable = new List<GameObject>();
@@ -132,10 +133,13 @@ public class UiCollapse : MonoBehaviour
             if (collapsedClose)
             {
                 StartCoroutine(PreventRapidClicking(closeAnimator, "Hidden", false, false));
+         
             }
             else
             {
                 StartCoroutine(PreventRapidClicking(closeAnimator, "Hidden", false, true));
+                Uiclicked = false;                                                                   //Rychly hnusny hack, pri prepisu se bude muset zmenit
+                StartCoroutine(PreventRapidClicking(arQuestion, "Hidden", false, true));
             }
         }   
         else if (!panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide") && !panelAnimator.GetCurrentAnimatorStateInfo(0).IsName("UIPanelHide2"))
@@ -158,6 +162,7 @@ public class UiCollapse : MonoBehaviour
             {
                 collapsedClose = true;
                 closeAnimator.SetBool("Hidden", collapsedClose);
+                arQuestion.SetBool("Hidden", collapsedClose);
             }
             yield return new WaitForSecondsRealtime(clickDelay);
 

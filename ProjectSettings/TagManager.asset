@@ -9,6 +9,7 @@ TagManager:
   - CzechSoldiers
   - LeaderSw
   - LeaderSov
+  - Horses
   layers:
   - Default
   - TransparentFX

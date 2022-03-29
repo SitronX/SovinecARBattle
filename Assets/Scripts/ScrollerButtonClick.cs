@@ -30,6 +30,7 @@ public class ScrollerButtonClick : MonoBehaviour
         GetComponent<Button>().interactable = false;
 
         TapToPlace.objectPlaced += EnableAllButtons;
+        TapToPlace.usingARChanged += OnUsingARChange;
     }
 
     public void OnMyButtonClick()
@@ -108,6 +109,13 @@ public class ScrollerButtonClick : MonoBehaviour
         foreach(ScrollerButtonClick i in allButtons)
         {
             i.GetComponent<Button>().interactable = true;
+        }
+    }
+    void OnUsingARChange(bool val)
+    {
+        if(val)
+        {
+            GetComponent<Button>().interactable = false;
         }
     }
 

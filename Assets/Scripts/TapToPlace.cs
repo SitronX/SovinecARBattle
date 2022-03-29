@@ -59,6 +59,7 @@ public class TapToPlace : MonoBehaviour
     Vector3 withoutARsessionRot = new Vector3(40, 0, 0);
     bool isModelVisible = false;
 
+    public static Action<bool> usingARChanged;
     public static bool UsingAR { get; set; }
     private Vector2 lastTouch = Vector2.zero;
 
@@ -312,9 +313,7 @@ public class TapToPlace : MonoBehaviour
     public void ARbuttonClicked()
     {
         if(arIconAnimator.GetBool("ArOn"))
-        {
-            //Subtitle.ResetAudioAndSubtitles();
-            //GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);     
+        { 
             InitializeWithoutAR();
         }
         else
@@ -346,6 +345,7 @@ public class TapToPlace : MonoBehaviour
         cam.gameObject.transform.localScale = new Vector3(1, 1, 1);
 
         arIconAnimator.SetBool("ArOn", true);
+        usingARChanged?.Invoke(true);
 
     }
 
@@ -388,6 +388,7 @@ public class TapToPlace : MonoBehaviour
         arIconAnimator.SetBool("ArOn", false);
 
         objectPlaced?.Invoke(instance);
+        usingARChanged?.Invoke(false);
 
 
     }

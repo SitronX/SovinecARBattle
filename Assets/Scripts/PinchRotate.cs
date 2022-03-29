@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class PinchRotate : MonoBehaviour
 {
@@ -79,6 +80,8 @@ public class PinchRotate : MonoBehaviour
         {
             float tmp = Mathf.Clamp(transform.localScale.x - increment, 0.1f, 10);
             transform.localScale = new Vector3(tmp, tmp, tmp);
+            GetComponent<ARSessionOrigin>().MakeContentAppearAt(TapToPlace.instance.transform, TapToPlace.instance.transform.position);
+
         }
         else
         {
