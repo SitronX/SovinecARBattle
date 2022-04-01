@@ -29,8 +29,13 @@ public class ToolTipTarget : MonoBehaviour
                 int link = TMP_TextUtilities.FindIntersectingLink(currentText, position, null);
                 if (link != -1)
                 {
+                    
+                    
+
                     string actualLinkId = currentText.textInfo.linkInfo[link].GetLinkID();      //Every link needs to have unique ID set in textmesh pro, because of changing subtitles
-                    tt.ShowTooltip(tooltipValues[int.Parse(actualLinkId)], position, bubbleScale[int.Parse(actualLinkId)]);
+                    int currentScale = bubbleScale[int.Parse(actualLinkId)];
+                    
+                        tt.ShowTooltip(tooltipValues[int.Parse(actualLinkId)], position, bubbleScale[int.Parse(actualLinkId)]);
                     return;
                 }
             }

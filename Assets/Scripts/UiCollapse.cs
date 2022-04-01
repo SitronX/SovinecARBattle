@@ -130,7 +130,7 @@ public class UiCollapse : MonoBehaviour
     {
         if (collapsedPan)
         {
-            if (collapsedClose)
+            if (collapsedClose && arQuestion.GetBool("Hidden"))
             {
                 StartCoroutine(PreventRapidClicking(closeAnimator, "Hidden", false, false));
          

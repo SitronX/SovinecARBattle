@@ -67,7 +67,7 @@ public class TapToPlace : MonoBehaviour
     private Touch click2;
     private bool doubleTapped = false;
     private float lastClickTime = 0;
-    private float lastClickInterval = 0.2f;
+    private float lastClickInterval = 0.15f;
     [SerializeField] Camera nonARCamera;
 
 
@@ -266,6 +266,7 @@ public class TapToPlace : MonoBehaviour
             {
                 latestHit = hit.point;
                 return true;
+
             }
             else
             {

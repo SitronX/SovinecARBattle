@@ -98,12 +98,14 @@ public class UIGameLogic : MonoBehaviour
         {
             if (subtitlesShowing)
             {
+                mainSubtitles.enabled = false;
                 subtitleAnimator.SetTrigger("SubtitleOFF");
                 subtitlesShowing = false;
                 captionAnimator.SetBool("CaptionOff",true);
             }
             else
             {
+                mainSubtitles.enabled = true;
                 subtitleAnimator.SetTrigger("SubtitleON");
                 subtitlesShowing = true;
                 captionAnimator.SetBool("CaptionOff",false);

@@ -94,7 +94,7 @@ public class ScrollerButtonClick : MonoBehaviour
         {
             
             GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);         //Specially for Additional Info
-            AnimDay.lastAnimDay = null;
+            //AnimDay.lastAnimDay = null;
             wakeUiAtTheEnd.InputDetected();
 
             if (buttonToClick != null) buttonToClick.onClick.Invoke();
