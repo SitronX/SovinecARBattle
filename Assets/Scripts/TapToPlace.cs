@@ -168,6 +168,7 @@ public class TapToPlace : MonoBehaviour
                         if (!RayCasting(false, touchPos1)) return;
 
                         instance.transform.position = latestHit;
+                        planeInstance.transform.position = instance.transform.position;
 
                     }
                 }
@@ -222,6 +223,10 @@ public class TapToPlace : MonoBehaviour
                     Vector3 desiredMoveDirection=forward* dir2.z + right * dir2.x;
 
                     instance.transform.Translate(desiredMoveDirection);
+                    if(!UsingAR)
+                    {
+                        planeInstance.transform.position = instance.transform.position;
+                    }
                     lastTouch = touchPos1;
 
                     if(UsingAR)

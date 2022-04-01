@@ -10,10 +10,12 @@ public class PinchRotate : MonoBehaviour
     Vector3 _startPosition;
     bool rotation = false;
     public Action<bool> rotating;
+    GameObject rotatePivot;
 
 
     private void Start()
     {
+        TapToPlace.objectPlaced += OnObjectPlaced;
     }
 
     [Obsolete]
@@ -22,6 +24,7 @@ public class PinchRotate : MonoBehaviour
         
         if(Input.touchCount==2)
         {
+
             rotating?.Invoke(true);
             rotation = true;
             Touch touchZero = Input.GetTouch(0);
@@ -57,10 +60,10 @@ public class PinchRotate : MonoBehaviour
                     //transform.rotation = Quaternion.Euler(40, transform.rotation.eulerAngles.y + angle, 0); 
                     if(TapToPlace.instance!=null)
                     {
-                        //transform.RotateAround(TapToPlace.instance.transform.position, new Vector3(0, 1, 0), angle);
+                        transform.RotateAround(rotatePivot.transform.position, new Vector3(0, 1, 0), angle);
 
-                        transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), angle);
-                        //TapToPlace.instance.transform.Rotate(new Vector3(0, 1, 0), -angle);
+                        //transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), angle); ;
+
                     }
                 }
                 _startPosition = currVector;
@@ -92,6 +95,10 @@ public class PinchRotate : MonoBehaviour
             transform.position = pos;
         }
         
+    }
+    void OnObjectPlaced(GameObject obj)
+    {
+        rotatePivot = GameObject.Find("Pivot (DO NOT CHANGE NAME)");
     }
     
 }
