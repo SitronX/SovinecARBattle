@@ -6,7 +6,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class PinchRotate : MonoBehaviour
 {
-    float multiplier = 0.0015f;
+    float multiplier = 0.0010f;
     Vector3 _startPosition;
     bool rotation = false;
     public Action<bool> rotating;
@@ -16,7 +16,7 @@ public class PinchRotate : MonoBehaviour
     {
     }
 
-
+    [Obsolete]
     void Update()
     {
         
@@ -58,8 +58,9 @@ public class PinchRotate : MonoBehaviour
                     if(TapToPlace.instance!=null)
                     {
                         //transform.RotateAround(TapToPlace.instance.transform.position, new Vector3(0, 1, 0), angle);
-                        
+
                         transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), angle);
+                        //TapToPlace.instance.transform.Rotate(new Vector3(0, 1, 0), -angle);
                     }
                 }
                 _startPosition = currVector;

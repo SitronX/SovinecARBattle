@@ -4123,7 +4123,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.22
+  m_PixelsPerUnitMultiplier: 17.38
 --- !u!222 &346451402
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8121,8 +8121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8492,7 +8492,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0.000000444531, z: 3.1e-43, w: 9e-44}
+  m_BoundingSphereOverride: {x: 1.5e-43, y: 1.78e-43, z: 1.51e-43, w: 2.5632113e+10}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -9120,8 +9120,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2102665686}
   m_HandleRect: {fileID: 2102665685}
   m_Direction: 2
-  m_Value: 0.9999998
-  m_Size: 0.2096949
+  m_Value: 1.0000001
+  m_Size: 0.19772014
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14370,8 +14370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 600, y: 330}
+  m_AnchoredPosition: {x: 0, y: -27.100012}
+  m_SizeDelta: {x: 600, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1115160986
 Animator:
@@ -15918,8 +15918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 600, y: 330}
+  m_AnchoredPosition: {x: 0, y: -37.32361}
+  m_SizeDelta: {x: 600, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1240549927
 Animator:
@@ -16623,7 +16623,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 460, y: 26.4065}
+  m_SizeDelta: {x: 460, y: 59.3108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286120940
 MonoBehaviour:
@@ -16673,8 +16673,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21936,8 +21936,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
-  m_SizeDelta: {x: 600, y: 330}
+  m_AnchoredPosition: {x: 0, y: -27.299995}
+  m_SizeDelta: {x: 600, y: 315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1620060645
 Animator:
@@ -23342,7 +23342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dop\u0148uj\xEDc\xED informace"
+  m_text: "Dopl\u0148uj\xEDc\xED informace"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 964d27cf6993d05489741a8f94ea833c, type: 2}
   m_sharedMaterial: {fileID: -3484017108090310329, guid: 964d27cf6993d05489741a8f94ea833c,
@@ -25416,7 +25416,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 345.8832, y: 47.3481}
+  m_SizeDelta: {x: 451.9956, y: 57.453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895038138
 MonoBehaviour:
@@ -25467,8 +25467,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26045,8 +26045,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.00079345703, y: -2035.8765}
-  m_SizeDelta: {x: 493.2452, y: 4071.7537}
+  m_AnchoredPosition: {x: -0.00079345703, y: -2056.3933}
+  m_SizeDelta: {x: 493.2452, y: 4112.786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989316258
 MonoBehaviour:

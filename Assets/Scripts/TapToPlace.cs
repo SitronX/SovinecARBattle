@@ -67,7 +67,7 @@ public class TapToPlace : MonoBehaviour
     private Touch click2;
     private bool doubleTapped = false;
     private float lastClickTime = 0;
-    private float lastClickInterval = 0.15f;
+    private float lastClickInterval = 0.1f;
     [SerializeField] Camera nonARCamera;
 
 
@@ -194,8 +194,8 @@ public class TapToPlace : MonoBehaviour
                 }
                 else
                 {
-                    float multiplier = 0.002f;
-                    float arMultiplier = 0.002f;
+                    float multiplier = 0.001f;
+                    float arMultiplier = 0.001f;
 
                     if (UsingAR) multiplier = arMultiplier;
 
@@ -219,7 +219,7 @@ public class TapToPlace : MonoBehaviour
                     forward.y = 0f;
                     right.y = 0f;
 
-                    Vector3 desiredMoveDirection = forward * dir2.z + right * dir2.x;
+                    Vector3 desiredMoveDirection=forward* dir2.z + right * dir2.x;
 
                     instance.transform.Translate(desiredMoveDirection);
                     lastTouch = touchPos1;

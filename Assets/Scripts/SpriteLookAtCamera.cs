@@ -13,7 +13,7 @@ public class SpriteLookAtCamera : MonoBehaviour
     List<GameObject> soldiers = new List<GameObject>();
     [SerializeField] string chosenTag;
     ParticleSystem ps;
-    Vector3 offset = new Vector3(0, 0.01f, 0);
+    [SerializeField] float groundOffset; 
     ParticleSystem.Particle[] particles;
 
     static bool turnedOn = true;
@@ -55,7 +55,7 @@ public class SpriteLookAtCamera : MonoBehaviour
             {
                 if (soldiers[i].activeInHierarchy)
                 {
-                    particles[i].position = soldiers[i].transform.position + offset;
+                    particles[i].position = soldiers[i].transform.position + new Vector3(0, groundOffset, 0);
                     particles[i].startSize = 1;
                 }
                 else
