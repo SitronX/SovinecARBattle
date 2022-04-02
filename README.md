@@ -1,4 +1,8 @@
+![logo10](https://user-images.githubusercontent.com/68167377/161404410-4c60c957-66eb-42ce-9466-dd8472f038cf.png)
+
+
 # Sovinec - AR battle
+
 <b>What is this app</b>
 
 App is part of the bachelor thesis from [VSB-Technical University of Ostrava](https://www.vsb.cz/en). Main topic of the thesis was nowadays use of Augmented Reality for museum purposes.
