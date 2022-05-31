@@ -10,6 +10,7 @@ TagManager:
   - LeaderSw
   - LeaderSov
   - Horses
+  - Subtitle
   layers:
   - Default
   - TransparentFX

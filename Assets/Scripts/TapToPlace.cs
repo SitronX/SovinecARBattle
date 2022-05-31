@@ -110,7 +110,6 @@ public class TapToPlace : MonoBehaviour
 
     void Update()
     {
-        
 
         if (Input.GetKeyDown(KeyCode.Escape))                //Back button pressed
         {
@@ -225,7 +224,7 @@ public class TapToPlace : MonoBehaviour
                     instance.transform.Translate(desiredMoveDirection);
                     if(!UsingAR)
                     {
-                        planeInstance.transform.position = instance.transform.position;
+                        planeInstance.transform.position = instance.transform.position;                         //move plane to center of castle
                     }
                     lastTouch = touchPos1;
 
@@ -309,7 +308,23 @@ public class TapToPlace : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         anyInputDetected?.Invoke(results, eventDataCurrentPosition.position);
-        return results.Count > 0;
+        
+        if(results.Count>0)
+        {
+            if (results.FindAll(x => x.gameObject.CompareTag("Subtitle")).Count>0)
+            {
+                return false;                                       //If player is in subtitles section, let him still move the model around, do not block it, so the code will continue
+            }
+            else
+            {
+                return true;                                       //If player is not in subtitles and is interacting with UI, block moving the model
+            }
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 
     private void ModelVisibilityChange(bool val)
