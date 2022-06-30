@@ -15,7 +15,6 @@ public class ScrollerButtonClick : MonoBehaviour
 
     public GameObject nextButton;
     public int nextDayDelay;
-    [SerializeField] TapToPlace ttp;
     [SerializeField] Button buttonToClick;
     [SerializeField] UiCollapse wakeUiAtTheEnd;
 
@@ -24,9 +23,7 @@ public class ScrollerButtonClick : MonoBehaviour
     private void Awake()
     {
         this.GetComponent<Button>().onClick.AddListener(OnMyButtonClick);
-
         allButtons.Add(this);
-
         GetComponent<Button>().interactable = false;
 
         TapToPlace.objectPlaced += EnableAllButtons;
@@ -38,8 +35,7 @@ public class ScrollerButtonClick : MonoBehaviour
         foreach(ScrollerButtonClick i in allButtons)
         {
             i.StopAllCoroutines();
-        }
-        
+        }     
         try
         {
              GameObject.Find(dayName).GetComponent<AnimDay>().StartMethod();
@@ -60,11 +56,7 @@ public class ScrollerButtonClick : MonoBehaviour
                 }
                 GameObject.Find("CanvasSubtitles").GetComponent<TextMeshProUGUI>().text = "";
             }
-            catch
-            {
-
-            }
-           
+            catch { }          
         }
 
         if (nextDayDelay > 0 && nextButton != null)
@@ -74,16 +66,11 @@ public class ScrollerButtonClick : MonoBehaviour
         else
         {
             Console.WriteLine("Objekt nevyplnìn");
-        }
-           
-       
+        }    
     }
     IEnumerator AutomaticLaunchNextDay()
     {
-        
-
         yield return new WaitForSeconds(nextDayDelay);
-
 
         if(buttonToClick==null)
         {
@@ -94,15 +81,10 @@ public class ScrollerButtonClick : MonoBehaviour
         {
             
             GameObject.Find("EventSystem").GetComponent<KeepButtonHighlighted>().MakeSelectionChange(null);         //Specially for Additional Info
-            //AnimDay.lastAnimDay = null;
             wakeUiAtTheEnd.InputDetected();
 
             if (buttonToClick != null) buttonToClick.onClick.Invoke();
         }
-   
-
-        
-
     }
     void EnableAllButtons(GameObject pos)
     {
@@ -118,6 +100,4 @@ public class ScrollerButtonClick : MonoBehaviour
             GetComponent<Button>().interactable = false;
         }
     }
-
-
 }

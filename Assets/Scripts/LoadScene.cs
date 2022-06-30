@@ -38,11 +38,6 @@ public class LoadScene : MonoBehaviour
                 lastLoadProgress = loadProgress;
             }            
             yield return null;
-        }
-
-       
-    }
-
-
-    
+        }      
+    }    
 }

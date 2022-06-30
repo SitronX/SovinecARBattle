@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class SpriteLookAtCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
     List<GameObject> staticSoldiers = new List<GameObject>();
     List<GameObject> movingSoldiers = new List<GameObject>();
     List<GameObject> soldiers = new List<GameObject>();
@@ -24,14 +23,12 @@ public class SpriteLookAtCamera : MonoBehaviour
         {
             if(i.isStatic)
             {
-                staticSoldiers.Add(i);
-                
+                staticSoldiers.Add(i);       
             }
             else
             {
                 movingSoldiers.Add(i);
             }
-
         }
         soldiers.AddRange(movingSoldiers);
         soldiers.AddRange(staticSoldiers);
@@ -43,8 +40,6 @@ public class SpriteLookAtCamera : MonoBehaviour
 
          particles = new ParticleSystem.Particle[soldiers.Count];
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(turnedOn)
@@ -67,6 +62,4 @@ public class SpriteLookAtCamera : MonoBehaviour
             ps.SetParticles(particles, particles.Count());
         }
     }
-   
-
 }

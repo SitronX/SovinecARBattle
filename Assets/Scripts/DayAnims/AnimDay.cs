@@ -45,9 +45,7 @@ public class AnimDay : MonoBehaviour
             lastAnimDay.StopMethod();
             lastAnimDay = this;
 
-            StartCoroutine(Launching());
-
-            
+            StartCoroutine(Launching());        
         }
         else
         {
@@ -55,15 +53,9 @@ public class AnimDay : MonoBehaviour
 
             StartCoroutine(Launching());
         }
-            
-
-
     }
-
     IEnumerator Launching()
     {
-       
-
         yield return null;              //Pockani na dalsi snimek, aby mely animatory cas reagovat (Vsechny probihajici animace z minula se vypnou, pak jeden snimek na odpocinek a pak se zapnou nove animace)
 
         foreach (GameObject i in objectsToEnable)
@@ -143,11 +135,6 @@ public class AnimDay : MonoBehaviour
                 Debug.LogError("Špatný animator, nebo jméno triggeru");
             }
         }
-
-
-
-
-
         try
         {
             Animator animatorAtt = GameObject.Find("AttackingArmy").GetComponent<Animator>();
@@ -202,11 +189,7 @@ public class AnimDay : MonoBehaviour
             {
                 Debug.LogError("Špatný animator, nebo jméno triggeru");
             }
-        }
-
-        
-
-      
+        }  
     }
     public void PauseMethod()
     {
@@ -218,9 +201,6 @@ public class AnimDay : MonoBehaviour
         {
             Console.WriteLine("Nebyl nalezen animator");
         }
-
-
-
         foreach (Animator i in animatorArrowToLaunch)
         {
             try

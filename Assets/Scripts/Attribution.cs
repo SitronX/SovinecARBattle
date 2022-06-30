@@ -24,7 +24,6 @@ public class Attribution : MonoBehaviour
         urlValues.Add("grenade", "https://sketchfab.com/3d-models/round-bomb-2148b02dd8c948f797903f75988d8717");
         urlValues.Add("web", "https://www.mubr.cz/");
 
-
     }
 
     public void OpenURL(string key)

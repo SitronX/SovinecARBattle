@@ -13,7 +13,6 @@ public class OffScreen : MonoBehaviour
     Image arrowImage;
     RectTransform rt;
     Color c = Color.white;
-
     Transform arrowParent;
     bool isTracking = false;
 
@@ -105,10 +104,6 @@ public class OffScreen : MonoBehaviour
         Vector3 targetPosLocal = cam.transform.InverseTransformPoint(transform.position);              //Calculate rotation
         float targetAngle = -Mathf.Atan2(targetPosLocal.x, targetPosLocal.y) * Mathf.Rad2Deg;
         arrowImage.transform.localRotation = Quaternion.Euler(0, 0, targetAngle);
-
-
-        
-
     }
     private Vector3 calculateWorldPosition(Vector3 position, Camera camera)             //Bug in unity doesnt correctly represent object position behind camera, this is for a fix from: https://forum.unity.com/threads/camera-worldtoscreenpoint-bug.85311/#post-2121212
     {
@@ -123,7 +118,6 @@ public class OffScreen : MonoBehaviour
           Vector3 proj = (camNormal * camDot * 1.01f);   //small epsilon to keep the position infront of the camera
           position = camera.transform.position + (vectorFromCam - proj);
         }
-
         return position;
     }
 
@@ -155,7 +149,5 @@ public class OffScreen : MonoBehaviour
         doubleObjectList.Remove(this.gameObject);
         c.a = 0;
         arrowImage.color = c;      
-    }
-   
-
+    }  
 }

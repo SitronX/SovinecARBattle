@@ -12,8 +12,6 @@ public class KeepButtonHighlighted : MonoBehaviour
     private bool locked = false;
     [SerializeField] UiCollapse uiCollapseLogic;
 
-    // Update is called once per frame
-
     private void Start()
     {
         eventS = GetComponent<EventSystem>();
@@ -35,7 +33,4 @@ public class KeepButtonHighlighted : MonoBehaviour
         eventS.SetSelectedGameObject(lastSelected);
         locked = false;
     }
-
-
-
 }

@@ -18,18 +18,14 @@ public class PinchRotate : MonoBehaviour
         TapToPlace.objectPlaced += OnObjectPlaced;
     }
 
-    [Obsolete]
     void Update()
-    {
-        
+    {      
         if(Input.touchCount==2)
         {
-
             rotating?.Invoke(true);
             rotation = true;
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
-
 
             Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;            //SCALING
             Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
@@ -39,7 +35,6 @@ public class PinchRotate : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
             Zoom(difference * multiplier);
-
 
             if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began)      //Rotating
             {
@@ -53,17 +48,12 @@ public class PinchRotate : MonoBehaviour
                 if(TapToPlace.UsingAR)
                 {
                     transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y + angle, 0);
-
                 }
                 else
                 {
-                    //transform.rotation = Quaternion.Euler(40, transform.rotation.eulerAngles.y + angle, 0); 
                     if(TapToPlace.instance!=null)
                     {
                         transform.RotateAround(rotatePivot.transform.position, new Vector3(0, 1, 0), angle);
-
-                        //transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), angle); ;
-
                     }
                 }
                 _startPosition = currVector;
@@ -85,7 +75,6 @@ public class PinchRotate : MonoBehaviour
             float tmp = Mathf.Clamp(transform.localScale.x - increment, 0.1f, 10);
             transform.localScale = new Vector3(tmp, tmp, tmp);
             GetComponent<ARSessionOrigin>().MakeContentAppearAt(TapToPlace.instance.transform, TapToPlace.instance.transform.position);
-
         }
         else
         {
@@ -93,12 +82,10 @@ public class PinchRotate : MonoBehaviour
             if (pos.y < 0.35f || pos.y > 3.5f) return;
 
             transform.position = pos;
-        }
-        
+        }        
     }
     void OnObjectPlaced(GameObject obj)
     {
         rotatePivot = GameObject.Find("Pivot (DO NOT CHANGE NAME)");
-    }
-    
+    }   
 }

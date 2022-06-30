@@ -11,12 +11,14 @@ public class ToolTip : MonoBehaviour
     [SerializeField] TextMeshProUGUI tooltipText;
     [SerializeField] GameObject bubbleSize;
     [SerializeField] UIGameLogic uiG;
+    [SerializeField] RectTransform objectToRotate1;
+    [SerializeField] RectTransform objectToRotate2;
+
     Animator tooltipAnimator;
     bool tooltipHidden = true;
     bool wasTimePaused = false;
     public static Action<Vector2> uiElementTouch;
-    [SerializeField] RectTransform objectToRotate1;
-    [SerializeField] RectTransform objectToRotate2;
+    
     
     
     private Dictionary<int, string> tooltipValues = new Dictionary<int, string>();
@@ -26,7 +28,6 @@ public class ToolTip : MonoBehaviour
         tooltipValues.Add(0, "TESTING VALUE");
         tooltipAnimator = GetComponent<Animator>();
         TapToPlace.anyInputDetected += UserClicked;
-
     }
 
     public void ShowTooltip(string text,Vector2 clickLocation,int bubbleScale)
@@ -68,7 +69,4 @@ public class ToolTip : MonoBehaviour
         }
 
     }
-
-    
-
 }

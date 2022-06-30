@@ -13,10 +13,6 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class TapToPlace : MonoBehaviour
 {
-    // Start is called before the first frame update
-   
-
-
     public TMPro.TMP_Dropdown dd;
     public GameObject prefab;
     public GameObject gravityPrefab;
@@ -26,11 +22,9 @@ public class TapToPlace : MonoBehaviour
     private GameObject gravityCenter;
      
     private ARRaycastManager raycastM;
-    private Vector2 touchPos;    
 
     public static bool planesEnabled = false;
     public static bool helpPlaneStatus = true;                 //Just for ui collapsing, so we know which state we were in previously
-
 
     public static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
@@ -57,26 +51,21 @@ public class TapToPlace : MonoBehaviour
     Vector3 withoutARrot = new Vector3(0, 23, 0);
     Vector3 withoutARsessionPos = new Vector3(0.5f, 2.75f, -3.5f);
     Vector3 withoutARsessionRot = new Vector3(40, 0, 0);
-    bool isModelVisible = false;
 
     public static Action<bool> usingARChanged;
     public static bool UsingAR { get; set; }
     private Vector2 lastTouch = Vector2.zero;
 
     private Touch click1;
-    private Touch click2;
     private bool doubleTapped = false;
     private float lastClickTime = 0;
     private float lastClickInterval = 0.1f;
     [SerializeField] Camera nonARCamera;
 
-
-
     private void OnEnable()
     {
         ChangePlanes(false,false);                      //Ugly but works
         helpPlaneStatus = true;
-        ModelVisibility.modelVisible += ModelVisibilityChange;
         StartCoroutine(DetermineWhatTypeToLaunch());
 
     }
@@ -85,7 +74,6 @@ public class TapToPlace : MonoBehaviour
         Destroy(instance);
         Destroy(gravityCenter);
     }
-
     private void Awake()
     {
         raycastM = GetComponent<ARRaycastManager>();
@@ -95,7 +83,6 @@ public class TapToPlace : MonoBehaviour
         if(Input.touchCount==1)
         {       
             touchPos = Input.GetTouch(0).position;
-            //userInteraction?.Invoke(touchPos);
             return 1;
         }
         if(Input.touchCount>1)
@@ -107,10 +94,8 @@ public class TapToPlace : MonoBehaviour
         return 0;
     }
     
-
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))                //Back button pressed
         {
             backButtonDetected?.Invoke();
@@ -139,7 +124,6 @@ public class TapToPlace : MonoBehaviour
                     doubleTapped = true;
                 }
             }
-
             if (doubleTapped)
             {
                 if (instance==null)
@@ -186,8 +170,7 @@ public class TapToPlace : MonoBehaviour
             }
             else
             {
-
-                //DRAG INFO
+                //DRAG INFO-------------------------------------------------------------------------------------------------------------
                 if (lastTouch == Vector2.zero)
                 {
                     lastTouch = touchPos1;
@@ -231,20 +214,16 @@ public class TapToPlace : MonoBehaviour
                     if(UsingAR)
                     {
                         GetComponent<ARSessionOrigin>().MakeContentAppearAt(instance.transform, instance.transform.position);
-
                     }
-
                 }                
             }
             if (click1.phase == TouchPhase.Ended) lastClickTime = Time.unscaledTime;        //Double tap
-
         }
         else
         {
             inputDetected?.Invoke();
             if (lastTouch != Vector2.zero) lastTouch = Vector2.zero;
         }
-
     }
     bool RayCasting(bool isAR,Vector2 screenPoint)
     {
@@ -300,7 +279,6 @@ public class TapToPlace : MonoBehaviour
         }
         tmp.enabled = val;
     }
-
     private bool IsPointerOverUIObject()            //Code borrowed from: https://answers.unity.com/questions/1115464/ispointerovergameobject-not-working-with-touch-inp.html 
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
@@ -326,11 +304,6 @@ public class TapToPlace : MonoBehaviour
         }
         
     }
-
-    private void ModelVisibilityChange(bool val)
-    {
-        isModelVisible = val;
-    }
     public void ARbuttonClicked()
     {
         if(arIconAnimator.GetBool("ArOn"))
@@ -349,7 +322,6 @@ public class TapToPlace : MonoBehaviour
         if (instance != null) Destroy(instance,0);
         if (planeInstance != null) Destroy(planeInstance,0);
 
-
         EnableAR();
 
         GetComponent<PinchRotate>().enabled = true;
@@ -367,15 +339,11 @@ public class TapToPlace : MonoBehaviour
 
         arIconAnimator.SetBool("ArOn", true);
         usingARChanged?.Invoke(true);
-
     }
-
-
     public void InitializeWithoutAR()       
     {
         DisableAR();
-
-        
+      
         GetComponent<PinchRotate>().enabled = false;
         nonARCamera.GetComponent<PinchRotate>().enabled = true;
         cam.enabled = false;
@@ -391,7 +359,6 @@ public class TapToPlace : MonoBehaviour
 
         arPopupAnim.SetBool("Hidden", true);
 
-
         if(planeInstance==null)
         {
             planeInstance = Instantiate(placedPlane, new Vector3(0, 0, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
@@ -405,15 +372,11 @@ public class TapToPlace : MonoBehaviour
         {
             instance.transform.SetPositionAndRotation(new Vector3(0, 0, 0), Quaternion.Euler(withoutARrot));
         }
-
         arIconAnimator.SetBool("ArOn", false);
 
         objectPlaced?.Invoke(instance);
         usingARChanged?.Invoke(false);
-
-
     }
-
     IEnumerator  DetermineWhatTypeToLaunch()
     {
         if ((ARSession.state == ARSessionState.None)||(ARSession.state == ARSessionState.CheckingAvailability))
@@ -427,12 +390,10 @@ public class TapToPlace : MonoBehaviour
             {
                 arPopupAnim.SetBool("Hidden", false);
                 arIcon.interactable = false;
-
             }
         }
         else
         {
-            // Start the AR session
             InitializeWithAR();
 
             arWarning.SetBool("Hidden", false);
@@ -448,22 +409,15 @@ public class TapToPlace : MonoBehaviour
 
         ChangePlanes(true, true);       ////SImilar to panel behaviou so used again
 
-
         GetComponent<ARSessionOrigin>().enabled = true;
         GetComponent<ARRaycastManager>().enabled = true;
 
         m_Session.enabled = true;
-
         m_Session.Reset();
-
-
-
-
         UsingAR = true;
 
         Application.targetFrameRate = 30;
         gridButton.interactable = true;
-
     }
     private void DisableAR()
     {
@@ -477,10 +431,7 @@ public class TapToPlace : MonoBehaviour
         GetComponent<ARRaycastManager>().enabled = false;
 
         m_Session.enabled = false;
-
         m_Session.Reset();
-
-
         UsingAR = false;
 
         Application.targetFrameRate = 60;
@@ -508,5 +459,8 @@ public class TapToPlace : MonoBehaviour
     {
         arWarning.SetBool("Hidden", true);
     }
-
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
