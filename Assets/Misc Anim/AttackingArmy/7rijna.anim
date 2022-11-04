@@ -1219,7 +1219,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 207.876, z: 0}
+        value: {x: 0, y: 81.199, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1235,7 +1235,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 0, y: 254.332, z: 0}
+        value: {x: 0, y: 81.199, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -2350,9 +2350,9 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 270.8, y: 181.9, z: -665.9}
-        inSlope: {x: -0.6041059, y: 0, z: 0}
-        outSlope: {x: -0.6041059, y: 0, z: 0}
+        value: {x: 270.8, y: 164.9, z: -665.9}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -2670,7 +2670,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 408.2, y: 156.9, z: -852.8}
+        value: {x: 408.2, y: 163.96, z: -852.8}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -3982,7 +3982,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 129.7, y: 120, z: -1095.5}
+        value: {x: 131, y: 101.7, z: -1098.5}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -7610,6 +7610,25 @@ AnimationClip:
     path: Comparz/SurroundingPart (24)
     classID: 1
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Moving/SurroundingPart (32)/Cylinder (75)/GameObject
+    classID: 1
+    script: {fileID: 0}
   m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
@@ -7648,13 +7667,6 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 460520588
-      attribute: 1
-      script: {fileID: 0}
-      typeID: 4
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 502981940
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -8536,6 +8548,13 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 3046120534
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 1333287824
       attribute: 1
       script: {fileID: 0}
@@ -8866,6 +8885,13 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 81908853
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 502981940
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -17263,8 +17289,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 270.8
-        inSlope: -0.6041059
-        outSlope: -0.6041059
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -17281,7 +17307,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 181.9
+        value: 164.9
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -17301,8 +17327,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: -665.9
-        inSlope: -0.3295059
-        outSlope: -0.3295059
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -18782,7 +18808,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 156.9
+        value: 163.96
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -24045,7 +24071,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 129.7
+        value: 131
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -24064,7 +24090,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 120
+        value: 101.7
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -24083,7 +24109,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1095.5
+        value: -1098.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -30217,7 +30243,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 207.876
+        value: 81.199
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -30274,7 +30300,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 254.332
+        value: 81.199
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -30876,6 +30902,25 @@ AnimationClip:
     attribute: localEulerAnglesRaw.z
     path: Moving/SurroundingPart (26)/Cylinder (65)
     classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: Moving/SurroundingPart (32)/Cylinder (75)/GameObject
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
@@ -33134,37 +33179,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Moving/SurroundingPart (26)/Cylinder (74)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Moving/SurroundingPart (26)/Cylinder (74)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Moving/SurroundingPart (26)/Cylinder (74)
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
     path: Moving/SurroundingPart (26)/Cylinder (75)
     classID: 4
     script: {fileID: 0}
@@ -33184,8 +33199,38 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: m_LocalEulerAngles.x
     path: Moving/SurroundingPart (26)/Cylinder (75)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Moving/SurroundingPart (26)/Cylinder (65)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Moving/SurroundingPart (26)/Cylinder (65)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Moving/SurroundingPart (26)/Cylinder (65)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -33465,7 +33510,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Moving/SurroundingPart (26)/Cylinder (65)
+    path: Moving/SurroundingPart (26)/Cylinder (74)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -33475,7 +33520,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Moving/SurroundingPart (26)/Cylinder (65)
+    path: Moving/SurroundingPart (26)/Cylinder (74)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -33485,7 +33530,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Moving/SurroundingPart (26)/Cylinder (65)
+    path: Moving/SurroundingPart (26)/Cylinder (74)
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
