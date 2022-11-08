@@ -24,6 +24,7 @@ public class Attribution : MonoBehaviour
         urlValues.Add("grenade", "https://sketchfab.com/3d-models/round-bomb-2148b02dd8c948f797903f75988d8717");
         urlValues.Add("web", "https://www.mubr.cz/");
         urlValues.Add("horse", "https://www.pinterest.co.uk/pin/6192518223345330/");
+        urlValues.Add("plantBomb", "https://sketchfab.com/3d-models/explosive-love-bomb-rust-skin-bfd8e68b8b204d3c9628033759152e11");
 
     }
 
