@@ -51,8 +51,8 @@ App has full Czech localization and while it would be nice to support more langu
 
 <b>Availability</b>
 
-It is recommended to use official mobile stores with the most recent version of the app. On Android devices, app can additionaly be downloaded and installed manually from github release section. Application was primarily developed for Android, but later the decision to also support the iOS devices was made, due to Unity multiplatform benefits (iOS version is still in development).
+It is recommended to use official mobile stores with the most recent version of the app. On Android devices, app can additionaly be downloaded and installed manually from github release section. Application was primarily developed for Android, but later the decision to also support the iOS devices was made, due to Unity multiplatform benefits.
 
-Links:
+Official store links:
 <br>[Google Play](https://play.google.com/store/apps/details?id=com.KatedraInformatikyFEIVBTUO.HradSovinecAR&hl=en) 
-<br>App Store - Soon™
+<br>[App Store](https://apps.apple.com/cz/app/hrad-sovinec-ar-bitva/id6444719152?l=cs&platform=iphone)
